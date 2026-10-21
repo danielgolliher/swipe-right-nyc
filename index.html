@@ -1,0 +1,1653 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Swipe Right on New York</title>
+<meta name="description" content="Fifty ideas from the Manhattan Institute to make everyday life in New York better. Like, pass, or super-like each one, then see how often you agree with MI.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%2314163a'/%3E%3Crect x='11' y='6' width='13' height='18' rx='3' transform='rotate(12 17.5 15)' fill='%238c9dff'/%3E%3Crect x='7' y='8' width='13' height='18' rx='3' fill='%23ffffff'/%3E%3Cpath d='M13.5 20.5s-3.5-2.2-3.5-4.8a2 2 0 0 1 3.5-1.3 2 2 0 0 1 3.5 1.3c0 2.6-3.5 4.8-3.5 4.8z' fill='%232c48dc'/%3E%3C/svg%3E">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Swipe Right on New York">
+<meta property="og:description" content="50 ideas for a better everyday life in New York. Swipe through them and see how often you agree with the Manhattan Institute.">
+<meta property="og:image" content="https://danielgolliher.github.io/swipe-right-nyc/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="A stack of swipe cards, each showing one of the Manhattan Institute's 50 ideas for New York, beside the title Swipe Right on New York.">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Swipe Right on New York">
+<meta name="twitter:description" content="50 ideas for a better everyday life in New York. How often do you agree with the Manhattan Institute?">
+<meta name="twitter:image" content="https://danielgolliher.github.io/swipe-right-nyc/og-image.png">
+<meta name="theme-color" content="#14163a">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Libre+Franklin:wght@400;500;600;700;800&family=Newsreader:ital,opsz,wght@0,6..72,300..700;1,6..72,300..700&display=swap">
+<style>
+/* A one-purpose companion to the "A Better Everyday Life" interactive edition: the brief's 50 ideas as a
+   swipe deck, then a report card scored against the Manhattan Institute. The page is a navy app shell;
+   cards, the street drawing and report panels are light. MI palette and type throughout. */
+:root {
+  color-scheme: dark;
+  --page: #0b0c24;
+  --hi: #eef0fb;
+  --hi-2: rgba(238, 240, 251, 0.74);
+  --hi-3: rgba(238, 240, 251, 0.5);
+  --line: rgba(255, 255, 255, 0.14);
+  --sky-blue: #9aa9ff;
+
+  --ground: #fcfcfe;
+  --ground-2: #f4f5fb;
+  --surface: #ffffff;
+  --tint: #eceffc;
+  --tint-2: #e1e6fa;
+  --ink: #20222e;
+  --ink-2: #4a4d5c;
+  --ink-3: #777a88;
+  --rule: rgba(32, 34, 46, 0.12);
+  --rule-2: rgba(32, 34, 46, 0.06);
+  --blue: #2c48dc;
+  --blue-2: #1f38bc;
+  --on-blue: #ffffff;
+  --navy: #14163a;
+  --orange: #ff8000;
+  --orange-ink: #b85c00;
+  --bad: #e23d55;
+  --card: rgba(255, 255, 255, 0.86);
+
+  --sky: #f1f3fd;
+  --sky-far: #dfe4f8;
+  --sky-far-2: #e8ebfa;
+  --b-fill: #ffffff;
+  --b-fill-2: #f5f6fe;
+  --b-fill-3: #e5e9fb;
+  --b-brick: #f4e7df;
+  --b-line: #2a2c3a;
+  --win: #cdd5f6;
+  --win-lit: #ffd09a;
+  --asphalt: #3a3d4e;
+  --walk: #d8dbe3;
+  --earth: #ebedf6;
+  --tunnel: #d6dcf3;
+  --water: #bccaf6;
+  --tree: #9ccfae;
+  --lawn: #dcefe1;
+  --person: #777a88;
+  --lamp: #2f9e6b;
+
+  --font-serif: "Newsreader", Georgia, "Times New Roman", serif;
+  --font-sans: "Libre Franklin", "Helvetica Neue", Arial, sans-serif;
+}
+*, *::before, *::after { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; }
+body {
+  margin: 0; min-height: 100vh; min-height: 100dvh; color: var(--hi);
+  background: radial-gradient(120% 70% at 50% -10%, #26307a 0%, #151845 45%, #0a0b22 100%) fixed, var(--page);
+  font-family: var(--font-serif); font-size: 1.08rem; line-height: 1.6; font-optical-sizing: auto;
+  -webkit-font-smoothing: antialiased; text-rendering: optimizeLegibility; overflow-x: clip;
+}
+::selection { background: rgba(140, 157, 255, 0.35); }
+a { color: var(--sky-blue); text-decoration-thickness: 1px; text-underline-offset: 3px; }
+a:hover { color: #ffffff; }
+:focus-visible { outline: 2px solid var(--sky-blue); outline-offset: 3px; border-radius: 6px; }
+h1, h2, h3, h4 { margin: 0; font-weight: 400; line-height: 1.05; letter-spacing: -0.02em; text-wrap: balance; }
+p { margin: 0; text-wrap: pretty; }
+button { font: inherit; }
+.sr-only { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+.eyebrow { font-family: var(--font-sans); font-size: 0.66rem; font-weight: 600; letter-spacing: 0.16em; text-transform: uppercase; color: var(--hi-3); display: inline-flex; align-items: center; gap: 12px; }
+.eyebrow::before { content: ""; width: 26px; height: 1px; background: var(--sky-blue); flex: none; }
+.screen[hidden] { display: none !important; }
+.wrap { width: min(1180px, 100%); margin: 0 auto; padding-left: max(20px, env(safe-area-inset-left, 0px)); padding-right: max(20px, env(safe-area-inset-right, 0px)); }
+
+/* top bar */
+.topbar { display: flex; align-items: center; justify-content: space-between; gap: 16px; padding-top: max(18px, env(safe-area-inset-top, 0px)); padding-bottom: 14px; }
+.brand { display: inline-flex; align-items: baseline; gap: 10px; color: var(--hi); text-decoration: none; font-family: var(--font-serif); font-size: 1.05rem; font-weight: 500; }
+.brand i { font-style: italic; font-weight: 300; color: var(--sky-blue); font-size: 1.5rem; line-height: 1; letter-spacing: -0.02em; }
+.toplink { font-family: var(--font-sans); font-size: 0.62rem; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: var(--hi-2); text-decoration: none; border: 1px solid var(--line); border-radius: 999px; padding: 9px 14px; background: rgba(255,255,255,0.04); cursor: pointer; }
+.toplink:hover { color: #fff; border-color: #fff; }
+
+/* buttons */
+.btn {
+  display: inline-flex; align-items: center; justify-content: center; gap: 9px; text-decoration: none; cursor: pointer; border-radius: 999px;
+  font-family: var(--font-sans); font-size: 0.72rem; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase;
+  padding: 13px 20px; border: 1px solid var(--line); background: rgba(255,255,255,0.05); color: var(--hi); transition: background 0.2s, border-color 0.2s, transform 0.15s, color 0.2s;
+}
+.btn:hover { border-color: #ffffff; color: #ffffff; }
+.btn:active { transform: scale(0.98); }
+.btn svg { width: 17px; height: 17px; flex: none; }
+.btn--solid { background: #ffffff; border-color: #ffffff; color: var(--navy); }
+.btn--solid:hover { background: #e8ecfc; color: var(--navy); }
+.btn--blue { background: var(--blue); border-color: var(--blue); color: #fff; }
+.btn--blue:hover { background: #3a56ee; border-color: #3a56ee; color: #fff; }
+.btn--lg { padding: 18px 30px; font-size: 0.8rem; }
+.btn-row { display: flex; flex-wrap: wrap; gap: 10px; align-items: center; }
+.textbtn { appearance: none; background: none; border: 0; padding: 0; cursor: pointer; font-family: var(--font-sans); font-size: 0.64rem; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: var(--hi-3); text-decoration: underline; text-underline-offset: 4px; text-decoration-color: var(--line); }
+.textbtn:hover { color: #fff; }
+.fine { font-family: var(--font-sans); font-size: 0.7rem; line-height: 1.6; color: var(--hi-3); }
+
+/* ---------- Intro ---------- */
+.intro__grid { display: grid; grid-template-columns: minmax(0, 1.05fr) minmax(0, 0.95fr); gap: 40px; align-items: center; min-height: calc(100dvh - 160px); padding-block: 24px 40px; }
+.intro__copy { display: flex; flex-direction: column; gap: 26px; max-width: 34rem; }
+.intro h1 { font-size: clamp(3.1rem, 2rem + 4.6vw, 6.2rem); font-weight: 300; line-height: 0.92; letter-spacing: -0.04em; }
+.intro h1 em { color: var(--sky-blue); font-weight: 300; }
+.intro .dek { font-size: clamp(1.15rem, 1rem + 0.5vw, 1.4rem); line-height: 1.45; color: var(--hi-2); font-style: italic; }
+.legend3 { list-style: none; margin: 0; padding: 0; display: flex; gap: 22px; flex-wrap: wrap; font-family: var(--font-sans); font-size: 0.66rem; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: var(--hi-2); }
+.legend3 li { display: inline-flex; align-items: center; gap: 9px; }
+.legend3 .i { width: 32px; height: 32px; border-radius: 50%; background: #fff; display: grid; place-items: center; box-shadow: 0 8px 20px -10px rgba(0,0,0,0.7); }
+.legend3 .i svg { width: 16px; height: 16px; }
+.legend3 .nope { color: var(--bad); } .legend3 .super { color: var(--orange); } .legend3 .like { color: var(--blue); }
+.intro__deck { position: relative; height: min(560px, 70vh); }
+.intro__deck .sw-card { position: absolute; left: 50%; top: 50%; width: min(330px, 78%); height: min(480px, 92%); cursor: default; transition: transform 0.8s cubic-bezier(.2,.7,.2,1); }
+.intro__deck .sw-card:nth-child(1) { transform: translate(-50%, -50%) translate(-30%, 6%) rotate(-11deg) scale(0.9); }
+.intro__deck .sw-card:nth-child(2) { transform: translate(-50%, -50%) translate(28%, 4%) rotate(9deg) scale(0.92); }
+.intro__deck .sw-card:nth-child(3) { transform: translate(-50%, -50%) rotate(-1deg); }
+.intro__deck .sw-card:nth-child(3) .sw-stamp.s-like { opacity: 1; }
+.browse { margin: 8px 0 0; border-top: 1px solid var(--line); }
+.browse summary { list-style: none; cursor: pointer; display: flex; justify-content: space-between; align-items: baseline; padding: 20px 0; font-family: var(--font-serif); font-size: 1.5rem; font-weight: 300; letter-spacing: -0.01em; }
+.browse summary::-webkit-details-marker { display: none; }
+.browse summary::after { content: "+"; color: var(--sky-blue); font-size: 1.8rem; line-height: 0.6; }
+.browse[open] summary::after { content: "−"; }
+.browse summary span { font-family: var(--font-sans); font-size: 0.62rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--hi-3); margin-left: auto; margin-right: 18px; font-weight: 600; }
+.browse__cols { columns: 3 300px; column-gap: 40px; padding-bottom: 28px; }
+.browse__area { break-inside: avoid; margin-bottom: 24px; }
+.browse__area h3 { font-family: var(--font-sans); font-size: 0.62rem; font-weight: 600; letter-spacing: 0.16em; text-transform: uppercase; color: var(--sky-blue); margin-bottom: 8px; }
+.browse__area ol { margin: 0; padding: 0; list-style: none; }
+.browse__area li { display: grid; grid-template-columns: 28px 1fr; gap: 6px; padding: 6px 0; border-bottom: 1px solid var(--line); font-size: 0.98rem; line-height: 1.35; color: var(--hi-2); }
+.browse__area li b { font-style: italic; font-weight: 300; color: var(--hi-3); }
+.site-foot { border-top: 1px solid var(--line); padding-block: 26px max(30px, env(safe-area-inset-bottom, 0px)); display: flex; flex-wrap: wrap; gap: 12px 28px; justify-content: space-between; align-items: baseline; font-family: var(--font-sans); font-size: 0.7rem; color: var(--hi-3); line-height: 1.6; }
+.site-foot a { color: var(--hi-2); }
+@media (max-width: 560px) {
+  .brand { font-size: 0.95rem; gap: 8px; }
+  .brand i { font-size: 1.3rem; }
+  .toplink .long { display: none; }
+  .intro__deck .sw-body p { display: none; }
+}
+@media (max-width: 860px) {
+  .intro__grid { grid-template-columns: 1fr; min-height: 0; gap: 8px; padding-top: 8px; }
+  .intro__deck { height: 360px; order: -1; margin-bottom: 8px; }
+  .intro__deck .sw-card { width: 230px; height: 330px; }
+  .intro__deck .sw-body p { -webkit-line-clamp: 3; }
+  .intro__copy { gap: 20px; }
+}
+
+/* ---------- Swipe deck ---------- */
+.swipe { display: flex; flex-direction: column; align-items: center; height: 100vh; height: 100dvh; overflow: hidden; overscroll-behavior: contain; }
+.sw-top { width: min(560px, 100%); display: flex; align-items: center; justify-content: space-between; gap: 12px; padding: max(16px, env(safe-area-inset-top, 0px)) 20px 10px; flex: none; }
+.sw-title { display: flex; flex-direction: column; gap: 2px; text-align: center; }
+.sw-title b { font-family: var(--font-serif); font-style: italic; font-weight: 400; font-size: 1.35rem; letter-spacing: -0.01em; line-height: 1; }
+.sw-title span { font-family: var(--font-sans); font-size: 0.56rem; font-weight: 600; letter-spacing: 0.16em; text-transform: uppercase; color: var(--hi-3); }
+.sw-pill { appearance: none; height: 36px; min-width: 36px; padding: 0 14px; border-radius: 999px; border: 1px solid var(--line); background: rgba(255,255,255,0.06); color: var(--hi); cursor: pointer; font-family: var(--font-sans); font-size: 0.6rem; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; display: inline-flex; align-items: center; justify-content: center; gap: 8px; }
+.sw-pill:hover { border-color: #fff; }
+.sw-pill:disabled { opacity: 0.35; cursor: default; }
+.sw-prog { width: min(520px, calc(100% - 40px)); height: 2px; background: rgba(255,255,255,0.14); border-radius: 2px; overflow: hidden; flex: none; }
+.sw-prog i { display: block; height: 100%; width: 0; background: linear-gradient(90deg, #8c9dff, #c3ccff); transition: width 0.35s; }
+.sw-stage { position: relative; flex: 1; width: 100%; min-height: 0; display: flex; justify-content: center; align-items: center; padding: 16px 16px 6px; }
+.sw-deck { position: relative; width: min(400px, 100%); height: min(600px, 100%); }
+.sw-card {
+  position: absolute; inset: 0; background: var(--surface); color: var(--ink); border-radius: 26px; overflow: hidden;
+  box-shadow: 0 40px 80px -30px rgba(0, 0, 0, 0.7); display: flex; flex-direction: column;
+  touch-action: none; user-select: none; -webkit-user-select: none; cursor: grab; transform-origin: 50% 90%;
+  transition: transform 0.4s cubic-bezier(.2,.7,.2,1), opacity 0.4s;
+}
+.sw-card.dragging { transition: none; cursor: grabbing; }
+.sw-card[data-depth="1"] { transform: translateY(16px) scale(0.95); pointer-events: none; }
+.sw-card[data-depth="2"] { transform: translateY(32px) scale(0.9); opacity: 0.9; pointer-events: none; }
+.sw-fig { position: relative; height: 40%; flex: none; background: var(--sky); border-bottom: 1px solid var(--rule-2); overflow: hidden; }
+.sw-fig .blk { pointer-events: none; }
+.sw-area { position: absolute; left: 16px; bottom: 12px; z-index: 2; font-family: var(--font-sans); font-size: 0.56rem; font-weight: 600; letter-spacing: 0.16em; text-transform: uppercase; color: var(--ink); background: var(--card); backdrop-filter: blur(6px); -webkit-backdrop-filter: blur(6px); border-radius: 999px; padding: 5px 11px 4px; }
+.sw-body { padding: 20px 24px 22px; display: flex; flex-direction: column; gap: 10px; flex: 1; min-height: 0; }
+.sw-num { font-family: var(--font-serif); font-style: italic; font-weight: 300; font-size: 2.6rem; line-height: 0.8; color: var(--blue); letter-spacing: -0.04em; }
+.sw-body h3 { font-size: clamp(1.3rem, 1.1rem + 0.8vw, 1.6rem); font-weight: 400; letter-spacing: -0.015em; line-height: 1.12; color: var(--ink); }
+.sw-body p { font-size: 0.95rem; line-height: 1.5; color: var(--ink-2); overflow: hidden; display: -webkit-box; -webkit-line-clamp: 5; -webkit-box-orient: vertical; }
+.partner { align-self: flex-start; margin-top: auto; font-family: var(--font-sans); font-weight: 600; color: var(--orange-ink); text-transform: uppercase; letter-spacing: 0.12em; font-size: 0.56rem; border: 1px solid rgba(255,128,0,0.5); border-radius: 999px; padding: 3px 9px 2px; }
+.sw-stamp { position: absolute; top: 26px; z-index: 3; padding: 7px 14px 6px; border: 2.5px solid currentColor; border-radius: 10px; font-family: var(--font-sans); font-weight: 800; font-size: 1rem; letter-spacing: 0.18em; text-transform: uppercase; opacity: 0; pointer-events: none; background: rgba(255,255,255,0.88); }
+.sw-stamp.s-like { left: 20px; color: var(--blue); transform: rotate(-14deg); }
+.sw-stamp.s-nope { right: 20px; color: var(--bad); transform: rotate(14deg); }
+.sw-stamp.s-super { left: 50%; top: 30%; color: var(--orange-ink); transform: translateX(-50%) rotate(-6deg); border-color: var(--orange); }
+.sw-ctl { display: flex; align-items: center; justify-content: center; gap: 18px; padding: 12px 0 8px; flex: none; }
+.sw-ctl button { appearance: none; width: 64px; height: 64px; border-radius: 50%; border: 0; background: #ffffff; box-shadow: 0 14px 30px -12px rgba(0,0,0,0.7); display: grid; place-items: center; cursor: pointer; transition: transform 0.15s; }
+.sw-ctl button:hover { transform: translateY(-2px) scale(1.04); }
+.sw-ctl button:active { transform: scale(0.94); }
+.sw-ctl button svg { width: 28px; height: 28px; }
+.sw-ctl .b-undo, .sw-ctl .b-super { width: 48px; height: 48px; }
+.sw-ctl .b-undo svg, .sw-ctl .b-super svg { width: 22px; height: 22px; }
+.sw-ctl .b-nope { color: var(--bad); } .sw-ctl .b-super { color: var(--orange); } .sw-ctl .b-like { color: var(--blue); } .sw-ctl .b-undo { color: #777a88; }
+.sw-ctl button:disabled { opacity: 0.35; cursor: default; transform: none; }
+.sw-hint { font-family: var(--font-sans); font-size: 0.56rem; font-weight: 600; letter-spacing: 0.16em; text-transform: uppercase; color: var(--hi-3); padding: 2px 16px max(16px, env(safe-area-inset-bottom, 0px)); flex: none; text-align: center; margin: 0; }
+.sw-hint .t-hint { display: none; }
+@media (hover: none) { .sw-hint .k-hint { display: none; } .sw-hint .t-hint { display: inline; } }
+@media (max-width: 640px) { .sw-ctl { gap: 14px; } .sw-ctl button { width: 58px; height: 58px; } .sw-body { padding: 16px 20px 18px; } .sw-body p { -webkit-line-clamp: 4; } }
+@media (max-height: 700px) { .sw-body p { -webkit-line-clamp: 3; } .sw-fig { height: 34%; } }
+
+/* ---------- Results ---------- */
+.shared-banner { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 12px 20px; background: rgba(255,255,255,0.06); border: 1px solid var(--line); border-radius: 20px; padding: 16px 20px; margin-bottom: 20px; }
+.shared-banner p { font-style: italic; color: var(--hi-2); }
+.res__grid { display: grid; grid-template-columns: minmax(0, 0.95fr) minmax(0, 1.05fr); gap: clamp(28px, 5vw, 64px); align-items: start; padding-block: 8px 40px; }
+.res__card { margin: 0; position: sticky; top: 20px; }
+.res__card canvas { display: block; width: 100%; height: auto; border-radius: 26px; box-shadow: 0 50px 100px -40px rgba(0,0,0,0.85), 0 0 0 1px rgba(255,255,255,0.08); background: #14163a; }
+.res__card figcaption { margin-top: 12px; text-align: center; font-family: var(--font-sans); font-size: 0.6rem; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: var(--hi-3); }
+.res__side { display: flex; flex-direction: column; gap: 24px; min-width: 0; }
+.res__side h1 { font-size: clamp(2.4rem, 1.6rem + 3vw, 4rem); font-weight: 300; letter-spacing: -0.035em; line-height: 0.98; }
+.res__side h1 em { color: var(--sky-blue); }
+.res__lede { font-size: 1.15rem; font-style: italic; color: var(--hi-2); line-height: 1.5; }
+.panel-dark { border: 1px solid var(--line); border-radius: 22px; padding: 20px 22px; background: rgba(255,255,255,0.04); display: flex; flex-direction: column; gap: 14px; }
+.seg { display: inline-flex; border: 1px solid var(--line); border-radius: 999px; padding: 3px; background: rgba(255,255,255,0.04); align-self: flex-start; }
+.seg button { appearance: none; border: 0; background: transparent; color: var(--hi-2); cursor: pointer; padding: 7px 14px; border-radius: 999px; font-family: var(--font-sans); font-size: 0.6rem; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; }
+.seg button[aria-pressed="true"] { background: #fff; color: var(--navy); }
+.platforms { display: flex; flex-wrap: wrap; gap: 8px; }
+.platforms a { font-family: var(--font-sans); font-size: 0.6rem; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: var(--hi-2); text-decoration: none; border: 1px solid var(--line); border-radius: 999px; padding: 8px 13px; }
+.platforms a:hover { color: #fff; border-color: #fff; }
+.areas { display: flex; flex-direction: column; }
+.areas .row { display: grid; grid-template-columns: 112px minmax(0, 1fr) 52px; gap: 12px; align-items: center; padding: 9px 0; border-bottom: 1px solid var(--line); }
+.areas .row:first-child { border-top: 1px solid var(--line); }
+.areas .nm { font-family: var(--font-sans); font-size: 0.62rem; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: var(--hi-2); }
+.areas .sq { display: flex; gap: 4px; flex-wrap: wrap; }
+.areas .sq i { width: 15px; height: 15px; border-radius: 4px; border: 1.5px solid rgba(255,255,255,0.28); }
+.areas .sq i.like { background: #6f86ff; border-color: #6f86ff; }
+.areas .sq i.super { background: #ff9a3d; border-color: #ff9a3d; }
+.areas .sq i.none { border-style: dotted; opacity: 0.5; }
+.areas .pc { font-family: var(--font-serif); font-style: italic; font-weight: 300; font-size: 1.35rem; color: var(--sky-blue); text-align: right; }
+.report { margin-top: 12px; background: var(--surface); color: var(--ink); border-radius: 28px; padding: clamp(24px, 4vw, 48px); box-shadow: 0 40px 80px -40px rgba(0,0,0,0.8); }
+.report h2 { font-size: clamp(2rem, 1.5rem + 2vw, 3rem); font-weight: 300; letter-spacing: -0.03em; color: var(--ink); }
+.report h2 em { color: var(--blue); }
+.report > p { margin-top: 12px; color: var(--ink-2); font-style: italic; max-width: 60ch; }
+.rep-cols { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0 40px; margin-top: 28px; border-top: 1px solid var(--ink); }
+.rep-cols h3 { font-family: var(--font-sans); font-size: 0.62rem; font-weight: 600; letter-spacing: 0.16em; text-transform: uppercase; color: var(--ink-3); padding: 18px 0 8px; display: flex; justify-content: space-between; align-items: baseline; }
+.rep-cols h3 span { font-family: var(--font-serif); font-style: italic; font-size: 1.6rem; font-weight: 300; letter-spacing: 0; text-transform: none; color: var(--blue); }
+.rep-cols .c-differ h3 span { color: var(--ink-3); }
+.rep-cols ul { list-style: none; margin: 0; padding: 0; }
+.rep-cols li { padding: 12px 0; border-bottom: 1px solid var(--rule); display: grid; grid-template-columns: 30px 1fr; gap: 4px 8px; }
+.rep-cols li b { font-family: var(--font-serif); font-style: italic; font-weight: 300; font-size: 1.15rem; color: var(--blue); line-height: 1.2; }
+.rep-cols li.super b { color: var(--orange-ink); }
+.rep-cols li.nope b { color: var(--ink-3); }
+.rep-cols li h4 { font-size: 1.1rem; font-weight: 500; letter-spacing: -0.01em; line-height: 1.25; color: var(--ink); }
+.rep-cols li h4 small { font-family: var(--font-sans); font-size: 0.54rem; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: var(--orange-ink); margin-left: 8px; vertical-align: 2px; }
+.rep-cols li p { grid-column: 2; font-size: 0.94rem; line-height: 1.5; color: var(--ink-2); }
+.rep-cols li a { grid-column: 2; font-family: var(--font-sans); font-size: 0.66rem; font-weight: 600; color: var(--blue); text-decoration: none; }
+.rep-cols li a:hover { text-decoration: underline; }
+.rep-cols .none { color: var(--ink-3); font-style: italic; padding: 12px 0; }
+.more { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 20px 40px; align-items: center; padding: clamp(28px, 4vw, 44px) 0; }
+.more h2 { font-size: clamp(1.9rem, 1.4rem + 2vw, 2.8rem); font-weight: 300; letter-spacing: -0.03em; }
+.more h2 em { color: var(--sky-blue); }
+.more p { color: var(--hi-2); margin-top: 10px; max-width: 58ch; }
+@media (max-width: 900px) {
+  .res__grid { grid-template-columns: 1fr; }
+  .res__card { position: static; max-width: 460px; margin: 0 auto; width: 100%; }
+  .rep-cols { grid-template-columns: 1fr; }
+  .more { grid-template-columns: 1fr; }
+}
+
+.toast { position: fixed; left: 50%; bottom: 24px; transform: translate(-50%, 20px); background: #ffffff; color: var(--navy); font-family: var(--font-sans); font-size: 0.72rem; font-weight: 600; letter-spacing: 0.04em; padding: 12px 20px; border-radius: 999px; z-index: 130; opacity: 0; transition: opacity 0.25s, transform 0.25s; pointer-events: none; box-shadow: 0 16px 40px -16px rgba(0,0,0,0.6); max-width: calc(100vw - 32px); text-align: center; }
+.toast.on { opacity: 1; transform: translate(-50%, 0); }
+.offstage { position: fixed; left: -100000px; top: 0; width: 2400px; height: 520px; pointer-events: none; }
+
+/* the street drawing (shared with the interactive edition) */
+/* ---------- The block ---------- */
+.blk { position: absolute; inset: 0; width: 100%; height: 100%; display: block; }
+.blk * { vector-effect: non-scaling-stroke; }
+.blk .sky { fill: var(--sky); }
+.blk .earth { fill: var(--earth); }
+.blk .far { fill: var(--sky-far); }
+.blk .far2 { fill: var(--sky-far-2); }
+.blk .water { fill: var(--water); }
+.blk .bf { fill: var(--b-fill); stroke: var(--b-line); stroke-width: 1.1; }
+.blk .bf2 { fill: var(--b-fill-2); stroke: var(--b-line); stroke-width: 1.1; }
+.blk .bf3 { fill: var(--b-fill-3); stroke: var(--b-line); stroke-width: 1.1; }
+.blk .brick { fill: var(--b-brick); stroke: var(--b-line); stroke-width: 1.1; }
+.blk .ln { fill: none; stroke: var(--b-line); stroke-width: 1.1; stroke-linecap: round; stroke-linejoin: round; }
+.blk .ln2 { fill: none; stroke: var(--b-line); stroke-width: 0.7; opacity: 0.5; }
+.blk .ink { fill: var(--b-line); }
+.blk .win { fill: var(--win); }
+.blk .lit { fill: var(--win-lit); }
+.blk .room { fill: var(--b-fill-3); stroke: var(--b-line); stroke-width: 1; }
+.blk .walk { fill: var(--walk); }
+.blk .road { fill: var(--asphalt); }
+.blk .lane { stroke: #ffffff; stroke-dasharray: 18 14; stroke-width: 1.4; opacity: 0.55; fill: none; }
+.blk .tunnel { fill: var(--tunnel); stroke: var(--b-line); stroke-width: 1; }
+.blk .tree { fill: var(--tree); }
+.blk .lawn { fill: var(--lawn); }
+.blk .wave { fill: none; stroke: #ffffff; stroke-width: 1.4; opacity: 0.7; stroke-linecap: round; }
+.blk .lamp { fill: var(--lamp); }
+.blk .pf { fill: var(--person); }
+.blk .ghost { fill: none; stroke: var(--ink-3); stroke-width: 1.1; stroke-dasharray: 5 4; }
+.blk .fix { stroke: var(--blue) !important; }
+.blk .fixf { fill: var(--blue); }
+.blk .fixt { fill: var(--tint); stroke: var(--blue); stroke-width: 1.5; }
+.blk .fixl { fill: none; stroke: var(--blue); stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
+.blk .bad { fill: var(--bad); }
+.blk .badl { fill: none; stroke: var(--bad); stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
+.blk .orn { fill: var(--orange); }
+.blk .buslane { fill: #c9533e; opacity: 0.72; }
+.blk .white { fill: #ffffff; }
+.blk .cloud { fill: #ffffff; opacity: 0.9; }
+:root[data-theme="dark"] .blk .cloud { fill: #2a2f6e; opacity: 0.6; }
+.blk .strata { fill: none; stroke: var(--tunnel); stroke-width: 1.1; }
+.blk .car { fill: var(--b-fill-3); stroke: var(--b-line); stroke-width: 1.1; }
+.blk .taxi { fill: var(--win-lit); }
+.blk .avc { fill: var(--tint); stroke: var(--blue); stroke-width: 1.5; }
+.blk .bus { fill: var(--b-fill); stroke: var(--b-line); stroke-width: 1.1; }
+.blk .stripe { fill: var(--blue); }
+.blk text.to { fill: var(--orange); }
+.blk text { font-family: var(--font-sans); font-weight: 700; letter-spacing: 0.08em; text-anchor: middle; font-size: 10px; fill: var(--b-line); }
+.blk text.inv { fill: #ffffff; }
+:root[data-theme="dark"] .blk text.inv { fill: #0e1030; }
+.blk text.tf { fill: var(--blue); }
+.blk text.tb { fill: var(--bad); }
+.blk text.sm { font-size: 7.5px; }
+.blk text.lg { font-size: 13px; }
+.blk [data-a] { opacity: 0; transition: opacity 0.6s ease; }
+.blk [data-a].on { opacity: 1; }
+.blk [data-b] { transition: opacity 0.6s ease; }
+.blk [data-b].off { opacity: 0; }
+.blk.alarm [data-b] .bad, .blk.alarm [data-b] .badl, .blk.alarm [data-b] text.tb { animation: alarm 1.3s ease-in-out infinite; }
+@keyframes alarm { 50% { opacity: 0.25; } }
+@media (prefers-reduced-motion: reduce) { .blk.alarm [data-b] .bad, .blk.alarm [data-b] .badl, .blk.alarm [data-b] text.tb { animation: none; } }
+
+.blk.static [data-a], .blk.static [data-b] { transition: none !important; }
+[hidden] { display: none !important; }
+.report .eyebrow { color: var(--ink-3); }
+.report .eyebrow::before { background: var(--blue); }
+.res__lede b { color: #fff; font-style: normal; font-weight: 500; }
+.res__card canvas { width: auto; height: auto; max-width: 100%; max-height: 84vh; margin: 0 auto; }
+</style>
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+  <symbol id="i-heart" viewBox="0 0 24 24"><path d="M12 20.3s-7.6-4.6-7.6-10.4A4.3 4.3 0 0 1 12 7.3a4.3 4.3 0 0 1 7.6 2.6c0 5.8-7.6 10.4-7.6 10.4z" fill="currentColor"/></symbol>
+  <symbol id="i-x" viewBox="0 0 24 24"><path d="M6.5 6.5l11 11M17.5 6.5l-11 11" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round"/></symbol>
+  <symbol id="i-starfill" viewBox="0 0 24 24"><path d="M12 3.4l2.65 5.5 6.05.8-4.4 4.2 1.1 6-5.4-2.9-5.4 2.9 1.1-6-4.4-4.2 6.05-.8z" fill="currentColor"/></symbol>
+  <symbol id="i-undo" viewBox="0 0 24 24"><path d="M8.5 8.5H4V4M4.4 8.3A8 8 0 1 1 4 13.5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+  <symbol id="i-share" viewBox="0 0 24 24"><path d="M12 15V3.5M7.5 8L12 3.5 16.5 8M5 12.5V19a1.5 1.5 0 0 0 1.5 1.5h11A1.5 1.5 0 0 0 19 19v-6.5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+  <symbol id="i-down" viewBox="0 0 24 24"><path d="M12 4v12M7 11.5l5 5 5-5M5 20h14" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+  <symbol id="i-copy" viewBox="0 0 24 24"><rect x="8" y="8" width="12" height="12" rx="2.5" fill="none" stroke="currentColor" stroke-width="1.8"/><path d="M16 8V6a2 2 0 0 0-2-2H6a2 2 0 0 0-2 2v8a2 2 0 0 0 2 2h2" fill="none" stroke="currentColor" stroke-width="1.8"/></symbol>
+  <symbol id="i-link" viewBox="0 0 24 24"><path d="M10 14a4.5 4.5 0 0 0 6.4 0l3-3a4.5 4.5 0 0 0-6.4-6.4l-1.2 1.2M14 10a4.5 4.5 0 0 0-6.4 0l-3 3a4.5 4.5 0 0 0 6.4 6.4l1.2-1.2" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></symbol>
+</svg>
+
+<!-- ============ INTRO ============ -->
+<section class="screen intro" id="intro" aria-labelledby="intro-h">
+  <div class="wrap">
+    <header class="topbar">
+      <a class="brand" href="./"><i>50</i>Swipe Right on New York</a>
+      <a class="toplink" href="https://manhattan.institute/article/a-better-everyday-life-in-new-york-50-practical-ideas-to-renew-nycs-promise-of-opportunity"><span class="long">The full </span>brief ↗</a>
+    </header>
+    <div class="intro__grid">
+      <div class="intro__copy">
+        <span class="eyebrow">Manhattan Institute · 50 practical ideas</span>
+        <h1 id="intro-h">Swipe right on <em>New York</em></h1>
+        <p class="dek">Fifty proposals to make everyday life in the city better. Like, pass, or super-like each one, then see how often you agree with the Manhattan Institute.</p>
+        <div class="btn-row" data-cta></div>
+        <ul class="legend3" aria-label="How to swipe">
+          <li><span class="i nope"><svg aria-hidden="true"><use href="#i-x"/></svg></span>Pass</li>
+          <li><span class="i super"><svg aria-hidden="true"><use href="#i-starfill"/></svg></span>Super-like</li>
+          <li><span class="i like"><svg aria-hidden="true"><use href="#i-heart"/></svg></span>Like</li>
+        </ul>
+        <p class="fine">About five minutes. Your swipes stay on your device. At the end you get a report card to save or share.</p>
+      </div>
+      <div class="intro__deck" aria-hidden="true"></div>
+    </div>
+    <details class="browse">
+      <summary>Browse all 50 first <span>7 areas</span></summary>
+      <div class="browse__cols" data-browse></div>
+    </details>
+    <footer class="site-foot">
+      <span>Ideas from “<a href="https://manhattan.institute/article/a-better-everyday-life-in-new-york-50-practical-ideas-to-renew-nycs-promise-of-opportunity">A Better Everyday Life in New York</a>,” an issue brief by John Ketcham and Sean Speer (Manhattan Institute, Oct. 20, 2026). Card text is condensed from the brief.</span>
+      <span>Want the whole argument? Try the <a href="https://danielgolliher.github.io/better-everyday-life/">interactive edition</a>. Built by Daniel Golliher.</span>
+    </footer>
+  </div>
+</section>
+
+<!-- ============ SWIPE ============ -->
+<section class="screen swipe" id="swipe" hidden aria-label="Swipe deck">
+  <div class="sw-top">
+    <button class="sw-pill" type="button" data-go="intro" aria-label="Back to start">←</button>
+    <div class="sw-title"><b>Swipe Right on New York</b><span class="sw-count" aria-live="polite"></span></div>
+    <button class="sw-pill" type="button" data-sw="results">Report</button>
+  </div>
+  <div class="sw-prog"><i></i></div>
+  <div class="sw-stage"><div class="sw-deck"></div></div>
+  <div class="sw-ctl">
+    <button class="b-undo" type="button" data-sw="undo" aria-label="Undo last swipe"><svg aria-hidden="true"><use href="#i-undo"/></svg></button>
+    <button class="b-nope" type="button" data-sw="nope" aria-label="Pass"><svg aria-hidden="true"><use href="#i-x"/></svg></button>
+    <button class="b-super" type="button" data-sw="super" aria-label="Super-like"><svg aria-hidden="true"><use href="#i-starfill"/></svg></button>
+    <button class="b-like" type="button" data-sw="like" aria-label="Like"><svg aria-hidden="true"><use href="#i-heart"/></svg></button>
+  </div>
+  <p class="sw-hint"><span class="k-hint">Drag the card, or press ← pass · ↑ super-like · → like · Z undo</span><span class="t-hint">Swipe left to pass, right to like, up to super-like</span></p>
+</section>
+
+<!-- ============ RESULTS ============ -->
+<section class="screen results" id="results" hidden aria-labelledby="res-h">
+  <div class="wrap">
+    <header class="topbar">
+      <a class="brand" href="./"><i>50</i>Swipe Right on New York</a>
+      <button class="toplink" type="button" data-again>Swipe again</button>
+    </header>
+    <div class="shared-banner" hidden data-shared>
+      <p>Someone swiped through the 50 ideas and sent you their report. How would you swipe?</p>
+      <a class="btn btn--solid" href="./">Swipe the 50 yourself</a>
+    </div>
+    <div class="res__grid">
+      <figure class="res__card">
+        <canvas id="card" width="1080" height="1350" role="img" aria-label="Swipe report card"></canvas>
+        <figcaption data-caption>Screenshot it, or save the image</figcaption>
+      </figure>
+      <div class="res__side">
+        <span class="eyebrow" data-r-eyebrow>Your swipe report</span>
+        <h1 id="res-h" data-r-head></h1>
+        <p class="res__lede" data-r-lede></p>
+        <div class="panel-dark" data-share-panel>
+          <div class="seg" role="group" aria-label="Image size">
+            <button type="button" data-fmt="post" aria-pressed="true">Post · 4:5</button>
+            <button type="button" data-fmt="story" aria-pressed="false">Story · 9:16</button>
+          </div>
+          <div class="btn-row">
+            <button class="btn btn--solid" type="button" id="sh-native"><svg aria-hidden="true"><use href="#i-share"/></svg>Share</button>
+            <button class="btn" type="button" id="sh-save"><svg aria-hidden="true"><use href="#i-down"/></svg>Save image</button>
+            <button class="btn" type="button" id="sh-copy"><svg aria-hidden="true"><use href="#i-copy"/></svg>Copy text</button>
+            <button class="btn" type="button" id="sh-link"><svg aria-hidden="true"><use href="#i-link"/></svg>Copy link</button>
+          </div>
+          <div class="platforms" data-platforms></div>
+          <p class="fine">The link opens your report for whoever you send it to, then invites them to swipe their own. Nothing is uploaded; your verdicts ride along in the link.</p>
+        </div>
+        <div>
+          <span class="eyebrow" style="margin-bottom:12px">Agreement by area</span>
+          <div class="areas" data-areas></div>
+        </div>
+      </div>
+    </div>
+    <div class="report" data-report></div>
+    <div class="more">
+      <div>
+        <h2>Want MI’s <em>full argument?</em></h2>
+        <p>Each card condenses one recommendation. The brief lays out the evidence behind all 50, with 65 sources, and the interactive edition walks through them on an illustrated New York block.</p>
+      </div>
+      <div class="btn-row">
+        <a class="btn btn--solid" href="https://manhattan.institute/article/a-better-everyday-life-in-new-york-50-practical-ideas-to-renew-nycs-promise-of-opportunity">Read the brief</a>
+        <a class="btn" href="https://danielgolliher.github.io/better-everyday-life/">Interactive edition</a>
+      </div>
+    </div>
+    <footer class="site-foot">
+      <span>Ideas from “<a href="https://manhattan.institute/article/a-better-everyday-life-in-new-york-50-practical-ideas-to-renew-nycs-promise-of-opportunity">A Better Everyday Life in New York</a>,” by John Ketcham and Sean Speer (Manhattan Institute, Oct. 20, 2026). Every card is one of the brief’s recommendations, so a like or super-like counts as agreeing with MI.</span>
+      <span>Built by Daniel Golliher.</span>
+    </footer>
+  </div>
+</section>
+
+<div class="offstage" id="offstage" aria-hidden="true"></div>
+<div class="toast" id="toast" role="status"></div>
+<script>
+/* Content. Idea text is condensed and reworded from the brief; [[key|text]] marks a glossary term.
+   x, y are each idea's anchor on the block (scene units; ground line at y = 560). */
+var BEL = window.BEL || (window.BEL = {});
+
+BEL.AREAS = [
+  { id: 'homes', num: '03', name: 'Homes people can afford', short: 'Homes', from: 1, to: 8, x0: 30, x1: 1045,
+    dek: 'High rents trace back to rules that make rental housing hard to build and to keep up. Eight ideas to change that.',
+    stats: [['$3,707', 'median asking rent a month, Q2 2026'], ['57,000', 'vacant rent-regulated apartments (estimate)']] },
+  { id: 'schools', num: '04', name: 'Schools that prepare children for adult life', short: 'Schools', from: 9, to: 21, x0: 1085, x1: 1990,
+    dek: 'Attendance, early reading, school choice, classroom order, special education, and paths for students and adults who aren’t headed to college.',
+    stats: [['34.8%', 'of students chronically absent, 2023–24'], ['$109M', 'possible savings from merging under-enrolled schools (MI estimate)']] },
+  { id: 'childcare', num: '05', name: 'Childcare that fits family life', short: 'Childcare', from: 22, to: 25, x0: 2020, x1: 2292,
+    dek: 'More places to open, more kinds of providers, steadier help, and longer hours.',
+    stats: [['$26,000', 'a year for center care, infant or toddler (2024)'], ['$18,200', 'a year for family-based care']] },
+  { id: 'streets', num: '06', name: 'Safe streets, parks, and transit', short: 'Streets', from: 26, to: 34, x0: 2290, x1: 3190,
+    dek: 'Policing, visible disorder, jails, treatment, fare enforcement, and the cars that will soon drive themselves.',
+    stats: [['+44%', 'felony assaults compared with 2019'], ['−24.4%', 'murders, 2026 to date vs. 2025']] },
+  { id: 'work', num: '07', name: 'More chances to work and start a business', short: 'Work', from: 35, to: 37, x0: 3036, x1: 3345,
+    dek: 'Fewer barriers for licensed newcomers, street vendors, and grocers.',
+    stats: [['−4.7%', 'middle-wage jobs, 2019–23'], ['11.9%', 'youth unemployment, 2025']] },
+  { id: 'services', num: '08', name: 'Better public services and value for money', short: 'Services', from: 38, to: 44, x0: 3355, x1: 3815,
+    dek: 'AI with a human check, faster buses, early warning on disorder, open performance data, and benefits the city can sustain.',
+    stats: [['9.3 mph', 'average city bus speed, among the slowest in the U.S.'], ['5 of 7', 'ideas here lean on AI or data']] },
+  { id: 'government', num: '09', name: 'Accountable city government', short: 'City Hall', from: 45, to: 50, x0: 3840, x1: 4270,
+    dek: 'The budget, records requests, elections, contracting, and paying the nonprofits that deliver city services.',
+    stats: [['$6.4–8.8B', 'projected FY28 budget gap'], ['1M+', 'registered voters who can’t vote in any primary']] }
+];
+
+BEL.IDEAS = [
+  // Homes
+  { n: 1, a: 'homes', t: 'Bring vacant rent-regulated units back', tag: 'Vacant units relit', note: 16, p: 'Albany', x: 362, y: 334,
+    d: 'An estimated 57,000 [[rentreg|rent-regulated]] apartments sit empty. Working with Albany, let rents on them rise enough that fixing them up makes financial sense.' },
+  { n: 2, a: 'homes', t: 'Scrap or recalibrate inclusionary zoning', tag: 'Stalled site builds', note: 17, x: 650, y: 384,
+    d: '[[mih|Mandatory Inclusionary Housing]] was tuned to the old [[421a|421-a]] tax break. Its successor, [[485x|485-x]], is less generous, yet MIH’s requirements never changed, so fewer projects pencil out. End MIH or reset it.' },
+  { n: 3, a: 'homes', t: 'Let more homes add a second unit', tag: 'Second unit added', note: 18, x: 200, y: 488,
+    d: 'Allow modest two-family housing in suitable areas now reserved for single-family homes, for instance by dropping size limits and owner-occupancy rules on [[adu|accessory units]].' },
+  { n: 4, a: 'homes', t: 'Finish off parking mandates', tag: 'Lot becomes homes', note: 19, x: 540, y: 346,
+    d: 'Required parking raises building costs and takes space that could hold homes. Let the market decide how much parking a neighborhood needs by ending the [[parking|mandates]] that remain.' },
+  { n: 5, a: 'homes', t: 'Let underbuilt old buildings be replaced', tag: 'Underbuilt lot rebuilt', note: 20, x: 425, y: 296,
+    d: 'Many pre-1974 rent-stabilized buildings use a fraction of what their lots allow, but approval to demolish them is often impossible to get. Easing redevelopment lets the city add homes on land it already has.' },
+  { n: 6, a: 'homes', t: 'Fix how rental buildings are taxed', tag: 'Tax weight lifted', note: 21, p: 'City Council', x: 888, y: 200,
+    d: 'Large rental buildings bear property-tax burdens that discourage construction and then require abatements to offset. Work with the city council toward a more rational, consistent system.' },
+  { n: 7, a: 'homes', t: 'Hold NYCHA to its repair duties', tag: 'Elevator and heat work', note: 22, x: 822, y: 196,
+    d: '[[nycha|Public-housing]] residents should be able to count on elevators, heat, and timely repairs. Back that with enforceable management obligations and real consequences for chronic failure, while keeping tenancy protections intact.' },
+  { n: 8, a: 'homes', t: 'Roll back Local Law 97', tag: 'LL97 fines gone', note: 23, x: 948, y: 534,
+    d: 'The brief argues [[ll97|Local Law 97]] raises costs for residents, with penalties climbing sharply in 2030, for a negligible effect on global emissions, in a city that already has the lowest per-capita carbon emissions in the country.' },
+  // Schools
+  { n: 9, a: 'schools', t: 'Publish attendance data every month', tag: 'Monthly data posted', note: 24, x: 1418, y: 424,
+    d: 'Researchers are working from a school year that ended long ago. Connecticut and Rhode Island refresh public attendance dashboards monthly; New York City could too.' },
+  { n: 10, a: 'schools', t: 'Act early when children start missing school', tag: 'Empty desks filled', note: 25, x: 1198, y: 334,
+    d: 'Make principals responsible for reaching families as soon as a pattern of [[absent|absences]] appears, and have school staff keep stressing why showing up matters.' },
+  { n: 11, a: 'schools', t: 'Screen every K–3 child in reading and math', tag: 'Early screening', note: 26, x: 1308, y: 334,
+    d: 'Use evidence-based screeners several times a year. Today struggling readers often surface only at the third-grade state exams, when the gaps are already set.' },
+  { n: 12, a: 'schools', t: 'Lift the cap on charter schools', tag: 'Charter opens', note: 27, p: 'Albany', x: 1496, y: 378,
+    d: 'Work with Albany to remove the [[charter|limits]] that keep successful charter schools from expanding, and help them find suitable space.' },
+  { n: 13, a: 'schools', t: 'Merge under-enrolled schools', tag: 'Small school merged', note: 28, x: 1600, y: 384,
+    d: 'Start with schools under 150 students and those shrinking fastest since 2022. MI estimates that bringing per-pupil funding for half the students in under-enrolled schools to the systemwide average could save about $109 million.' },
+  { n: 14, a: 'schools', t: 'Keep classrooms orderly', tag: 'Order restored', note: 29, x: 1418, y: 334,
+    d: 'Give teachers and principals workable tools for persistent disruption, alongside student support and due process. Judge discipline policy by safety, fairness, and how much learning time it protects.' },
+  { n: 15, a: 'schools', t: 'Expand gifted and accelerated seats', tag: 'New G&T seats', note: 30, x: 1308, y: 424,
+    d: 'Open a new [[shsat|SHSAT]] high school in Queens, and add [[gt|gifted-and-talented]] seats and accelerated middle-school options to meet demand.' },
+  { n: 16, a: 'schools', t: 'Grow career and technical education', tag: 'CTE shop opens', note: 31, x: 1702, y: 462,
+    d: 'Expand [[cte|CTE]] programs so students who aren’t college-bound leave with marketable skills and a reason to stay enrolled.' },
+  { n: 17, a: 'schools', t: 'Review private special-ed placements yearly', tag: 'Annual review', note: 32, x: 1990, y: 410,
+    d: 'Rein in growing [[carter|Carter-case]] claims by returning to annual adjudication: each year the Department of Education presents and defends an updated [[iep|IEP]] instead of renewals being granted by default.' },
+  { n: 18, a: 'schools', t: 'Do more special-ed evaluations in house', tag: 'In-house evaluators', note: 33, x: 1990, y: 470,
+    d: 'Build the department’s own multidisciplinary evaluation teams, so the system leans less on private evaluators whose recommendations may not match what public programs can offer.' },
+  { n: 19, a: 'schools', t: 'Mediate special-ed disputes first', tag: 'Mediation first', note: 34, x: 1990, y: 530,
+    d: 'The city’s default is to let a [[dueprocess|due-process case]] be filed and negotiate later, which has driven legal costs up. Try mediation before anyone files.' },
+  { n: 20, a: 'schools', t: 'Set grade-by-grade rules for student AI', tag: 'AI rules by grade', note: 35, p: 'Albany', x: 1198, y: 424,
+    d: 'Statewide guidelines: no student-facing AI in K–2; teacher-directed use only in grades 3–5; formal AI-literacy lessons with limited use in 6–8; broader but structured use in 9–12.' },
+  { n: 21, a: 'schools', t: 'Retraining that fits a working adult’s week', tag: 'Evening classes', note: 36, x: 1822, y: 284,
+    d: 'Expand evening and weekend job-training programs at [[cuny|CUNY]] so adults with jobs and families can pick up new skills.' },
+  // Childcare
+  { n: 22, a: 'childcare', t: 'Open up more places for childcare', tag: 'Storefront day care', note: 37, x: 2030, y: 478,
+    d: 'Modernize the location and building requirements for childcare sites, so providers can open near the families who need them.' },
+  { n: 23, a: 'childcare', t: 'Make home-based care easier to offer', tag: 'Home child care', note: 38, x: 2286, y: 520,
+    d: 'Create a clear approval path for qualified home-based providers, paired with fitting oversight, so parents have a wider range of safe choices.' },
+  { n: 24, a: 'childcare', t: 'Make childcare aid predictable', tag: 'Steady vouchers', note: 39, x: 2194, y: 520,
+    d: 'Fund vouchers steadily and avoid abrupt cutoffs as parents earn more, so families and providers can plan around work and care.' },
+  { n: 25, a: 'childcare', t: 'Care beyond nine to five', tag: 'Open into evening', note: 40, x: 2118, y: 344,
+    d: 'Extend care past conventional office hours, for example by partnering with private schools to run after-school programs into the early evening.' },
+  // Streets
+  { n: 26, a: 'streets', t: 'Expand quality-of-life policing', tag: 'Park feels safe', note: 41, x: 2384, y: 512,
+    d: 'Build on the NYPD’s [[qol|quality-of-life]] initiative against recurring public-space problems, such as open drug use, street homelessness, and excessive noise, that make streets, parks, and transit feel unsafe.' },
+  { n: 27, a: 'streets', t: 'Hire more police officers', tag: 'More officers', note: 42, x: 2633, y: 530,
+    d: 'Felony assaults in 2025 ran 44% above 2019 and 84% above 2008, even as murders and shootings fell. A bigger force allows a more visible presence plus targeted enforcement against the most serious offenders.' },
+  { n: 28, a: 'streets', t: 'Keep the gang database and the SRG', tag: 'Precision tools kept', note: 43, x: 2603, y: 492,
+    d: 'The brief credits precision policing built on the [[gangdb|gang database]] and the [[srg|Strategic Response Group]] with part of the drop in homicides and shootings.' },
+  { n: 29, a: 'streets', t: 'Fix Rikers instead of closing it', tag: 'Rikers renovated', note: 44, x: 2448, y: 458,
+    d: 'The [[rikers|borough-jail plan]] would cost over $16 billion and hold about 4,000 people; Rikers holds about 6,500 today. Keep it open and renovate it until it is humane and safe.' },
+  { n: 30, a: 'streets', t: 'Clear graffiti, trash, and visible disorder', tag: 'Wall cleaned', note: 45, x: 2533, y: 508,
+    d: 'Clean, orderly public spaces get used more, and they build confidence that government is paying attention.' },
+  { n: 31, a: 'streets', t: 'Widen access to proven addiction treatment', tag: 'Clinic open', note: 46, x: 2743, y: 452,
+    d: 'City-funded services should offer the right medications and keep care continuous, including after someone leaves jail.' },
+  { n: 32, a: 'streets', t: 'Build psychiatric beds and treatment', tag: 'Psych beds added', note: 47, x: 2862, y: 272,
+    d: 'Instead of arguing over which mental-health responder model is best, keep building treatment capacity and adding inpatient psychiatric beds, as Mayor Adams and Governor Hochul began to do.' },
+  { n: 33, a: 'streets', t: 'Make fare enforcement certain, not harsher', tag: 'Fares enforced', note: 48, x: 2998, y: 698,
+    d: 'Consistent, predictable enforcement on buses and subways, rather than steeper penalties, is what changes rider behavior.' },
+  { n: 34, a: 'streets', t: 'Write local rules for driverless cars', tag: 'Robotaxi, with rules', note: 49, p: 'Albany', x: 2752, y: 580,
+    d: 'Apply the lesson of Uber and Lyft: rather than ban [[av|autonomous vehicles]], set caps and rules for how they fit with transit. State law still bars fully driverless cars, so the city can prepare now.' },
+  // Work
+  { n: 35, a: 'work', t: 'Honor out-of-state licenses', tag: 'License recognized', note: 50, p: 'Albany', x: 3086, y: 576,
+    d: 'Work with Albany so qualified workers in good standing in other states can practice here without repeating training they’ve already finished.' },
+  { n: 36, a: 'work', t: 'Open more legal paths for street vendors', tag: 'Vendor permitted', note: 51, x: 3172, y: 504,
+    d: 'Make permits simpler to get, raise the fee toward the license’s market value, and enforce clear food-safety and sidewalk rules. Today’s fee is so low that holders profit by renting permits to working vendors.' },
+  { n: 37, a: 'work', t: 'Let more supermarkets in', tag: 'Supermarket opens', note: 52, x: 3276, y: 458,
+    d: 'Relax size and zoning limits on supermarkets in suitable manufacturing districts, for more competition and lower prices.' },
+  // Services
+  { n: 38, a: 'services', t: 'Use AI to cut waits, with staff checking', tag: 'Shorter line', note: 53, x: 3400, y: 514,
+    d: 'Approve low-risk administrative uses of AI, with staff responsible for the results. Judge each tool by outcomes: shorter waits for residents and staff time freed for work that needs judgment.' },
+  { n: 39, a: 'services', t: 'Triage 311 calls with AI', tag: '311 sorted', note: 54, x: 3394, y: 462,
+    d: 'Pair AI analysis with human review to decide which [[311|311]] complaints deserve priority and which, such as likely-fraudulent ones, can wait.' },
+  { n: 40, a: 'services', t: 'Faster, more frequent buses, not free ones', tag: 'Bus lane, faster bus', note: 55, p: 'MTA', x: 3604, y: 578,
+    d: 'City buses average just 9.3 miles per hour, among the slowest in the nation. Keep the fare revenue and work with the MTA to add service on crowded routes, enforce fares, and speed up trips.' },
+  { n: 41, a: 'services', t: 'Predict where nightlife trouble will flare', tag: 'Nightlife forecast', note: 56, x: 3544, y: 446,
+    d: 'Have the [[oti|Office of Technology and Innovation]] combine liquor licenses, 311 noise calls, sanitation, police, EMS, and late-night transit data to spot streets likely to see disorder, and adjust before conditions slide.' },
+  { n: 42, a: 'services', t: 'Predict where encampments will form', tag: 'Outreach arrives', note: 57, x: 3663, y: 520,
+    d: 'Model which public spaces risk becoming chronic disorder zones, using transit hubs, vacant storefronts, lighting, shelter proximity, and enforcement history, then send outreach, cleanup, or redesign early.' },
+  { n: 43, a: 'services', t: 'Make performance data timely and usable', tag: 'Live dashboard', note: 58, x: 3435, y: 306,
+    d: 'Automate routine updates and publish service data in formats people can use, so residents and managers can see where problems persist and whether the response is working.' },
+  { n: 44, a: 'services', t: 'Put employee benefits on a sustainable footing', tag: 'Benefits balanced', note: 59, x: 3762, y: 206,
+    d: 'Reform health and retirement benefits so the city can keep paying for services over time.' },
+  // Government
+  { n: 45, a: 'government', t: 'Close the budget gap without new taxes', tag: 'Gap closed', note: 60, x: 3848, y: 530,
+    d: 'Facing a projected [[fy28|FY28]] gap of $6.4 to $8.8 billion, use a modest [[peg|Program to Eliminate the Gap]] and a temporary freeze on [[nonuniform|civilian]] hiring, trimming especially at the Department of Education.' },
+  { n: 46, a: 'government', t: 'End the automatic six-month FOIL wait', tag: 'FOIL on time', note: 61, x: 3852, y: 488,
+    d: 'Stop stamping nearly every [[foil|FOIL]] request with a roughly six-month due date. Give each one a realistic date, triage easy requests, release records on a rolling basis, and add staff.' },
+  { n: 47, a: 'government', t: 'Open primaries for citywide offices', tag: 'Open primary', note: 62, x: 4146, y: 534,
+    d: 'More than a million registered city voters can’t vote in any primary. Fully [[openprim|open primaries]] would push candidates to court the whole electorate, not just their party’s base.' },
+  { n: 48, a: 'government', t: 'Explore proportional representation', tag: 'Council by PR', note: 63, x: 4106, y: 440,
+    d: '[[pr|Proportional representation]] for the city council would make general elections competitive and bring the council’s makeup closer to the electorate’s.' },
+  { n: 49, a: 'government', t: 'Rein in emergency contracting', tag: 'Open bids', note: 64, p: 'City Council', x: 4138, y: 490,
+    d: 'The mayor and council should limit the habit of treating chronic, foreseeable problems as standing emergencies that skip [[emergency|competitive bidding]].' },
+  { n: 50, a: 'government', t: 'Pay nonprofit contractors on time', tag: 'Invoice paid', note: 65, x: 4207, y: 436,
+    d: 'Have the [[mocs|Mayor’s Office of Contract Services]] push for procurement legislation so the nonprofits that deliver city services get paid when they should.' }
+];
+
+/* Endnotes from the brief: [short label, full citation, url]. Ibid entries point to the work they repeat. */
+BEL.NOTES = {
+  1: ['Stu Stu Studio', 'Stu Stu Studio, YouTube.', 'https://www.youtube.com/watch?v=LVIRD9Ssblo'],
+  2: ['Obaidy, CNYCA', 'Mohamed Obaidy, “The Pandemic’s Aftermath: A Lingering Jobs Decline for NYC’s Shrinking, Beleaguered Middle Class,” Center for New York City Affairs, October 2024.', 'https://www.centernyc.org/reports-briefs/the-pandemics-aftermath-a-lingering-jobs-decline-for-nycs-shrinking-beleaguered-middle-class'],
+  3: ['Note', 'These categories describe industries by average pay, rather than the skills of individual workers.', ''],
+  4: ['NYS Comptroller', 'Office of the NYS Comptroller, “New York City’s Uneven Recovery: An Update on Labor Force Trends,” 2026.', 'https://www.osc.ny.gov/files/reports/osdc/pdf/nyc-labor-force-2025.pdf'],
+  5: ['Dresdale, City Journal', 'Michael Dresdale, “New York City’s Jobs Predicament,” City Journal, June 5, 2026.', 'https://www.city-journal.org/article/new-york-city-jobs-wages-middle-class'],
+  6: ['NYC Comptroller', 'Office of the NYC Comptroller, “Recent Trends in Personal Income & Wage Inequality,” Sept. 2, 2026.', 'https://comptroller.nyc.gov/reports/recent-trends-in-personal-income-wage-inequality/'],
+  7: ['Obaidy, CNYCA', 'Obaidy, “The Pandemic’s Aftermath.”', 'https://www.centernyc.org/reports-briefs/the-pandemics-aftermath-a-lingering-jobs-decline-for-nycs-shrinking-beleaguered-middle-class'],
+  8: ['Realtor.com', 'Jiayi Xu and Danielle Hale, “New York City Rental Report 2026Q2: Rent Hits a New High, Just in Time for the Class of 2026,” Realtor.com, July 28, 2026.', 'https://www.realtor.com/research/nyc-q2-2026-rent/'],
+  9: ['NYC Comptroller', 'Office of the NYC Comptroller, “Child Care Affordability and the Benefits of Universal Provision,” Jan. 15, 2025.', 'https://comptroller.nyc.gov/reports/child-care-affordability-and-the-benefits-of-universal-provision/'],
+  10: ['Egorov, MI', 'Danyela Souza Egorov, “Chronic Absenteeism Is Hampering School Improvement Efforts in New York City: What Can Be Done About It?” Manhattan Institute, Mar. 6, 2025.', 'https://manhattan.institute/article/chronic-absenteeism-hampering-school-improvement-efforts-new-york-city'],
+  11: ['NYPD CompStat', 'NYPD, “CompStat Web PDF Reports—Scheduled,” accessed Oct. 8, 2026.', 'https://www.nyc.gov/assets/nypd/downloads/pdf/crime_statistics/cs-en-us-city.pdf'],
+  12: ['NYPD CompStat 2.0', 'NYPD, “NYPD CompStat 2.0,” accessed Oct. 8, 2026.', 'https://compstat.nypdonline.org/'],
+  13: ['New York Post', '“Ignore Mamdani’s Gaslighting: NYC Subway Violence Is Worse than You Remember,” New York Post, May 12, 2026.', 'https://nypost.com/2026/05/12/opinion/ignore-mamdanis-gaslighting-nyc-subway-violence-is-worse-than-you-remember/'],
+  14: ['NYC Comptroller', 'Mark Levine, “Child Care Affordability and the Benefits of Universal Provision,” Jan. 15, 2025.', 'https://comptroller.nyc.gov/reports/child-care-affordability-and-the-benefits-of-universal-provision/'],
+  15: ['New York Times', '“Black Residents in New York City,” New York Times, Jan. 31, 2023.', 'https://www.nytimes.com/2023/01/31/nyregion/black-residents-nyc.html'],
+  16: ['Lehodey, City Journal', 'Adam Lehodey, “Why Are 50,000 New York City Apartments Vacant?” City Journal, Dec. 17, 2025.', 'https://www.city-journal.org/article/vacant-new-york-city-apartments-rent-control-housing'],
+  17: ['Kober, MI', 'Eric Kober, “A Constructive Land-Use, Housing, and Economic Development Agenda for Mayor Mamdani,” Manhattan Institute, Dec. 11, 2025.', 'https://manhattan.institute/article/a-constructive-land-use-housing-and-economic-development-agenda-for-mayor-mamdani'],
+  18: ['Kober, MI', 'Ibid. (Kober, “A Constructive Land-Use, Housing, and Economic Development Agenda”).', 'https://manhattan.institute/article/a-constructive-land-use-housing-and-economic-development-agenda-for-mayor-mamdani'],
+  19: ['Kober, MI', 'Ibid.', 'https://manhattan.institute/article/a-constructive-land-use-housing-and-economic-development-agenda-for-mayor-mamdani'],
+  20: ['Kober, MI', 'Ibid.', 'https://manhattan.institute/article/a-constructive-land-use-housing-and-economic-development-agenda-for-mayor-mamdani'],
+  21: ['Kober, MI', 'Eric Kober, “What Would New York City’s Housing ‘Moonshot’ Look Like?” Manhattan Institute, Sept. 3, 2024.', 'https://manhattan.institute/article/what-would-new-york-citys-housing-moonshot-look-like'],
+  22: ['NYC Comptroller', 'Office of the NYC Comptroller, “Repairs, Reviews, and Resident Voice,” Nov. 20, 2024.', 'https://comptroller.nyc.gov/reports/repairs-reviews-and-resident-voice/'],
+  23: ['Ketcham & McGillis, City Journal', 'John Ketcham and Jordan McGillis, “Gotham’s Airheaded Carbon Law,” City Journal (Summer 2023).', 'https://www.city-journal.org/article/gothams-airheaded-carbon-law'],
+  24: ['New York Post', '“Mamdani’s Top Task to Fix NYC Schools: Make Kids Show Up,” New York Post, Sept. 8, 2026.', 'https://nypost.com/2026/09/08/opinion/mamdanis-top-task-to-fix-nyc-schools-make-kids-show-up'],
+  25: ['Egorov, MI', 'Egorov, “Chronic Absenteeism Is Hampering School Improvement Efforts.”', 'https://manhattan.institute/article/chronic-absenteeism-hampering-school-improvement-efforts-new-york-city'],
+  26: ['Weber, Domanico & Gorman, MI', 'Jennifer Weber, Ray Domanico, and Carolyn D. Gorman, “The Mediocre State of New York State Schools,” Manhattan Institute, Sept. 3, 2026.', 'https://media4.manhattan-institute.org/wp-content/uploads/the-mediocre-state-of-new-york-state-schools.pdf'],
+  27: ['Egorov & Domanico, MI', 'Danyela Souza Egorov and Ray Domanico, “An Education Agenda for New York City’s Next Mayor,” Manhattan Institute, June 18, 2025.', 'https://manhattan.institute/article/an-education-agenda-for-new-york-city'],
+  28: ['Egorov & Domanico, MI', 'Ibid.', 'https://manhattan.institute/article/an-education-agenda-for-new-york-city'],
+  29: ['Weber, MI', 'Jennifer Weber, “The Cost of Restorative Justice in New York City Schools,” Manhattan Institute, July 24, 2025.', 'https://manhattan.institute/article/the-cost-of-restorative-justice-in-new-york-city-schools'],
+  30: ['Egorov & Domanico, MI', 'Egorov and Domanico, “An Education Agenda.”', 'https://manhattan.institute/article/an-education-agenda-for-new-york-city'],
+  31: ['Egorov & Domanico, MI', 'Ibid.', 'https://manhattan.institute/article/an-education-agenda-for-new-york-city'],
+  32: ['Weber, MI', 'Jennifer Weber, “Reassessing ‘Carter-Case’ Spending for Students with Disabilities in New York City Schools,” Manhattan Institute, Feb. 19, 2026.', 'https://manhattan.institute/article/reassessing-carter-case-spending-for-students-with-disabilities-in-new-york-city-schools'],
+  33: ['Weber, MI', 'Ibid.', 'https://manhattan.institute/article/reassessing-carter-case-spending-for-students-with-disabilities-in-new-york-city-schools'],
+  34: ['Weber, MI', 'Ibid.', 'https://manhattan.institute/article/reassessing-carter-case-spending-for-students-with-disabilities-in-new-york-city-schools'],
+  35: ['Weber, MI', 'Jennifer Weber, “One Size Does Not Fit All: A Developmentally Appropriate Framework for AI in K–12 Education,” Manhattan Institute, July 30, 2026.', 'https://media4.manhattan-institute.org/wp-content/uploads/a-developmentally-appropriate-framework-for-ai-in-k-12-education.pdf'],
+  36: ['Domanico, MI', 'Ray Domanico, “Rethinking the Goals of NYC High Schools and CUNY’s Community Colleges,” Manhattan Institute, July 15, 2021.', 'https://manhattan.institute/article/rethinking-the-goals-of-nyc-high-schools-and-cunys-community-colleges'],
+  37: ['O’Brien & Zagare, MI', 'Connor O’Brien and Liena Zagare, “Building Family-Friendly Cities: Principles for Reversing the Urban Family Exodus,” Manhattan Institute, Apr. 2, 2026.', 'https://manhattan.institute/article/building-family-friendly-cities-principles-for-reversing-the-urban-family-exodus'],
+  38: ['O’Brien & Zagare, MI', 'Ibid.', 'https://manhattan.institute/article/building-family-friendly-cities-principles-for-reversing-the-urban-family-exodus'],
+  39: ['O’Brien & Zagare, MI', 'Ibid.', 'https://manhattan.institute/article/building-family-friendly-cities-principles-for-reversing-the-urban-family-exodus'],
+  40: ['O’Brien & Zagare, MI', 'Ibid.', 'https://manhattan.institute/article/building-family-friendly-cities-principles-for-reversing-the-urban-family-exodus'],
+  41: ['Mangual, City Journal', 'Rafael A. Mangual, “The NYPD’s Long Overdue New Division,” City Journal, Feb. 7, 2025.', 'https://www.city-journal.org/article/nypd-quality-of-life-division-new-york-city-safety'],
+  42: ['Lehman, City Journal', 'Charles Fain Lehman, “New York City’s Other Violent Crime Problem,” City Journal (Spring 2026).', 'https://www.city-journal.org/article/new-york-citys-other-violent-crime-problem'],
+  43: ['Mangual, City Journal', 'Rafael A. Mangual, “Jessica Tisch Will Stay at the NYPD. What Does That Mean for Mamdani?” City Journal, Nov. 21, 2025.', 'https://www.city-journal.org/article/nypd-commissioner-jessica-tisch-zohran-mamdani-crime-policing'],
+  44: ['Lehman, City Journal', 'Charles Fain Lehman, “Rikers Must Close in a Year—What’s the Plan?” City Journal, Aug. 31, 2026.', 'https://www.city-journal.org/article/rikers-island-jail-close'],
+  45: ['Mac Donald, City Journal', 'Heather Mac Donald, “Freedom to Deface,” City Journal, July 23, 2020.', 'https://www.city-journal.org/article/freedom-to-deface'],
+  46: ['Lehman, MI', 'Charles Fain Lehman, “The Drug Crisis: Problems and Solutions for Local Policymakers,” Manhattan Institute, Aug. 4, 2022.', 'https://manhattan.institute/article/the-drug-crisis-problems-and-solutions-for-local-policymakers'],
+  47: ['Gorman, City Journal', 'Carolyn D. Gorman, “Mamdani’s Mental-Health Plan Is a Well-Worn Flop,” City Journal, Nov. 17, 2025.', 'https://www.city-journal.org/article/zohran-mamdani-mental-illness-plan-bill-de-blasio'],
+  48: ['Gelinas, New York Post', 'Nicole Gelinas, “How the MTA Can Defeat the Bus-Fare Deadbeats—and Reward the Rest of Us,” New York Post, Sept. 3, 2024.', 'https://nypost.com/2024/09/03/opinion/mta-can-defeat-the-bus-fare-deadbeats-heres-how/'],
+  49: ['Gelinas, New York Times', 'Nicole Gelinas, “New Tech Can Change a City. New York Learned That the Hard Way with Uber,” New York Times, Sept. 3, 2025.', 'https://www.nytimes.com/2025/09/03/opinion/waymo-uber-new-york.html'],
+  50: ['Hendrix, MI', 'Michael Hendrix, “A Small-Business Agenda for New York’s Next Mayor,” Manhattan Institute, Mar. 25, 2021.', 'https://manhattan.institute/article/a-small-business-agenda-for-new-yorks-next-mayor'],
+  51: ['Schrager, City Journal', 'Allison Schrager, “New York’s Regulatory Thicket,” City Journal, Winter 2026.', 'https://www.city-journal.org/article/new-york-city-regulations-businesses-cost-mamdani'],
+  52: ['Kober, MI', 'Eric Kober, “A Constructive Land-Use, Housing, and Economic Development Agenda for Mayor Mamdani,” Manhattan Institute, Dec. 11, 2025.', 'https://manhattan.institute/article/a-constructive-land-use-housing-and-economic-development-agenda-for-mayor-mamdani'],
+  53: ['Speer, MI', 'Sean Speer, “New York’s LOADinG Act: Protecting Public-Sector Jobs from AI,” Manhattan Institute, Sept. 10, 2026.', 'https://manhattan.institute/article/new-yorks-loading-act-protecting-public-sector-jobs-from-ai'],
+  54: ['Appel, MI', 'Josh Appel, “How New York City Can Use Artificial Intelligence to Improve Quality of Life,” Manhattan Institute, September 2026.', 'https://media4.manhattan-institute.org/wp-content/uploads/how-new-york-city-can-use-artificial-intelligence-to-improve-quality-of-life.pdf'],
+  55: ['Gelinas, City Journal', 'Nicole Gelinas, “Quality Comes with a Fare,” City Journal, Feb. 25, 2022.', 'https://www.city-journal.org/article/quality-comes-with-a-fare'],
+  56: ['Appel, MI', 'Appel, “How New York City Can Use Artificial Intelligence.”', 'https://media4.manhattan-institute.org/wp-content/uploads/how-new-york-city-can-use-artificial-intelligence-to-improve-quality-of-life.pdf'],
+  57: ['Appel, MI', 'Ibid.', 'https://media4.manhattan-institute.org/wp-content/uploads/how-new-york-city-can-use-artificial-intelligence-to-improve-quality-of-life.pdf'],
+  58: ['Appel, MI', 'Ibid.', 'https://media4.manhattan-institute.org/wp-content/uploads/how-new-york-city-can-use-artificial-intelligence-to-improve-quality-of-life.pdf'],
+  59: ['Kober, MI', 'Eric Kober, “Trimming New York’s Budget Bloat: Making City Government Leaner and More Affordable,” Manhattan Institute, Dec. 17, 2020.', 'https://manhattan.institute/article/trimming-new-yorks-budget-bloat-making-city-government-leaner-and-more-affordable'],
+  60: ['Ketcham, City Journal', 'John Ketcham, “Mamdani’s Plan to Cut City Spending: Ask Workers Nicely,” City Journal, Aug. 4, 2026.', 'https://cityjournal.substack.com/p/mamdanis-plan-to-cut-city-spending'],
+  61: ['Vidal Calvo & Macdonald, City Journal', 'Santiago Vidal Calvo and Cameron Macdonald, “Mamdani Has a Transparency Problem. We’re Suing to Fix It.” City Journal, Sept. 15, 2026.', 'https://www.city-journal.org/article/new-york-foil-manhattan-institute-mamdani-lawsuit'],
+  62: ['Santucci & Ketcham, MI', 'Jack Santucci and John Ketcham, “Reforming Big-City Elections,” Manhattan Institute, Mar. 13, 2025.', 'https://manhattan.institute/article/reforming-big-city-elections'],
+  63: ['Santucci & Ketcham, MI', 'Jack Santucci and John Ketcham, “Understanding How Proportional Representation Might Work in New York City,” Manhattan Institute, June 4, 2026.', 'https://manhattan.institute/article/understanding-how-proportional-representation-might-work-in-new-york-city'],
+  64: ['Gelinas, City Journal', 'Nicole Gelinas, “The Migrant Contracting Mess,” City Journal, Summer 2024.', 'https://www.city-journal.org/article/the-migrant-contracting-mess'],
+  65: ['Appel, MI', 'Josh Appel, “Paying for Results: Rethinking NGO Procurement Through Performance-Based Models,” Manhattan Institute, Mar. 19, 2026.', 'https://manhattan.institute/article/paying-for-results-rethinking-ngo-procurement-through-performance-based-models']
+};
+
+</script>
+<script>
+/* The block: one long street section (elevation view), drawn left to right in seven zones that match the
+   brief's seven areas. Ground line at y = 560, sidewalk to 574, road to 628, subway below.
+   Elements tagged data-a="n" appear once idea n is applied; data-b="n" disappear then. */
+(function () {
+  var NS = 'http://www.w3.org/2000/svg';
+  var W = 4290, GY = 560;
+  BEL.W = W; BEL.GY = GY;
+
+  function S(tag, attrs, parent) {
+    var e = document.createElementNS(NS, tag);
+    for (var k in attrs) if (attrs[k] != null && attrs[k] !== '') e.setAttribute(k, attrs[k]);
+    if (parent) parent.appendChild(e);
+    return e;
+  }
+  function R(g, x, y, w, h, cls, extra) { var a = { x: x, y: y, width: w, height: h, 'class': cls }; if (extra) for (var k in extra) a[k] = extra[k]; return S('rect', a, g); }
+  function P(g, d, cls, extra) { var a = { d: d, 'class': cls }; if (extra) for (var k in extra) a[k] = extra[k]; return S('path', a, g); }
+  function C(g, cx, cy, r, cls, extra) { var a = { cx: cx, cy: cy, r: r, 'class': cls }; if (extra) for (var k in extra) a[k] = extra[k]; return S('circle', a, g); }
+  function T(g, x, y, s, cls) { var t = S('text', { x: x, y: y, 'class': cls }, g); t.textContent = s; return t; }
+  function A(g, n) { return S('g', { 'data-a': n }, g); }
+  function B(g, n) { return S('g', { 'data-b': n }, g); }
+  function wins(g, x, y, cols, rows, ww, wh, gx, gy, cls) {
+    var out = [];
+    for (var r = 0; r < rows; r++) for (var c = 0; c < cols; c++) out.push(R(g, x + c * (ww + gx), y + r * (wh + gy), ww, wh, cls || 'win'));
+    return out;
+  }
+  function box(g, x, top, w, cls) { R(g, x, top, w, GY - top, cls || 'bf'); R(g, x - 3, top - 6, w + 6, 6, 'bf'); }
+  function person(g, x, y, cls) {
+    var p = S('g', { 'class': cls || 'pf' }, g);
+    C(p, x, y - 26, 4.6);
+    P(p, 'M' + (x - 5.5) + ',' + y + ' V' + (y - 13) + ' Q' + (x - 5.5) + ',' + (y - 20) + ' ' + x + ',' + (y - 20) + ' Q' + (x + 5.5) + ',' + (y - 20) + ' ' + (x + 5.5) + ',' + (y - 13) + ' V' + y + ' Z');
+    return p;
+  }
+  function cop(g, x, y, cls) { var p = person(g, x, y, cls || 'fixf'); R(p, x - 5.5, y - 33, 11, 3.5, 'ink'); return p; }
+  function kid(g, x, y, cls) {
+    var p = S('g', { 'class': cls || 'pf' }, g);
+    C(p, x, y - 15, 3.4);
+    P(p, 'M' + (x - 4) + ',' + y + ' V' + (y - 7) + ' Q' + (x - 4) + ',' + (y - 11) + ' ' + x + ',' + (y - 11) + ' Q' + (x + 4) + ',' + (y - 11) + ' ' + (x + 4) + ',' + (y - 7) + ' V' + y + ' Z');
+    return p;
+  }
+  function tree(g, x, h) { R(g, x - 2, GY - h * 0.45, 4, h * 0.45, 'ink'); C(g, x, GY - h * 0.66, h * 0.3, 'tree'); C(g, x + h * 0.16, GY - h * 0.55, h * 0.2, 'tree'); }
+  function car(g, x, y, cls) {
+    var c = S('g', { 'class': cls || 'car' }, g);
+    P(c, 'M' + x + ',' + (y - 6) + ' V' + (y - 16) + ' Q' + x + ',' + (y - 19) + ' ' + (x + 4) + ',' + (y - 19) + ' H' + (x + 13) + ' L' + (x + 21) + ',' + (y - 29) + ' H' + (x + 40) + ' L' + (x + 48) + ',' + (y - 19) + ' H' + (x + 55) + ' Q' + (x + 58) + ',' + (y - 19) + ' ' + (x + 58) + ',' + (y - 15) + ' V' + (y - 6) + ' Z');
+    R(c, x + 22, y - 26, 8, 7, 'win'); R(c, x + 33, y - 26, 8, 7, 'win');
+    C(c, x + 13, y - 5, 5, 'ink'); C(c, x + 45, y - 5, 5, 'ink');
+    return c;
+  }
+  function bus(g, x, y, cls) {
+    var b = S('g', { 'class': cls || 'bus' }, g);
+    R(b, x, y - 38, 118, 32, null, { rx: 4 });
+    for (var i = 0; i < 6; i++) R(b, x + 8 + i * 18, y - 33, 13, 11, 'win');
+    R(b, x, y - 17, 118, 4, 'stripe');
+    C(b, x + 22, y - 5, 5.5, 'ink'); C(b, x + 96, y - 5, 5.5, 'ink');
+    return b;
+  }
+  function check(g, x, y, s) { s = s || 1; return P(g, 'M' + x + ',' + y + ' l' + 4 * s + ',' + 4 * s + ' l' + 8 * s + ',' + -10 * s, 'fixl'); }
+
+  BEL.buildScene = function (svg) {
+    var L = {};
+    ['sky', 'far', 'mid', 'street', 'under', 'front'].forEach(function (k) { L[k] = S('g', { 'class': 'L-' + k }, svg); });
+    var g = L.mid, f = L.front, u = L.under;
+
+    /* ---------- Sky, skyline, river ---------- */
+    R(L.sky, -6000, -4000, W + 12000, 4000 + GY, 'sky');
+    R(L.sky, -6000, GY, W + 12000, 6000, 'earth');
+    var seed = 11;
+    function rnd() { seed = (seed * 16807) % 2147483647; return seed / 2147483647; }
+    var x;
+    for (x = -900; x < W + 900;) { var w1 = 50 + rnd() * 80, h1 = 250 + rnd() * 260; R(L.far, x, GY - h1, w1, h1, 'far2'); x += w1 + 6 + rnd() * 24; }
+    for (x = -900; x < W + 900;) { var w2 = 40 + rnd() * 70, h2 = 130 + rnd() * 190; R(L.far, x, GY - h2, w2, h2, 'far'); x += w2 + 4 + rnd() * 34; }
+    // a stepped tower and a crowned one, far off
+    R(L.far, 1470, GY - 520, 80, 520, 'far'); R(L.far, 1482, GY - 584, 56, 66, 'far'); R(L.far, 1494, GY - 626, 32, 44, 'far'); R(L.far, 1504, GY - 664, 12, 40, 'far'); R(L.far, 1508, GY - 724, 4, 62, 'far');
+    R(L.far, 3072, GY - 470, 60, 470, 'far'); P(L.far, 'M3072,' + (GY - 470) + ' L3102,' + (GY - 566) + ' L3132,' + (GY - 470) + ' Z', 'far'); R(L.far, 3100, GY - 626, 4, 62, 'far');
+    [[-120, 40, 1], [520, -60, 1.3], [1180, 90, 0.9], [1880, -20, 1.2], [2620, 70, 1], [3260, -80, 1.4], [3900, 30, 1.1], [4500, -40, 1]].forEach(function (c) {
+      var cx = c[0], cy0 = c[1], k = c[2];
+      P(L.sky, 'M' + cx + ',' + cy0 + ' h' + 150 * k + ' a' + 22 * k + ',' + 22 * k + ' 0 0,0 -' + 30 * k + ',-' + 30 * k + ' a' + 34 * k + ',' + 34 * k + ' 0 0,0 -' + 62 * k + ',-' + 14 * k + ' a' + 28 * k + ',' + 28 * k + ' 0 0,0 -' + 52 * k + ',' + 20 * k + ' a' + 20 * k + ',' + 20 * k + ' 0 0,0 -6,' + 24 * k + ' z', 'cloud');
+    });
+    [800, 880, 990, 1130].forEach(function (sy, i) {
+      var d = 'M-6000,' + sy;
+      for (var sx = -6000; sx < W + 6000; sx += 400) d += ' q100,' + (i % 2 ? 14 : -14) + ' 200,0 t200,0';
+      P(L.sky, d, 'strata');
+    });
+    // river behind the park, with Rikers on it
+    R(L.far, 2290, 462, 300, 98, 'water');
+    P(L.far, 'M2300,482 h30 M2522,490 h40 M2306,506 h24 M2544,470 h24', 'wave');
+    P(L.far, 'M2370,500 q22,-10 62,-10 h52 q22,0 32,10 z', 'bf3');
+    T(L.far, 2448, 514, 'RIKERS ISLAND', 'sm');
+    var rk = [[2390, 476, 30, 16], [2426, 470, 40, 22], [2472, 478, 24, 14]];
+    rk.forEach(function (r) { R(L.far, r[0], r[1], r[2], r[3], 'bf2'); });
+    var b29 = B(L.far, 29);
+    P(b29, 'M2396,478 l4,5 l-3,5 l3,4 M2438,472 l5,6 l-4,6 l4,5 M2478,480 l3,5 l-3,4', 'badl');
+    var a29 = A(L.far, 29);
+    rk.forEach(function (r) { R(a29, r[0], r[1], r[2], r[3], 'fixt'); for (var i = r[0] + 4; i < r[0] + r[2] - 4; i += 8) R(a29, i, r[1] + 4, 4, 4, 'lit'); });
+
+    /* ---------- Street and subway ---------- */
+    R(L.street, -6000, GY, W + 12000, 14, 'walk');
+    R(L.street, -6000, GY + 14, W + 12000, 54, 'road');
+    P(L.street, 'M-6000,' + (GY + 41) + ' H' + (W + 6000), 'lane');
+    R(u, -6000, 650, W + 12000, 110, 'tunnel');
+    P(u, 'M-6000,752 H' + (W + 6000), 'ln');
+    for (x = 1240; x < 2440; x += 200) {
+      R(u, x, 682, 190, 64, 'bf', { rx: 6 });
+      for (var i = 0; i < 6; i++) R(u, x + 12 + i * 29, 694, 20, 18, 'win');
+      R(u, x, 722, 190, 4, 'bf3');
+    }
+    R(u, 2860, 744, 330, 14, 'walk');
+    P(u, 'M2944,628 V640 h8 v8 h8 v8 h8 v8 h8 v8 h8 v8 h8 v8 h8 v8', 'ln');
+    P(u, 'M2944,622 L3008,690', 'ln2');
+    R(u, 3080, 664, 70, 16, 'ink'); T(u, 3115, 676, '50 ST', 'sm inv');
+    [2962, 2994, 3026].forEach(function (tx) { R(u, tx, 722, 8, 22, 'ink'); P(u, 'M' + (tx + 8) + ',730 h12', 'ln'); });
+    // entrance on the sidewalk
+    P(f, 'M2940,568 V548 H2998 V568', 'ln'); C(f, 2940, 541, 5, 'lamp'); C(f, 2998, 541, 5, 'lamp');
+    var b33 = B(u, 33);
+    var jump = S('g', { transform: 'rotate(-62 3001 716)' }, b33); person(jump, 3001, 734, 'bad');
+    P(b33, 'M2968,700 h-16 M2972,710 h-22 M2968,720 h-16', 'badl');
+    var a33 = A(u, 33);
+    person(a33, 2980, 744, 'pf'); R(a33, 2984, 714, 6, 6, 'fixf');
+    cop(a33, 3052, 744, 'fixf');
+
+    /* ---------- Ambient traffic and walkers ---------- */
+    car(f, 880, 618, 'car taxi'); car(f, 1640, 618, 'car'); car(f, 2520, 618, 'car taxi'); car(f, 3900, 618, 'car');
+    [118, 410, 1046, 1560, 2234, 2556, 2900, 3250, 3830, 4140].forEach(function (px, i) { person(f, px, 568 + (i % 2) * 3, 'pf'); });
+
+    /* ---------- 03 Homes ---------- */
+    // house + second unit (3)
+    R(g, 50, 482, 100, 78, 'bf'); P(g, 'M40,484 L100,438 L160,484 Z', 'bf3');
+    R(g, 64, 498, 20, 22, 'win'); R(g, 116, 498, 20, 22, 'win'); R(g, 91, 520, 18, 40, 'ink');
+    P(g, 'M150,546 H238 M150,553 H238', 'ln2');
+    for (x = 156; x < 238; x += 10) P(g, 'M' + x + ',542 V560', 'ln2');
+    var a3 = A(g, 3);
+    R(a3, 170, 508, 60, 52, 'fixt'); P(a3, 'M164,510 L200,486 L236,510 Z', 'fixt');
+    R(a3, 181, 522, 15, 15, 'lit'); R(a3, 207, 526, 13, 34, 'fixf');
+    // walk-up with boarded vacant units (1)
+    box(g, 248, 330, 116, 'bf2');
+    var w1s = wins(g, 260, 344, 4, 4, 18, 28, 8, 16);
+    R(g, 296, 520, 24, 40, 'ink'); P(g, 'M288,560 V553 H328 V560', 'ln');
+    var b1 = B(g, 1), a1 = A(g, 1);
+    [1, 2, 4, 7, 9, 10, 14].forEach(function (i) {
+      var r = w1s[i], wx = +r.getAttribute('x'), wy = +r.getAttribute('y');
+      R(b1, wx, wy, 18, 28, 'bf3'); P(b1, 'M' + (wx + 3) + ',' + (wy + 3) + ' L' + (wx + 15) + ',' + (wy + 25) + ' M' + (wx + 15) + ',' + (wy + 3) + ' L' + (wx + 3) + ',' + (wy + 25), 'badl');
+      R(a1, wx, wy, 18, 28, 'lit');
+    });
+    // underbuilt stabilized building (5)
+    var b5 = B(g, 5);
+    P(b5, 'M378,470 V300 H472 V470', 'ghost'); T(b5, 425, 318, 'ZONING ALLOWS', 'sm');
+    box(b5, 378, 470, 94, 'bf'); wins(b5, 390, 484, 3, 1, 16, 22, 13, 0); R(b5, 414, 524, 22, 36, 'ink');
+    var a5 = A(g, 5);
+    R(a5, 378, 300, 94, 170, 'fixt'); R(a5, 375, 294, 100, 6, 'fixt'); R(a5, 378, 470, 94, 90, 'bf');
+    wins(a5, 390, 314, 3, 4, 16, 22, 13, 14, 'lit'); wins(a5, 390, 484, 3, 1, 16, 22, 13, 0); R(a5, 414, 524, 22, 36, 'ink');
+    // parking lot -> apartments (4)
+    var b4 = B(g, 4);
+    P(b4, 'M488,560 V538 M592,560 V538 M488,542 H592', 'ln2');
+    car(b4, 496, 560, 'car'); P(b4, 'M578,560 V506', 'ln'); R(b4, 568, 488, 20, 20, 'ink'); T(b4, 578, 503, 'P', 'inv lg');
+    R(b4, 492, 512, 70, 12, 'bad'); T(b4, 527, 521, 'PARKING REQ.', 'sm inv');
+    var a4 = A(g, 4);
+    R(a4, 488, 350, 104, 210, 'fixt'); R(a4, 485, 344, 110, 6, 'fixt');
+    wins(a4, 498, 364, 4, 4, 16, 26, 8, 14, 'lit'); R(a4, 498, 522, 84, 38, 'win');
+    // stalled construction site (2)
+    P(g, 'M686,560 V298 M694,560 V298', 'ln');
+    for (var cy = 300; cy < 556; cy += 16) P(g, 'M686,' + cy + ' L694,' + (cy + 16), 'ln2');
+    P(g, 'M630,298 H736 M690,298 V282 L630,298 M690,282 L736,298', 'ln');
+    R(g, 718, 298, 16, 10, 'ink');
+    var b2 = B(g, 2);
+    P(b2, 'M646,298 V330', 'ln2');
+    R(b2, 604, 524, 78, 36, 'bf3'); R(b2, 612, 532, 62, 14, 'bad'); T(b2, 643, 542, 'STALLED', 'sm inv');
+    var a2 = A(g, 2);
+    R(a2, 606, 392, 74, 168, 'fixt');
+    for (var fy = 420; fy < 560; fy += 28) P(a2, 'M606,' + fy + ' H680', 'fixl');
+    P(a2, 'M630,392 V560 M656,392 V560', 'fixl');
+    P(a2, 'M646,298 V372', 'ln'); R(a2, 624, 372, 44, 5, 'fixf');
+    // NYCHA tower (7)
+    box(g, 722, 190, 100, 'brick'); T(g, 772, 180, 'NYCHA', 'sm');
+    for (var r7 = 0; r7 < 11; r7++) [732, 750, 790, 808].forEach(function (wx) { R(g, wx, 204 + r7 * 30, 12, 16, 'win'); });
+    R(g, 767, 196, 14, 324, 'bf3'); R(g, 762, 524, 24, 36, 'ink');
+    var b7 = B(g, 7);
+    R(b7, 767, 196, 14, 324, 'ink'); R(b7, 725, 526, 37, 12, 'bad'); T(b7, 743.5, 535, 'BROKEN', 'sm inv');
+    var a7 = A(g, 7);
+    R(a7, 767, 196, 14, 324, 'fixt'); R(a7, 768, 292, 12, 18, 'fixf');
+    [[738, 262], [796, 352], [738, 442]].forEach(function (p) { P(a7, 'M' + p[0] + ',' + p[1] + ' q3,-4 0,-8 q-3,-4 0,-8 M' + (p[0] + 6) + ',' + p[1] + ' q3,-4 0,-8 q-3,-4 0,-8', 'fixl'); });
+    // big rental building + tax (6)
+    box(g, 838, 290, 100, 'bf'); wins(g, 850, 304, 3, 6, 18, 24, 13, 15); R(g, 876, 528, 24, 32, 'ink');
+    var b6 = B(g, 6);
+    P(b6, 'M850,284 L926,284 L914,246 L862,246 Z', 'ink'); T(b6, 888, 272, 'TAX', 'inv lg');
+    var a6 = A(g, 6);
+    R(a6, 838, 210, 100, 80, 'fixt'); R(a6, 835, 204, 106, 6, 'fixt'); wins(a6, 850, 222, 3, 2, 18, 24, 13, 15, 'lit');
+    // co-op with an LL97 fine (8)
+    box(g, 952, 400, 86, 'bf2'); wins(g, 964, 414, 3, 3, 16, 22, 11, 14); R(g, 984, 524, 22, 36, 'ink'); R(g, 1016, 370, 10, 24, 'bf3');
+    var b8 = B(g, 8);
+    R(b8, 957, 520, 24, 30, 'bad', { transform: 'rotate(-6 969 535)' }); T(b8, 969, 540, '$', 'inv lg'); T(b8, 969, 514, 'LL97', 'sm tb');
+
+    /* ---------- 04 Schools ---------- */
+    box(g, 1092, 300, 340, 'bf'); R(g, 1092, 300, 340, 20, 'bf3'); T(g, 1262, 314, 'PUBLIC SCHOOL 50', 'sm');
+    var rooms = [];
+    [330, 420].forEach(function (ry) { [1104, 1214, 1324].forEach(function (rx) { R(g, rx, ry, 98, 80, 'room'); rooms.push([rx, ry]); }); });
+    R(g, 1244, 516, 36, 44, 'ink'); P(g, 'M1234,560 V553 H1290 V560', 'ln');
+    [1110, 1150, 1190, 1300, 1340, 1380].forEach(function (wx) { R(g, wx, 516, 26, 30, 'win'); });
+    // room 0: attendance (10)
+    var seats = [];
+    for (var sr = 0; sr < 2; sr++) for (var sc = 0; sc < 4; sc++) seats.push([1114 + sc * 22, 372 + sr * 28]);
+    var b10 = B(g, 10), a10 = A(g, 10);
+    seats.forEach(function (s, i) {
+      R(g, s[0], s[1], 14, 4, 'ink');
+      if (i === 0 || i === 6) { kid(g, s[0] + 7, s[1], 'pf'); }
+      else { C(b10, s[0] + 7, s[1] - 10, 4.5, 'badl', { 'stroke-dasharray': '2 2' }); kid(a10, s[0] + 7, s[1], 'fixf'); }
+    });
+    R(g, 1114, 336, 60, 12, 'ink');
+    // room 1: early screening (11)
+    R(g, 1222, 336, 82, 26, 'ink'); T(g, 1263, 353, 'ABC  123', 'sm inv');
+    [1236, 1263, 1290].forEach(function (kx) { kid(g, kx, 404, 'pf'); });
+    var b11 = B(g, 11); T(b11, 1236, 382, '?', 'lg tb'); T(b11, 1290, 382, '?', 'lg tb');
+    var a11 = A(g, 11); [1236, 1263, 1290].forEach(function (kx) { check(a11, kx - 6, 376, 0.8); });
+    // room 2: order (14)
+    var b14 = B(g, 14);
+    P(b14, 'M1334,350 c10,-10 20,10 30,0 s20,-12 30,0 M1338,368 l12,-8 l6,10 l12,-12 l8,9', 'badl');
+    P(b14, 'M1390,346 l14,4 l-14,4 l3,-4 z', 'bad');
+    kid(b14, 1342, 404, 'pf'); kid(b14, 1366, 396, 'pf'); kid(b14, 1404, 404, 'pf');
+    var a14 = A(g, 14);
+    R(a14, 1332, 336, 50, 14, 'ink');
+    [1340, 1360, 1380].forEach(function (kx) { R(a14, kx - 6, 400, 14, 4, 'ink'); kid(a14, kx + 1, 400, 'fixf'); });
+    person(a14, 1408, 408, 'fixf');
+    // room 3: AI by grade (20)
+    R(g, 1138, 474, 28, 16, 'ink'); P(g, 'M1132,492 H1172', 'ln');
+    var b20 = B(g, 20); T(b20, 1152, 462, '?', 'lg tb');
+    var a20 = A(g, 20);
+    [['K–2', 'bf3'], ['3–5', 'fixt'], ['6–8', 'fixt'], ['9–12', 'fixf']].forEach(function (tg, i) {
+      R(a20, 1108 + i * 23, 430, 21, 12, tg[1]); T(a20, 1118.5 + i * 23, 439, tg[0], 'sm' + (i === 3 ? ' inv' : ''));
+    });
+    P(a20, 'M1110,432 L1127,440', 'ln');
+    // room 4: gifted seats (15)
+    var b15 = B(g, 15); R(b15, 1230, 432, 66, 14, 'bad'); T(b15, 1263, 442, 'WAITLIST', 'sm inv');
+    [1240, 1286].forEach(function (dx) { R(g, dx - 7, 488, 14, 4, 'ink'); kid(g, dx, 488, 'pf'); });
+    var a15 = A(g, 15); R(a15, 1230, 432, 66, 14, 'fixf'); T(a15, 1263, 442, 'NEW SEATS', 'sm inv');
+    [1256, 1272].forEach(function (dx) { R(a15, dx - 7, 488, 14, 4, 'ink'); kid(a15, dx, 488, 'fixf'); });
+    [1240, 1263, 1286].forEach(function (dx) { R(a15, dx - 7, 466, 14, 4, 'ink'); kid(a15, dx, 466, 'fixf'); });
+    // room 5: monthly attendance data (9)
+    R(g, 1334, 430, 78, 54, 'bf', {}); T(g, 1373, 497, 'ATTENDANCE', 'sm');
+    var b9 = B(g, 9); R(b9, 1344, 452, 58, 26, 'bf3'); T(b9, 1373, 446, 'ONCE A YEAR', 'sm tb');
+    var a9 = A(g, 9);
+    [10, 14, 12, 18, 20, 16, 22, 19, 24, 21, 26, 23].forEach(function (hh, i) { R(a9, 1340 + i * 5.7, 480 - hh, 4, hh, 'fixf'); });
+    T(a9, 1373, 446, 'MONTHLY', 'sm tf');
+    // charter school (12)
+    box(g, 1446, 380, 100, 'bf2');
+    var w12 = wins(g, 1458, 396, 3, 3, 18, 24, 13, 16); R(g, 1484, 520, 24, 40, 'ink');
+    var b12 = B(g, 12); P(b12, 'M1484,522 L1508,558 M1508,522 L1484,558', 'badl'); R(b12, 1462, 504, 68, 12, 'bad'); T(b12, 1496, 513, 'VACANT', 'sm inv');
+    var a12 = A(g, 12);
+    w12.forEach(function (r) { R(a12, +r.getAttribute('x'), +r.getAttribute('y'), 18, 24, 'lit'); });
+    R(a12, 1452, 504, 88, 13, 'fixf'); T(a12, 1496, 514, 'CHARTER SCHOOL', 'sm inv');
+    var a12f = A(f, 12); kid(a12f, 1470, 568, 'fixf'); kid(a12f, 1522, 568, 'fixf');
+    // small under-enrolled school (13)
+    R(g, 1560, 450, 80, 110, 'bf'); P(g, 'M1556,452 L1600,428 L1644,452 Z', 'bf3'); T(g, 1600, 446, 'P.S. 51', 'sm');
+    wins(g, 1572, 466, 2, 2, 18, 22, 20, 14); R(g, 1590, 530, 20, 30, 'ink');
+    P(g, 'M1638,452 V410', 'ln'); R(g, 1638, 410, 14, 9, 'fixf');
+    var b13 = B(g, 13); R(b13, 1568, 398, 64, 13, 'bad'); T(b13, 1600, 408, 'UNDER 150', 'sm inv');
+    var a13 = A(g, 13); R(a13, 1568, 398, 64, 13, 'fixf'); T(a13, 1600, 408, 'MERGED', 'sm inv');
+    // CTE shop (16)
+    box(g, 1656, 466, 92, 'bf2'); T(g, 1702, 480, 'CTE SHOP', 'sm'); R(g, 1668, 490, 68, 70, 'room');
+    var b16 = B(g, 16); R(b16, 1668, 490, 68, 70, 'bf3');
+    for (var gy = 497; gy < 560; gy += 7) P(b16, 'M1668,' + gy + ' H1736', 'ln2');
+    var a16 = A(g, 16);
+    R(a16, 1676, 534, 52, 5, 'ink'); P(a16, 'M1680,539 V560 M1724,539 V560', 'ln');
+    C(a16, 1712, 516, 6, 'fixl'); P(a16, 'M1686,524 l9,-9', 'fixl');
+    person(a16, 1694, 558, 'fixf'); R(a16, 1688, 527, 12, 4, 'orn');
+    // CUNY (21)
+    box(g, 1762, 330, 120, 'bf'); R(g, 1762, 330, 120, 18, 'bf3'); T(g, 1822, 343, 'CUNY', 'sm');
+    var w21 = wins(g, 1774, 360, 4, 4, 16, 24, 10, 14);
+    [1770, 1792, 1844, 1866].forEach(function (cx) { R(g, cx, 510, 8, 50, 'bf3'); }); R(g, 1812, 514, 20, 46, 'ink');
+    var a21 = A(g, 21);
+    w21.forEach(function (r, i) { if (i % 3 !== 1) R(a21, +r.getAttribute('x'), +r.getAttribute('y'), 16, 24, 'lit'); });
+    P(a21, 'M1880,248 a16,16 0 1,0 14,24 a12,12 0 1,1 -14,-24 z', 'lit');
+    R(a21, 1778, 302, 88, 13, 'fixf'); T(a21, 1822, 312, 'EVENING CLASSES', 'sm inv');
+    // DOE special-education office (17, 18, 19)
+    box(g, 1896, 364, 88, 'bf2'); R(g, 1896, 364, 88, 16, 'bf3'); T(g, 1940, 376, 'DOE SPECIAL ED', 'sm');
+    R(g, 1904, 386, 72, 52, 'room'); R(g, 1904, 444, 72, 52, 'room'); R(g, 1904, 502, 72, 58, 'room');
+    var b17 = B(g, 17);
+    for (var ps = 0; ps < 8; ps++) R(b17, 1912, 430 - ps * 5, 30, 4, 'bf');
+    T(b17, 1960, 410, 'AUTO', 'sm tb'); T(b17, 1960, 420, 'RENEW', 'sm tb');
+    var a17 = A(g, 17);
+    R(a17, 1912, 430, 30, 4, 'bf'); R(a17, 1912, 425, 30, 4, 'bf');
+    R(a17, 1950, 398, 18, 18, 'fixt'); check(a17, 1953, 406, 0.8); T(a17, 1959, 428, 'YEARLY', 'sm tf');
+    var b18 = B(g, 18); P(b18, 'M1914,474 H1964 m-6,-5 l6,5 l-6,5', 'badl'); T(b18, 1940, 464, 'OUTSOURCED', 'sm tb');
+    var a18 = A(g, 18); [1920, 1940, 1960].forEach(function (px) { person(a18, px, 494, 'fixf'); }); R(a18, 1944, 474, 7, 9, 'bf');
+    var b19 = B(g, 19); R(b19, 1918, 518, 18, 9, 'bad'); P(b19, 'M1927,527 L1942,546', 'badl'); R(b19, 1940, 548, 18, 5, 'bad'); T(b19, 1956, 528, 'SUE', 'sm tb');
+    var a19 = A(g, 19); R(a19, 1926, 536, 28, 4, 'ink'); P(a19, 'M1930,540 V558 M1950,540 V558', 'ln'); person(a19, 1916, 558, 'fixf'); person(a19, 1964, 558, 'fixf');
+
+    /* ---------- 05 Childcare ---------- */
+    box(g, 2026, 392, 124, 'bf'); wins(g, 2038, 404, 4, 2, 18, 24, 10, 14);
+    R(g, 2034, 474, 108, 12, 'bf3'); R(g, 2034, 488, 108, 72, 'win');
+    var b22 = B(g, 22); R(b22, 2034, 488, 108, 72, 'bf3'); P(b22, 'M2034,488 L2142,560 M2142,488 L2034,560', 'ln2'); R(b22, 2062, 508, 52, 14, 'bad'); T(b22, 2088, 518, 'FOR LEASE', 'sm inv');
+    var a22 = A(g, 22);
+    R(a22, 2034, 474, 108, 12, 'fixf'); T(a22, 2088, 483, 'DAY CARE', 'sm inv');
+    R(a22, 2046, 540, 10, 10, 'orn'); R(a22, 2056, 540, 10, 10, 'fixf'); R(a22, 2051, 530, 10, 10, 'lit');
+    C(a22, 2126, 504, 6, 'lit'); kid(a22, 2078, 558, 'fixf'); kid(a22, 2098, 558, 'fixf'); person(a22, 2116, 558, 'fixf');
+    var b25 = S('g', { 'data-a': 22, 'data-b': 25 }, g); R(b25, 2098, 492, 40, 12, 'bad'); T(b25, 2118, 501, 'TO 6 PM', 'sm inv');
+    var a25 = A(g, 25); R(a25, 2034, 488, 108, 72, 'lit', { opacity: 0.35 }); R(a25, 2098, 492, 40, 12, 'fixf'); T(a25, 2118, 501, 'TO 8 PM', 'sm inv');
+    P(a25, 'M2140,326 a14,14 0 1,0 12,21 a10,10 0 1,1 -12,-21 z', 'lit');
+    // rowhouse with home-based care (23)
+    box(g, 2162, 420, 124, 'brick'); wins(g, 2176, 434, 3, 2, 22, 30, 18, 16);
+    R(g, 2190, 522, 20, 38, 'ink'); P(g, 'M2180,560 L2186,540 H2214 V560', 'ln');
+    var a23 = A(g, 23);
+    R(a23, 2256, 480, 22, 30, 'lit'); R(a23, 2259, 500, 7, 7, 'orn'); R(a23, 2267, 500, 7, 7, 'fixf'); R(a23, 2263, 493, 7, 7, 'win');
+    R(a23, 2220, 522, 66, 22, 'fixt'); T(a23, 2253, 531, 'HOME', 'sm tf'); T(a23, 2253, 540, 'CHILD CARE', 'sm tf');
+    // family with a voucher (24)
+    var a24 = A(f, 24);
+    person(a24, 2150, 568, 'fixf');
+    P(a24, 'M2160,552 h18 q4,0 4,6 h-22 z', 'fixt'); C(a24, 2164, 566, 3, 'ink'); C(a24, 2178, 566, 3, 'ink');
+    R(a24, 2152, 518, 30, 18, 'fixt', { rx: 2 }); T(a24, 2167, 531, '$', 'lg tf');
+
+    /* ---------- 06 Streets ---------- */
+    R(g, 2292, 522, 292, 38, 'lawn');
+    tree(g, 2318, 96);
+    R(g, 2392, 546, 46, 4, 'ink'); R(g, 2392, 538, 46, 3, 'ink'); P(g, 'M2396,550 V560 M2434,550 V560', 'ln');
+    P(g, 'M2452,560 V506', 'ln'); C(g, 2452, 504, 5, 'lit');
+    var b26 = B(g, 26);
+    R(b26, 2360, 548, 16, 12, 'bad'); P(b26, 'M2380,540 q6,-6 0,-12 M2388,542 q9,-9 0,-18 M2396,544 q12,-12 0,-24', 'badl');
+    C(b26, 2404, 557, 2, 'bad'); C(b26, 2418, 558, 2, 'bad'); C(b26, 2426, 556, 2, 'bad');
+    var a26 = A(g, 26);
+    person(a26, 2404, 546, 'fixf'); kid(a26, 2422, 546, 'fixf'); cop(a26, 2368, 560, 'fixf');
+    // handball wall (30)
+    R(g, 2500, 516, 66, 44, 'bf3');
+    var b30 = B(g, 30);
+    P(b30, 'M2506,530 c8,-12 14,12 22,0 s12,-10 20,4 M2508,552 l9,-9 l7,10 l9,-12 l9,10 M2550,524 l10,8', 'badl');
+    C(b30, 2484, 553, 7, 'ink'); C(b30, 2492, 555, 6, 'ink');
+    // precinct (27, 28)
+    box(g, 2588, 404, 102, 'bf'); R(g, 2588, 404, 102, 16, 'bf3'); T(g, 2639, 416, 'POLICE · 50 PCT', 'sm');
+    wins(g, 2600, 432, 3, 2, 20, 24, 11, 14); R(g, 2627, 516, 24, 44, 'ink');
+    C(g, 2619, 520, 4.5, 'lamp'); C(g, 2659, 520, 4.5, 'lamp');
+    P(g, 'M2594,500 h18 v8 q0,9 -9,11 q-9,-2 -9,-11 z', 'bf3');
+    var b28 = B(g, 28); T(b28, 2603, 514, '?', 'tb');
+    var a28 = A(g, 28); P(a28, 'M2594,500 h18 v8 q0,9 -9,11 q-9,-2 -9,-11 z', 'fixt'); check(a28, 2597, 508, 0.7);
+    var a27 = A(f, 27); [2604, 2662, 2680].forEach(function (px) { cop(a27, px, 568, 'fixf'); });
+    // clinic (31)
+    box(g, 2702, 458, 82, 'bf'); P(g, 'M2743,464 v18 M2734,473 h18', 'ln');
+    wins(g, 2712, 492, 2, 1, 18, 20, 26, 0); R(g, 2732, 520, 22, 40, 'ink');
+    var b31 = B(g, 31); R(b31, 2706, 526, 24, 12, 'bad'); T(b31, 2718, 535, 'SHUT', 'sm inv');
+    var a31 = A(g, 31); P(a31, 'M2743,464 v18 M2734,473 h18', 'fixl'); R(a31, 2706, 526, 24, 12, 'fixf'); T(a31, 2718, 535, 'OPEN', 'sm inv'); person(a31, 2762, 560, 'fixf');
+    // hospital (32)
+    box(g, 2798, 304, 128, 'bf'); R(g, 2798, 304, 128, 18, 'bf3'); T(g, 2862, 317, 'HOSPITAL', 'sm');
+    var w32 = wins(g, 2810, 332, 4, 5, 20, 22, 9, 16); R(g, 2848, 518, 28, 42, 'ink');
+    var a32 = A(g, 32);
+    w32.slice(0, 8).forEach(function (r) { var wx = +r.getAttribute('x'), wy = +r.getAttribute('y'); R(a32, wx, wy, 20, 22, 'lit'); R(a32, wx + 3, wy + 13, 14, 5, 'fixf'); R(a32, wx + 3, wy + 10, 5, 3, 'white'); });
+    R(a32, 2822, 280, 80, 13, 'fixf'); T(a32, 2862, 290, '+ PSYCH BEDS', 'sm inv');
+    // robotaxi (34)
+    var a34 = A(f, 34); car(a34, 2724, 618, 'car avc'); R(a34, 2747, 584, 12, 5, 'fixf'); C(a34, 2753, 582, 3.5, 'fixf'); T(a34, 2766, 610, 'AV', 'sm tf');
+
+    /* ---------- 07 Work ---------- */
+    var a35 = A(f, 35);
+    var van = S('g', { 'class': 'car avc' }, a35);
+    P(van, 'M3036,612 V586 Q3036,582 3040,582 H3102 L3116,596 H3124 Q3128,596 3128,600 V612 Z');
+    R(van, 3104, 586, 9, 9, 'win'); C(van, 3052, 613, 5, 'ink'); C(van, 3110, 613, 5, 'ink');
+    P(a35, 'M3044,578 H3094 M3048,574 V582 M3060,574 V582 M3072,574 V582 M3084,574 V582 M3044,574 H3094', 'ln');
+    T(a35, 3068, 602, 'LICENSED', 'sm tf');
+    person(a35, 3140, 568, 'fixf'); R(a35, 3143, 550, 6, 8, 'white');
+    var a36 = A(f, 36);
+    R(a36, 3160, 544, 40, 18, 'bf3'); C(a36, 3168, 566, 4, 'ink'); C(a36, 3192, 566, 4, 'ink');
+    P(a36, 'M3180,544 V520', 'ln'); P(a36, 'M3156,522 Q3180,500 3204,522 Z', 'fixf');
+    R(a36, 3172, 548, 16, 8, 'white'); person(a36, 3212, 568, 'pf');
+    // supermarket (37)
+    R(g, 3212, 454, 128, 106, 'bf2');
+    P(g, 'M3212,454 l20,-14 v14 l20,-14 v14 l20,-14 v14 l20,-14 v14 l20,-14 v14 l20,-14 v14 l8,-6 v6 z', 'bf3');
+    R(g, 3222, 490, 108, 70, 'win');
+    var b37 = B(g, 37); R(b37, 3222, 490, 108, 70, 'bf3');
+    for (gy = 496; gy < 560; gy += 7) P(b37, 'M3222,' + gy + ' H3330', 'ln2');
+    R(b37, 3238, 466, 76, 14, 'bad'); T(b37, 3276, 476, 'ZONED OUT', 'sm inv');
+    var a37 = A(g, 37);
+    R(a37, 3226, 464, 100, 16, 'fixf'); T(a37, 3276, 475, 'SUPERMARKET', 'sm inv');
+    [['orn', 3236], ['lit', 3250], ['tree', 3264], ['bad', 3278], ['orn', 3292], ['lit', 3306], ['tree', 3320]].forEach(function (p) { C(a37, p[1], 548, 5, p[0]); });
+    P(a37, 'M3238,510 h40 l-6,16 h-28 z M3244,530 v4 M3270,530 v4', 'fixl');
+
+    /* ---------- 08 Services ---------- */
+    box(g, 3364, 362, 142, 'bf'); R(g, 3364, 362, 142, 16, 'bf3'); T(g, 3435, 374, 'NYC SERVICE CENTER', 'sm');
+    wins(g, 3376, 390, 4, 2, 24, 26, 10, 14); R(g, 3422, 506, 28, 54, 'ink');
+    R(g, 3376, 472, 36, 24, 'ink'); T(g, 3394, 489, '311', 'inv lg');
+    P(g, 'M3404,356 V344 M3466,356 V344', 'ln'); R(g, 3392, 316, 86, 28, 'bf3');
+    var b43 = B(g, 43); T(b43, 3435, 334, 'LAST YEAR’S DATA', 'sm tb');
+    var a43 = A(g, 43); R(a43, 3392, 316, 86, 28, 'fixt'); P(a43, 'M3398,338 L3412,332 L3424,335 L3438,326 L3452,329 L3470,320', 'fixl');
+    var b39 = B(g, 39);
+    [[3418, 474, -14], [3428, 480, 10], [3420, 487, -4], [3432, 476, 22]].forEach(function (s) { R(b39, s[0], s[1], 12, 9, 'bf', { transform: 'rotate(' + s[2] + ' ' + (s[0] + 6) + ' ' + (s[1] + 4) + ')' }); });
+    var a39 = A(g, 39); R(a39, 3418, 474, 28, 5, 'fixf'); R(a39, 3418, 482, 20, 5, 'fixf', { opacity: 0.7 }); R(a39, 3418, 490, 12, 5, 'fixf', { opacity: 0.45 });
+    var b38 = B(f, 38);
+    for (var q = 0; q < 6; q++) person(b38, 3384 + q * 13, 568, 'pf');
+    C(b38, 3368, 522, 8, 'white'); C(b38, 3368, 522, 8, 'badl'); P(b38, 'M3368,517 V522 H3372', 'badl');
+    var a38 = A(f, 38);
+    person(a38, 3384, 568, 'pf'); C(a38, 3368, 522, 8, 'white'); C(a38, 3368, 522, 8, 'fixl'); P(a38, 'M3368,517 V522 H3372', 'fixl');
+    // bus stop and buses (40)
+    P(f, 'M3540,568 V522', 'ln'); R(f, 3532, 512, 16, 11, 'stripe');
+    var a40s = A(L.street, 40); R(a40s, 3352, GY + 42, 460, 24, 'buslane');
+    var b40 = B(f, 40); bus(b40, 3556, 618, 'bus'); T(b40, 3615, 576, '9.3 MPH', 'sm tb');
+    [3524, 3512, 3500].forEach(function (px) { person(b40, px, 568, 'pf'); });
+    var a40 = A(f, 40); bus(a40, 3672, 626, 'bus'); P(a40, 'M3664,598 h-26 M3664,608 h-38 M3664,618 h-22', 'fixl'); bus(a40, 3390, 626, 'bus'); T(a40, 3731, 584, 'FASTER', 'sm tf');
+    // bar strip (41)
+    box(g, 3528, 474, 86, 'brick'); R(g, 3536, 504, 70, 56, 'win'); R(g, 3548, 482, 46, 16, 'ink'); T(g, 3571, 495, 'BAR', 'lg to');
+    var b41 = B(g, 41); P(b41, 'M3612,452 q8,-8 0,-16 M3620,456 q12,-12 0,-24', 'badl'); T(b41, 3596, 460, '!', 'lg tb');
+    var a41 = A(g, 41); C(a41, 3571, 446, 7, 'fixl'); C(a41, 3571, 446, 14, 'fixl', { opacity: 0.55 }); C(a41, 3571, 446, 2.5, 'fixf'); T(a41, 3571, 424, 'FORECAST', 'sm tf');
+    // vacant storefront under a sidewalk shed (42)
+    box(g, 3622, 424, 82, 'bf2'); wins(g, 3634, 438, 2, 2, 20, 24, 18, 14); R(g, 3632, 516, 62, 44, 'bf3');
+    R(f, 3614, 504, 98, 6, 'bf3'); P(f, 'M3618,510 V568 M3708,510 V568', 'ln');
+    var b42 = B(f, 42); P(b42, 'M3640,568 L3660,540 L3680,568 Z', 'bf3'); P(b42, 'M3640,568 L3660,540 L3680,568 Z', 'badl');
+    var a42 = A(f, 42); C(a42, 3640, 514, 3.5, 'lit'); C(a42, 3686, 514, 3.5, 'lit'); person(a42, 3662, 568, 'fixf'); R(a42, 3657, 550, 10, 6, 'orn');
+    // municipal tower and benefits scale (44)
+    box(g, 3714, 262, 96, 'bf'); wins(g, 3726, 276, 3, 7, 16, 22, 14, 14); R(g, 3750, 524, 24, 36, 'ink');
+    P(g, 'M3762,256 V228', 'ln'); P(g, 'M3754,256 h16', 'ln');
+    var b44 = B(g, 44); P(b44, 'M3740,240 L3784,216', 'badl'); C(b44, 3740, 246, 7, 'bad'); C(b44, 3784, 222, 5, 'bf3');
+    var a44 = A(g, 44); P(a44, 'M3740,228 H3784', 'fixl'); C(a44, 3740, 234, 6, 'fixf'); C(a44, 3784, 234, 6, 'fixf');
+
+    /* ---------- 09 City Hall ---------- */
+    box(g, 3846, 432, 96, 'bf'); box(g, 4040, 432, 96, 'bf');
+    wins(g, 3858, 448, 3, 2, 18, 30, 12, 20); wins(g, 4052, 448, 3, 2, 18, 30, 12, 20);
+    R(g, 3972, 372, 38, 40, 'bf'); P(g, 'M3972,372 A19,19 0 0,1 4010,372 Z', 'bf3'); R(g, 3986, 342, 10, 12, 'bf'); P(g, 'M3991,342 V300', 'ln'); R(g, 3991, 300, 20, 11, 'fixf');
+    R(g, 3942, 446, 98, 114, 'bf');
+    P(g, 'M3934,446 L3991,410 L4048,446 Z', 'bf3'); T(g, 3991, 440, 'CITY HALL', 'sm');
+    R(g, 3982, 490, 18, 50, 'ink');
+    for (var col = 0; col < 5; col++) R(g, 3950 + col * 20, 452, 8, 88, 'bf2');
+    R(g, 3930, 540, 122, 6, 'bf3'); R(g, 3922, 546, 138, 7, 'bf3'); R(g, 3914, 553, 154, 7, 'bf3');
+    // budget board (45)
+    R(f, 3852, 518, 70, 30, 'bf'); P(f, 'M3858,548 V568 M3916,548 V568', 'ln');
+    var b45 = B(f, 45); R(b45, 3858, 526, 30, 8, 'bad'); R(b45, 3888, 526, 28, 8, 'ghost'); T(b45, 3887, 544, '$6.4–8.8B GAP', 'sm tb');
+    var a45 = A(f, 45); R(a45, 3858, 526, 58, 8, 'fixf'); T(a45, 3887, 544, 'GAP CLOSED', 'sm tf');
+    // FOIL sign (46) and emergency sign (49), between window rows
+    var b46 = B(g, 46); R(b46, 3856, 482, 82, 12, 'bad'); T(b46, 3897, 491, 'FOIL: 6 MONTHS', 'sm inv');
+    var a46 = A(g, 46); R(a46, 3856, 482, 82, 12, 'fixf'); T(a46, 3897, 491, 'FOIL: ON TIME', 'sm inv');
+    var b49 = B(g, 49); R(b49, 4050, 482, 82, 12, 'bad'); T(b49, 4091, 491, 'EMERGENCY', 'sm inv');
+    var a49 = A(g, 49); R(a49, 4050, 482, 82, 12, 'fixf'); T(a49, 4091, 491, 'OPEN BIDS', 'sm inv');
+    // council hemicycle in a window (48)
+    var seatsPR = [];
+    R(g, 4079, 445, 54, 34, 'room');
+    for (var sa = 0; sa < 9; sa++) { var ang = Math.PI * (sa / 8); seatsPR.push([4106 - Math.cos(ang) * 20, 474 - Math.sin(ang) * 22]); }
+    seatsPR.push([4106, 474]);
+    var b48 = B(g, 48); seatsPR.forEach(function (s) { C(b48, s[0], s[1], 2.8, 'ink'); });
+    var a48 = A(g, 48); var prc = ['fixf', 'fixf', 'orn', 'orn', 'lamp', 'fixf', 'ink', 'orn', 'fixf', 'lamp'];
+    seatsPR.forEach(function (s, i) { C(a48, s[0], s[1], 2.8, prc[i]); });
+    // ballot box (47)
+    R(f, 4054, 544, 26, 24, 'bf'); P(f, 'M4060,550 h14', 'ln');
+    P(f, 'M4088,568 V532', 'ln');
+    var b47 = B(f, 47); R(b47, 4061, 532, 12, 10, 'bad'); P(b47, 'M4063,532 v-4 a4,4 0 0,1 8,0 v4', 'badl'); R(b47, 4086, 530, 56, 12, 'bad'); T(b47, 4114, 539, 'PARTY ONLY', 'sm inv');
+    var a47 = A(f, 47); R(a47, 4062, 532, 10, 13, 'fixt'); R(a47, 4086, 530, 56, 12, 'fixf'); T(a47, 4114, 539, 'ALL VOTERS', 'sm inv');
+    // nonprofit (50)
+    box(g, 4152, 444, 110, 'brick'); R(g, 4152, 444, 110, 14, 'bf3'); T(g, 4207, 455, 'NONPROFIT', 'sm');
+    wins(g, 4164, 470, 3, 1, 22, 26, 13, 0); R(g, 4204, 514, 22, 46, 'ink');
+    R(g, 4164, 510, 24, 30, 'white'); R(g, 4164, 510, 24, 30, 'ln'); P(g, 'M4168,518 h16 M4168,524 h16 M4168,530 h10', 'ln2');
+    var b50 = B(g, 50); T(b50, 4176, 553, 'UNPAID', 'sm tb'); P(b50, 'M4166,512 L4186,538', 'badl');
+    var a50 = A(g, 50); check(a50, 4168, 528, 1.1); T(a50, 4176, 553, 'PAID', 'sm tf');
+
+    return L;
+  };
+})();
+</script>
+<script>
+(function () {
+  function $(s, r) { return (r || document).querySelector(s); }
+  function $$(s, r) { return Array.prototype.slice.call((r || document).querySelectorAll(s)); }
+  function h(tag, attrs, parent) {
+    var e = document.createElement(tag);
+    if (attrs) for (var k in attrs) {
+      if (k === 'text') e.textContent = attrs[k];
+      else if (k === 'html') e.innerHTML = attrs[k];
+      else if (attrs[k] != null) e.setAttribute(k, attrs[k]);
+    }
+    if (parent) parent.appendChild(e);
+    return e;
+  }
+  function esc(s) { return String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;'); }
+  function pad(n) { return n < 10 ? '0' + n : String(n); }
+  function plain(s) { return s.replace(/\[\[[^|\]]+\|([^\]]+)\]\]/g, '$1'); }
+  function range(a, b) { var out = []; for (var i = a; i <= b; i++) out.push(i); return out; }
+  var reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var NS = 'http://www.w3.org/2000/svg';
+  var SITE = 'https://danielgolliher.github.io/swipe-right-nyc/';
+  var BRIEF = 'https://manhattan.institute/article/a-better-everyday-life-in-new-york-50-practical-ideas-to-renew-nycs-promise-of-opportunity';
+  var AREA = {};
+  BEL.AREAS.forEach(function (a) { AREA[a.id] = a; });
+
+  function toast(msg) {
+    var t = $('#toast'); t.textContent = msg; t.classList.add('on');
+    clearTimeout(toast.t); toast.t = setTimeout(function () { t.classList.remove('on'); }, 2000);
+  }
+  function copyText(text, msg) {
+    function fallback() {
+      var ta = h('textarea', { style: 'position:fixed;left:-9999px' }, document.body); ta.value = text; ta.select();
+      try { document.execCommand('copy'); toast(msg); } catch (err) { toast('Couldn’t copy'); }
+      ta.remove();
+    }
+    if (navigator.clipboard && navigator.clipboard.writeText) navigator.clipboard.writeText(text).then(function () { toast(msg); }, fallback);
+    else fallback();
+  }
+
+  /* ---------- Swipe state (this browser only) ---------- */
+  function load(k, d) { try { var v = JSON.parse(localStorage.getItem(k)); return v == null ? d : v; } catch (e) { return d; } }
+  function store(k, v) { try { localStorage.setItem(k, JSON.stringify(v)); } catch (e) {} }
+  var VAL = { nope: 1, like: 2, 'super': 3 }, BY = ['', 'nope', 'like', 'super'];
+  var S = { swipes: load('sr-swipes', {}), log: load('sr-log', []) };
+  Object.keys(S.swipes).forEach(function (k) { if (!VAL[S.swipes[k]] || !(k >= 1 && k <= 50)) delete S.swipes[k]; });
+  S.log = S.log.filter(function (n) { return S.swipes[n]; });
+  function save() { store('sr-swipes', S.swipes); store('sr-log', S.log); }
+  function rest() { return BEL.IDEAS.filter(function (d) { return !S.swipes[d.n]; }); }
+  function judgedCount() { return 50 - rest().length; }
+
+  // A result link carries all 50 verdicts in 17 characters: two bits per idea, base64url.
+  var B64 = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789-_';
+  function encode(sw) {
+    var bits = '', out = '';
+    for (var n = 1; n <= 50; n++) bits += ('0' + (VAL[sw[n]] || 0).toString(2)).slice(-2);
+    bits += '00';
+    for (var i = 0; i < bits.length; i += 6) out += B64[parseInt(bits.substr(i, 6), 2)];
+    return out;
+  }
+  function decode(str) {
+    var bits = '';
+    for (var i = 0; i < str.length; i++) { var k = B64.indexOf(str[i]); if (k < 0) return null; bits += ('00000' + k.toString(2)).slice(-6); }
+    if (bits.length < 100) return null;
+    var sw = {};
+    for (var n = 1; n <= 50; n++) { var v = parseInt(bits.substr((n - 1) * 2, 2), 2); if (v) sw[n] = BY[v]; }
+    return sw;
+  }
+
+  /* ---------- Scoring ---------- */
+  var TIERS = [
+    [100, 'Perfect match', 'You swiped right on every single idea. The authors may want your number.'],
+    [85, 'Practically on staff', 'You and the brief see the city almost the same way.'],
+    [70, 'Pragmatic reformer', 'You back most of the agenda, with a few reservations.'],
+    [50, 'Open-minded New Yorker', 'You’ll take a good idea from anywhere, and you found plenty here.'],
+    [30, 'Friendly skeptic', 'Some of it lands. A lot of it doesn’t, for you.'],
+    [1, 'Loyal opposition', 'You found a few ideas worth keeping. Mostly, you’d go another way.'],
+    [0, 'Swiped left on everything', 'Not one idea made the cut. Bold.']
+  ];
+  function compute(sw) {
+    var g = { 'super': [], like: [], nope: [] }, judged = 0;
+    BEL.IDEAS.forEach(function (d) { var v = sw[d.n]; if (VAL[v]) { g[v].push(d.n); judged++; } });
+    var agree = g['super'].length + g.like.length, pct = judged ? Math.round(agree / judged * 100) : 0;
+    var areas = BEL.AREAS.map(function (a) {
+      var ns = range(a.from, a.to), ag = 0, jd = 0;
+      ns.forEach(function (n) { if (sw[n]) { jd++; if (sw[n] !== 'nope') ag++; } });
+      return { a: a, ns: ns, agree: ag, judged: jd, pct: jd ? Math.round(ag / jd * 100) : null };
+    });
+    var t = TIERS.filter(function (x) { return pct >= x[0]; })[0];
+    if (pct > 0 && pct < 100 && t[0] === 100) t = TIERS[1];
+    var ranked = areas.filter(function (A) { return A.judged; }).sort(function (x, y) { return y.pct - x.pct || y.judged - x.judged; });
+    return { sw: sw, g: g, judged: judged, agree: agree, pct: pct, areas: areas, tier: { name: t[1], desc: t[2] }, best: ranked[0], worst: ranked[ranked.length - 1] };
+  }
+
+  /* ---------- Cards ---------- */
+  function cardFor(d, opts) {
+    var a = AREA[d.a];
+    var el = h('article', { 'class': 'sw-card', 'data-n': d.n, 'aria-label': 'Idea ' + d.n + ': ' + d.t });
+    var fig = h('div', { 'class': 'sw-fig' }, el);
+    h('span', { 'class': 'sw-area', text: a.short }, fig);
+    var svg = document.createElementNS(NS, 'svg');
+    svg.setAttribute('class', 'blk'); svg.setAttribute('preserveAspectRatio', 'xMidYMid slice'); svg.setAttribute('aria-hidden', 'true');
+    fig.appendChild(svg);
+    BEL.buildScene(svg);
+    $$('[data-a]', svg).forEach(function (e) { e.classList.toggle('on', +e.getAttribute('data-a') <= d.n); });
+    $$('[data-b]', svg).forEach(function (e) { e.classList.toggle('off', +e.getAttribute('data-b') <= d.n); });
+    var cy = Math.max(390, Math.min(600, d.y + 70));
+    svg.setAttribute('viewBox', [d.x - 300, cy - 150, 600, 300].join(' '));
+    var c = document.createElementNS(NS, 'circle'); c.setAttribute('cx', d.x); c.setAttribute('cy', d.y); c.setAttribute('r', 13);
+    c.setAttribute('style', 'fill:#2c48dc;stroke:#fff;stroke-width:2.5;vector-effect:non-scaling-stroke'); svg.appendChild(c);
+    var t = document.createElementNS(NS, 'text'); t.setAttribute('x', d.x); t.setAttribute('y', d.y + 4); t.textContent = d.n;
+    t.setAttribute('style', 'fill:#fff;font-size:11px'); svg.appendChild(t);
+    ['like', 'nope', 'super'].forEach(function (v) { h('span', { 'class': 'sw-stamp s-' + v, text: v === 'like' ? 'Like' : v === 'nope' ? 'Pass' : 'Super-like' }, el); });
+    var body = h('div', { 'class': 'sw-body' }, el);
+    h('span', { 'class': 'sw-num', text: pad(d.n) }, body);
+    h('h3', { text: d.t }, body);
+    h('p', { text: plain(d.d) }, body);
+    if (d.p) h('span', { 'class': 'partner', text: 'With ' + d.p }, body);
+    return el;
+  }
+
+  /* ---------- Screens ---------- */
+  var screens = { intro: $('#intro'), swipe: $('#swipe'), results: $('#results') };
+  function show(name) {
+    Object.keys(screens).forEach(function (k) { screens[k].hidden = k !== name; });
+    document.body.style.overflow = name === 'swipe' ? 'hidden' : '';
+    window.scrollTo(0, 0);
+    if (name === 'intro') renderCTA();
+    if (name === 'swipe') Deck.start();
+  }
+  function renderCTA() {
+    var done = judgedCount(), el = $('[data-cta]');
+    if (!done) el.innerHTML = '<button class="btn btn--solid btn--lg" type="button" data-go="swipe">Start swiping</button>';
+    else if (done < 50) el.innerHTML = '<button class="btn btn--solid btn--lg" type="button" data-go="swipe">Keep swiping · ' + (50 - done) + ' left</button><button class="btn" type="button" data-go="results">Report so far</button><button class="textbtn" type="button" data-again>Start over</button>';
+    else el.innerHTML = '<button class="btn btn--solid btn--lg" type="button" data-go="results">See my report</button><button class="btn" type="button" data-again>Swipe again</button>';
+  }
+  function initIntro() {
+    var deck = $('.intro__deck');
+    [3, 22, 40].forEach(function (n) { deck.appendChild(cardFor(BEL.IDEAS[n - 1])); });
+    $('[data-browse]').innerHTML = BEL.AREAS.map(function (a) {
+      return '<div class="browse__area"><h3>' + a.name + '</h3><ol>' + BEL.IDEAS.filter(function (d) { return d.a === a.id; }).map(function (d) {
+        return '<li><b>' + d.n + '</b><span>' + esc(d.t) + '</span></li>';
+      }).join('') + '</ol></div>';
+    }).join('');
+  }
+
+  /* ---------- Swipe deck ---------- */
+  var Deck = (function () {
+    var deck = $('.sw-deck'), bar = $('.sw-prog i'), count = $('.sw-count'), undoBtn = $('[data-sw="undo"]'), cards = [], busy = false;
+    function stamp(c, v, amt) { $$('.sw-stamp', c).forEach(function (s) { s.style.opacity = s.classList.contains('s-' + v) ? Math.min(1, amt) : 0; }); }
+    function verdict(dx, dy, t) {
+      if (-dy > t && -dy > Math.abs(dx)) return 'super';
+      if (dx > t) return 'like';
+      if (dx < -t) return 'nope';
+      return null;
+    }
+    function drag(c) {
+      var sx = 0, sy = 0, dx = 0, dy = 0, pid = null;
+      c.addEventListener('pointerdown', function (e) {
+        if (c.getAttribute('data-depth') !== '0' || busy) return;
+        pid = e.pointerId; c.setPointerCapture(pid); sx = e.clientX; sy = e.clientY; dx = dy = 0; c.classList.add('dragging');
+      });
+      c.addEventListener('pointermove', function (e) {
+        if (e.pointerId !== pid) return;
+        dx = e.clientX - sx; dy = e.clientY - sy;
+        c.style.transform = 'translate(' + dx + 'px,' + dy + 'px) rotate(' + (dx * 0.05) + 'deg)';
+        var v = verdict(dx, dy, 12);
+        stamp(c, v, v === 'super' ? -dy / 110 : Math.abs(dx) / 110);
+      });
+      function end(e) {
+        if (e.pointerId !== pid) return;
+        pid = null; c.classList.remove('dragging');
+        var v = verdict(dx, dy, 100);
+        if (v) decide(v); else { c.style.transform = ''; stamp(c, null, 0); }
+      }
+      c.addEventListener('pointerup', end); c.addEventListener('pointercancel', end);
+    }
+    function layout() {
+      cards.forEach(function (c, i) {
+        c.setAttribute('data-depth', i); c.style.zIndex = 10 - i; c.setAttribute('aria-hidden', String(i > 0));
+        if (i === 0 && !c._drag) { c._drag = true; drag(c); }
+      });
+    }
+    function fill() {
+      var have = cards.map(function (c) { return +c.getAttribute('data-n'); });
+      rest().some(function (d) {
+        if (cards.length >= 3) return true;
+        if (have.indexOf(d.n) < 0) { var c = cardFor(d); deck.appendChild(c); cards.push(c); }
+        return false;
+      });
+      layout();
+    }
+    function progress() {
+      var done = judgedCount();
+      bar.style.width = (done / 50 * 100) + '%';
+      count.textContent = done >= 50 ? 'All 50 judged' : 'Card ' + (done + 1) + ' of 50';
+      undoBtn.disabled = !S.log.length;
+      $('[data-sw="results"]').disabled = !done;
+    }
+    function decide(v) {
+      if (busy || !cards.length || screens.swipe.hidden) return;
+      var c = cards.shift(), n = +c.getAttribute('data-n'), dx = v === 'like' ? 1 : v === 'nope' ? -1 : 0, dy = v === 'super' ? -1 : 0;
+      busy = true;
+      stamp(c, v, 1);
+      c.classList.remove('dragging');
+      c.style.transition = reduced ? 'opacity 0.2s' : 'transform 0.45s cubic-bezier(.2,.7,.2,1), opacity 0.45s';
+      if (!reduced) c.style.transform = 'translate(' + (dx * 150) + '%,' + (dy * 130) + '%) rotate(' + (dx * 24) + 'deg)';
+      c.style.opacity = '0';
+      S.swipes[n] = v; S.log.push(n); save();
+      layout(); progress();
+      setTimeout(function () {
+        c.remove(); busy = false; fill(); progress();
+        if (!cards.length) setTimeout(function () { openResults(S.swipes, false); }, reduced ? 0 : 250);
+      }, reduced ? 200 : 380);
+    }
+    function undo() {
+      var n = S.log.pop(); if (n == null) return;
+      delete S.swipes[n]; save(); rebuild();
+    }
+    function rebuild() { cards.forEach(function (c) { c.remove(); }); cards = []; fill(); progress(); }
+    function start() { if (!rest().length) { openResults(S.swipes, false); return; } rebuild(); }
+    screens.swipe.addEventListener('click', function (e) {
+      var b = e.target.closest('[data-sw]'); if (!b) return;
+      var a = b.getAttribute('data-sw');
+      if (a === 'undo') undo();
+      else if (a === 'results') { if (judgedCount()) openResults(S.swipes, false); }
+      else decide(a);
+    });
+    document.addEventListener('keydown', function (e) {
+      if (screens.swipe.hidden) return;
+      var k = { ArrowRight: 'like', ArrowLeft: 'nope', ArrowUp: 'super' }[e.key];
+      if (k) { e.preventDefault(); decide(k); }
+      else if (e.key === 'Backspace' || e.key === 'z') { e.preventDefault(); undo(); }
+      else if (e.key === 'Escape') show('intro');
+    });
+    return { start: start };
+  })();
+
+  /* ---------- Report card (canvas) ---------- */
+  var COL = { hi: '#ffffff', hi2: 'rgba(238,240,251,0.78)', hi3: 'rgba(238,240,251,0.52)', line: 'rgba(255,255,255,0.16)', sky: '#9aa9ff', like: '#6f86ff', sup: '#ff9a3d', pass: 'rgba(255,255,255,0.3)' };
+  var SERIF = 'Newsreader, Georgia, serif', SANS = '"Libre Franklin", "Helvetica Neue", Arial, sans-serif';
+  var URLTXT = 'danielgolliher.github.io/swipe-right-nyc';
+  function F(ctx, spec, size, fam, spacing) { ctx.font = spec + ' ' + size + 'px ' + fam; if ('letterSpacing' in ctx) ctx.letterSpacing = (spacing || 0) + 'px'; }
+  function rr(ctx, x, y, w, hh, r) { ctx.beginPath(); ctx.moveTo(x + r, y); ctx.arcTo(x + w, y, x + w, y + hh, r); ctx.arcTo(x + w, y + hh, x, y + hh, r); ctx.arcTo(x, y + hh, x, y, r); ctx.arcTo(x, y, x + w, y, r); ctx.closePath(); }
+  function hline(ctx, x0, y, x1) { ctx.fillStyle = COL.line; ctx.fillRect(x0, y, x1 - x0, 2); }
+  function wrap(ctx, text, maxW) {
+    var words = text.split(' '), lines = [], cur = '';
+    words.forEach(function (w) { var t = cur ? cur + ' ' + w : w; if (ctx.measureText(t).width > maxW && cur) { lines.push(cur); cur = w; } else cur = t; });
+    if (cur) lines.push(cur);
+    return lines;
+  }
+  function fontsReady() {
+    if (!document.fonts || !document.fonts.load) return Promise.resolve();
+    return Promise.all(['300 300px Newsreader', 'italic 300 170px Newsreader', 'italic 400 46px Newsreader', 'italic 300 40px Newsreader', '600 24px "Libre Franklin"'].map(function (f) {
+      return document.fonts.load(f).catch(function () {});
+    }));
+  }
+  // The street drawing, rebuilt with only the ideas this reader liked, then flattened to an image for the canvas.
+  function sceneImage(sw) {
+    var host = $('#offstage'); host.innerHTML = '';
+    var svg = document.createElementNS(NS, 'svg'); svg.setAttribute('class', 'blk static'); host.appendChild(svg);
+    BEL.buildScene(svg);
+    function yes(n) { return sw[n] === 'like' || sw[n] === 'super'; }
+    $$('[data-a]', svg).forEach(function (e) { e.classList.toggle('on', yes(+e.getAttribute('data-a'))); });
+    $$('[data-b]', svg).forEach(function (e) { e.classList.toggle('off', yes(+e.getAttribute('data-b'))); });
+    var vb = { x: -20, y: -110, w: BEL.W + 40, h: 900 }, PX = 2600, PH = Math.round(PX * vb.h / vb.w);
+    svg.setAttribute('viewBox', [vb.x, vb.y, vb.w, vb.h].join(' '));
+    svg.setAttribute('width', PX); svg.setAttribute('height', PH);
+    var props = ['fill', 'stroke', 'stroke-width', 'stroke-dasharray', 'stroke-linecap', 'stroke-linejoin', 'opacity', 'font-family', 'font-size', 'font-weight', 'letter-spacing', 'text-anchor'];
+    $$('*', svg).forEach(function (el) {
+      var cs = getComputedStyle(el), st = '';
+      props.forEach(function (p) { var v = cs.getPropertyValue(p); if (v && v !== 'normal') st += p + ':' + v + ';'; });
+      el.setAttribute('style', st + 'vector-effect:non-scaling-stroke');
+      el.removeAttribute('class');
+    });
+    svg.removeAttribute('class');
+    var xml = new XMLSerializer().serializeToString(svg);
+    host.innerHTML = '';
+    return new Promise(function (res) {
+      var img = new Image();
+      img.onload = function () { res({ img: img, vb: vb }); };
+      img.onerror = function () { res(null); };
+      img.src = 'data:image/svg+xml;charset=utf-8,' + encodeURIComponent(xml);
+    });
+  }
+  function drawCard(cv, R, fmt, scene) {
+    var W = 1080, H = fmt === 'story' ? 1920 : 1350, P = 72, oy = fmt === 'story' ? 370 : 0;
+    cv.width = W; cv.height = H;
+    var ctx = cv.getContext('2d');
+    var g = ctx.createLinearGradient(0, 0, W * 0.45, H);
+    g.addColorStop(0, '#242c7a'); g.addColorStop(0.42, '#14163f'); g.addColorStop(1, '#090a20');
+    ctx.fillStyle = g; ctx.fillRect(0, 0, W, H);
+    var rg = ctx.createRadialGradient(W * 0.88, H * 0.06, 0, W * 0.88, H * 0.06, W * 0.75);
+    rg.addColorStop(0, 'rgba(125,145,255,0.30)'); rg.addColorStop(1, 'rgba(125,145,255,0)');
+    ctx.fillStyle = rg; ctx.fillRect(0, 0, W, H);
+    ctx.textBaseline = 'alphabetic';
+
+    if (fmt === 'story') {
+      F(ctx, '600', 26, SANS, 5); ctx.textAlign = 'left'; ctx.fillStyle = COL.sky; ctx.fillText('MANHATTAN INSTITUTE · 50 IDEAS', P, 156);
+      F(ctx, '300', 116, SERIF, -4); ctx.fillStyle = COL.hi; ctx.fillText('Swipe right on', P - 6, 276);
+      F(ctx, 'italic 300', 116, SERIF, -4); ctx.fillStyle = COL.sky; ctx.fillText('New York', P - 6, 384);
+    }
+    F(ctx, '600', 23, SANS, 5); ctx.textAlign = 'left'; ctx.fillStyle = COL.sky;
+    ctx.fillText(fmt === 'story' ? 'MY SWIPE REPORT' : 'SWIPE RIGHT ON NEW YORK', P, 98 + oy);
+    ctx.textAlign = 'right'; ctx.fillStyle = COL.hi3;
+    ctx.fillText(fmt === 'story' ? R.judged + ' OF 50 JUDGED' : 'MY SWIPE REPORT', W - P, 98 + oy);
+    hline(ctx, P, 126 + oy, W - P);
+
+    ctx.textAlign = 'left';
+    F(ctx, 'italic 400', 46, SERIF, 0); ctx.fillStyle = COL.hi2; ctx.fillText('I agree with the Manhattan Institute on', P, 204 + oy);
+    var num = String(R.pct);
+    F(ctx, '300', 300, SERIF, -14); ctx.fillStyle = COL.hi; ctx.fillText(num, P - 12, 448 + oy);
+    var nw = ctx.measureText(num).width;
+    F(ctx, 'italic 300', 170, SERIF, -4); ctx.fillStyle = COL.sky; ctx.fillText('%', P - 12 + nw + 10, 448 + oy);
+    F(ctx, 'italic 400', 36, SERIF, 0); ctx.fillStyle = COL.hi2;
+    ctx.fillText(R.judged === 50 ? 'of its 50 ideas for a better everyday life in New York' : 'of the ' + R.judged + ' ideas I judged, out of 50', P, 508 + oy);
+
+    // tier pill and counts
+    var py = 548 + oy;
+    F(ctx, 'italic 400', 38, SERIF, 0);
+    var pw = ctx.measureText(R.tier.name).width + 58;
+    rr(ctx, P, py, pw, 64, 32); ctx.fillStyle = 'rgba(255,154,61,0.12)'; ctx.fill(); ctx.strokeStyle = COL.sup; ctx.lineWidth = 2; ctx.stroke();
+    ctx.fillStyle = COL.hi; ctx.fillText(R.tier.name, P + 29, py + 44);
+    [['PASSED', R.g.nope.length, COL.pass], ['LIKED', R.g.like.length, COL.like], ['SUPER', R.g['super'].length, COL.sup]].forEach(function (s, i) {
+      var x = W - P - i * 118;
+      ctx.textAlign = 'right';
+      F(ctx, 'italic 300', 50, SERIF, -1); ctx.fillStyle = s[2] === COL.pass ? COL.hi2 : s[2]; ctx.fillText(String(s[1]), x, py + 40);
+      F(ctx, '600', 15, SANS, 2.5); ctx.fillStyle = COL.hi3; ctx.fillText(s[0], x, py + 64);
+    });
+
+    // my block
+    ctx.textAlign = 'left'; F(ctx, '600', 20, SANS, 4); ctx.fillStyle = COL.hi3; ctx.fillText('MY NEW YORK BLOCK', P, 690 + oy);
+    ctx.textAlign = 'right'; ctx.fillText(R.agree + ' OF 50 IDEAS BUILT', W - P, 690 + oy);
+    var sx = P, sy = 708 + oy, sw = W - 2 * P, sh = 196;
+    ctx.save(); rr(ctx, sx, sy, sw, sh, 24); ctx.clip();
+    ctx.fillStyle = '#f1f3fd'; ctx.fillRect(sx, sy, sw, sh);
+    if (scene) {
+      var vb = scene.vb, s = Math.max(sw / vb.w, sh / vb.h), dw = vb.w * s, dh = vb.h * s, dx = sx + (sw - dw) / 2, dy = sy + (sh - dh) / 2 + 6;
+      ctx.drawImage(scene.img, dx, dy, dw, dh);
+      BEL.IDEAS.forEach(function (d) {
+        var v = R.sw[d.n]; if (v !== 'like' && v !== 'super') return;
+        ctx.beginPath(); ctx.arc(dx + (d.x - vb.x) * s, dy + (d.y - vb.y) * s, v === 'super' ? 7.5 : 5.5, 0, Math.PI * 2);
+        ctx.fillStyle = v === 'super' ? '#ff8000' : '#2c48dc'; ctx.fill(); ctx.lineWidth = 2; ctx.strokeStyle = '#ffffff'; ctx.stroke();
+      });
+    }
+    ctx.restore();
+    rr(ctx, sx, sy, sw, sh, 24); ctx.strokeStyle = 'rgba(255,255,255,0.14)'; ctx.lineWidth = 2; ctx.stroke();
+
+    // grid by area
+    var gy = 962 + oy;
+    ctx.textAlign = 'left'; F(ctx, '600', 20, SANS, 4); ctx.fillStyle = COL.hi3; ctx.fillText('BY AREA', P, gy);
+    var lx = W - P;
+    [['PASS', 'pass'], ['SUPER', 'super'], ['LIKE', 'like']].forEach(function (l) {
+      F(ctx, '600', 16, SANS, 2.5); ctx.textAlign = 'right'; ctx.fillStyle = COL.hi3; ctx.fillText(l[0], lx, gy);
+      lx -= ctx.measureText(l[0]).width + 26;
+      rr(ctx, lx, gy - 16, 17, 17, 4);
+      if (l[1] === 'pass') { ctx.strokeStyle = COL.pass; ctx.lineWidth = 2; ctx.stroke(); } else { ctx.fillStyle = l[1] === 'like' ? COL.like : COL.sup; ctx.fill(); }
+      lx -= 26;
+    });
+    var y0 = gy + 22, rh = 33;
+    R.areas.forEach(function (A, i) {
+      var y = y0 + i * rh;
+      ctx.textAlign = 'left'; F(ctx, '600', 18, SANS, 3); ctx.fillStyle = COL.hi2; ctx.fillText(A.a.short.toUpperCase(), P, y + 21);
+      A.ns.forEach(function (n, j) {
+        var x = 296 + j * 34, v = R.sw[n];
+        rr(ctx, x, y + 3, 25, 25, 6);
+        if (v === 'like') { ctx.fillStyle = COL.like; ctx.fill(); }
+        else if (v === 'super') { ctx.fillStyle = COL.sup; ctx.fill(); }
+        else { ctx.setLineDash(v ? [] : [3, 4]); ctx.strokeStyle = COL.pass; ctx.lineWidth = 2; ctx.stroke(); ctx.setLineDash([]); }
+      });
+      ctx.textAlign = 'right'; F(ctx, 'italic 300', 31, SERIF, 0); ctx.fillStyle = COL.sky; ctx.fillText(A.pct == null ? '–' : A.pct + '%', W - P, y + 25);
+    });
+
+    var fy = 1244 + oy;
+    if (fmt === 'story') {
+      var picks = (R.g['super'].length ? R.g['super'] : R.g.like).slice(0, 3);
+      if (picks.length) {
+        ctx.textAlign = 'left'; F(ctx, '600', 20, SANS, 4); ctx.fillStyle = COL.hi3;
+        ctx.fillText(R.g['super'].length ? 'MY SUPER-LIKES' : 'IDEAS I LIKED', P, fy + 16);
+        var ly = fy + 64;
+        picks.forEach(function (n) {
+          F(ctx, 'italic 300', 40, SERIF, 0); ctx.fillStyle = R.g['super'].length ? COL.sup : COL.like; ctx.fillText(pad(n), P, ly);
+          F(ctx, '400', 36, SERIF, -0.5); ctx.fillStyle = COL.hi;
+          var lines = wrap(ctx, BEL.IDEAS[n - 1].t, W - 2 * P - 80);
+          ctx.fillText(lines[0] + (lines.length > 1 ? '…' : ''), P + 80, ly);
+          ly += 54;
+        });
+      }
+      fy = H - 104;
+    }
+    hline(ctx, P, fy, W - P);
+    ctx.textAlign = 'left'; F(ctx, '600', 23, SANS, 1); ctx.fillStyle = COL.hi; ctx.fillText('Swipe yours → ' + URLTXT, P, fy + 44);
+    F(ctx, '400', 18, SANS, 0.5); ctx.fillStyle = COL.hi3;
+    ctx.fillText('Ideas from “A Better Everyday Life in New York,” Manhattan Institute, Oct. 2026', P, fy + 76);
+  }
+
+  /* ---------- Results screen ---------- */
+  var EMO = { homes: '🏠', schools: '🏫', childcare: '🧸', streets: '🚇', work: '💼', services: '🚌', government: '🏛️' };
+  var SQ = { like: '🟦', 'super': '⭐', nope: '⬜' };
+  var cur = null;
+  function resultLink(sw) { return SITE + '#r=' + encode(sw); }
+  // short: X counts each emoji as two characters, so its version drops the tier to stay under 280.
+  function shareText(R, short) {
+    var lead = R.judged === 50 ? 'I agree with the Manhattan Institute on ' + R.pct + '% of its 50 ideas for New York' : 'So far I agree with the Manhattan Institute on ' + R.pct + '% of the ' + R.judged + ' ideas I’ve judged';
+    return lead + (short ? '.' : ' (' + R.tier.name + ').') + '\n\n' + R.areas.map(function (A) {
+      return EMO[A.a.id] + ' ' + A.ns.map(function (n) { return SQ[R.sw[n]] || '▫️'; }).join('');
+    }).join('\n');
+  }
+  function fileName() { return 'swipe-right-nyc-' + cur.R.pct + 'pct-' + cur.fmt + '.png'; }
+  function redraw() {
+    var cv = $('#card');
+    drawCard(cv, cur.R, cur.fmt, cur.scene);
+    cv.setAttribute('aria-label', (cur.shared ? 'Their' : 'My') + ' swipe report: ' + cur.R.pct + '% agreement with the Manhattan Institute, ' + cur.R.tier.name + '. ' +
+      cur.R.g['super'].length + ' super-likes, ' + cur.R.g.like.length + ' likes, ' + cur.R.g.nope.length + ' passes.');
+    cur.blob = null;
+    if (cv.toBlob) cv.toBlob(function (b) { if (cur) cur.blob = b; }, 'image/png');
+  }
+  function listItem(n, v, long) {
+    var d = BEL.IDEAS[n - 1], note = BEL.NOTES[d.note];
+    return '<li class="' + v + '"><b>' + pad(n) + '</b><h4>' + esc(d.t) + (v === 'super' ? '<small>Super-like</small>' : '') + '</h4>' +
+      (long ? '<p>' + esc(plain(d.d)) + '</p><a href="' + note[2] + '">MI’s case: ' + esc(note[0]) + ' ↗</a>' : '') + '</li>';
+  }
+  function openResults(sw, shared) {
+    var R = compute(sw);
+    if (!R.judged) { toast('Swipe at least one card first'); return; }
+    cur = { R: R, fmt: 'post', scene: null, shared: shared, blob: null };
+    var you = shared ? 'They' : 'You';
+    $('[data-shared]').hidden = !shared;
+    $('[data-share-panel]').hidden = shared;
+    $('[data-again]').textContent = shared ? 'Swipe the 50' : 'Swipe again';
+    $('[data-caption]').textContent = shared ? 'Their report card' : 'Screenshot it, or save the image';
+    $('[data-r-eyebrow]').textContent = shared ? 'A shared swipe report' : (R.judged < 50 ? 'Your report so far' : 'Your swipe report');
+    $('[data-r-head]').innerHTML = you + ' agree with MI on <em>' + R.pct + '%</em>';
+    var lede = '<b>' + R.tier.name + '.</b> ' + (shared ? '' : R.tier.desc + ' ');
+    if (R.best && R.worst && R.best !== R.worst) lede += 'Closest on ' + R.best.a.short.toLowerCase() + ' (' + R.best.agree + ' of ' + R.best.judged + '); furthest apart on ' + R.worst.a.short.toLowerCase() + ' (' + R.worst.agree + ' of ' + R.worst.judged + ').';
+    if (R.judged < 50) lede += ' Based on ' + R.judged + ' of 50 cards.';
+    $('[data-r-lede]').innerHTML = lede.replace('city hall', 'City Hall');
+    $$('[data-fmt]').forEach(function (b) { b.setAttribute('aria-pressed', String(b.getAttribute('data-fmt') === 'post')); });
+    $('[data-areas]').innerHTML = R.areas.map(function (A) {
+      return '<div class="row"><span class="nm">' + A.a.short + '</span><span class="sq">' + A.ns.map(function (n) {
+        var v = R.sw[n]; return '<i class="' + (v === 'nope' ? 'nope' : v || 'none') + '" title="' + n + '. ' + esc(BEL.IDEAS[n - 1].t) + '"></i>';
+      }).join('') + '</span><span class="pc">' + (A.pct == null ? '–' : A.pct + '%') + '</span></div>';
+    }).join('');
+    var agree = R.g['super'].concat(R.g.like).sort(function (a, b) { return a - b; });
+    var unjudged = 50 - R.judged;
+    $('[data-report]').innerHTML = '<span class="eyebrow">The full report</span><h2 style="margin-top:12px">Where ' + you.toLowerCase() + ' and MI <em>line up</em></h2>' +
+      '<p>Every card is one of the brief’s recommendations, so a like or super-like counts as agreement. For the ideas ' + (shared ? 'they' : 'you') + ' passed on, here is a short version of MI’s case and the source behind it.</p>' +
+      '<div class="rep-cols"><div class="c-agree"><h3>Agree <span>' + agree.length + '</span></h3>' +
+      (agree.length ? '<ul>' + agree.map(function (n) { return listItem(n, R.sw[n], false); }).join('') + '</ul>' : '<p class="none">None.</p>') + '</div>' +
+      '<div class="c-differ"><h3>Part ways <span>' + R.g.nope.length + '</span></h3>' +
+      (R.g.nope.length ? '<ul>' + R.g.nope.map(function (n) { return listItem(n, 'nope', true); }).join('') + '</ul>' : '<p class="none">' + (shared ? 'They' : 'You') + ' didn’t pass on a single idea.</p>') +
+      (unjudged ? '<p class="none">' + unjudged + ' idea' + (unjudged === 1 ? '' : 's') + ' not judged yet.</p>' : '') + '</div></div>';
+    var text = shareText(R), link = resultLink(R.sw), both = text + '\n\nSwipe yours: ' + link;
+    var P = [
+      ['X', 'https://twitter.com/intent/tweet?text=' + encodeURIComponent(shareText(R, true) + '\n\nSwipe yours:') + '&url=' + encodeURIComponent(link)],
+      ['Bluesky', 'https://bsky.app/intent/compose?text=' + encodeURIComponent(both)],
+      ['Threads', 'https://www.threads.net/intent/post?text=' + encodeURIComponent(both)],
+      ['LinkedIn', 'https://www.linkedin.com/sharing/share-offsite/?url=' + encodeURIComponent(link)],
+      ['Facebook', 'https://www.facebook.com/sharer/sharer.php?u=' + encodeURIComponent(link)],
+      ['Email', 'mailto:?subject=' + encodeURIComponent('How I swiped on 50 ideas for New York') + '&body=' + encodeURIComponent(both)]
+    ];
+    $('[data-platforms]').innerHTML = P.map(function (p) { return '<a href="' + p[1] + '"' + (p[0] === 'Email' ? '' : ' target="_blank" rel="noopener"') + '>' + p[0] + '</a>'; }).join('');
+    show('results');
+    redraw();
+    Promise.all([fontsReady(), sceneImage(sw)]).then(function (out) {
+      if (!cur || cur.R !== R) return;
+      cur.scene = out[1]; redraw();
+    });
+  }
+  function initResults() {
+    $$('[data-fmt]').forEach(function (b) {
+      b.addEventListener('click', function () {
+        if (!cur) return;
+        cur.fmt = b.getAttribute('data-fmt');
+        $$('[data-fmt]').forEach(function (x) { x.setAttribute('aria-pressed', String(x === b)); });
+        redraw();
+      });
+    });
+    $('#sh-save').addEventListener('click', function () {
+      if (!cur || !cur.blob) { toast('One moment, the image is still drawing'); return; }
+      var url = URL.createObjectURL(cur.blob), a = h('a', { href: url, download: fileName() }, document.body);
+      a.click(); a.remove(); setTimeout(function () { URL.revokeObjectURL(url); }, 4000);
+      toast('Image saved');
+    });
+    $('#sh-native').addEventListener('click', function () {
+      if (!cur) return;
+      var text = shareText(cur.R), link = resultLink(cur.R.sw);
+      var file = cur.blob && window.File ? new File([cur.blob], fileName(), { type: 'image/png' }) : null;
+      if (file && navigator.canShare && navigator.canShare({ files: [file] })) { navigator.share({ files: [file], text: text + '\n\nSwipe yours: ' + link }).catch(function () {}); return; }
+      if (navigator.share) { navigator.share({ title: 'Swipe Right on New York', text: text, url: link }).catch(function () {}); return; }
+      copyText(text + '\n\nSwipe yours: ' + link, 'Copied. Paste it anywhere');
+    });
+    $('#sh-copy').addEventListener('click', function () { if (cur) copyText(shareText(cur.R) + '\n\nSwipe yours: ' + resultLink(cur.R.sw), 'Result copied'); });
+    $('#sh-link').addEventListener('click', function () { if (cur) copyText(resultLink(cur.R.sw), 'Link to your report copied'); });
+  }
+
+  /* ---------- Wiring ---------- */
+  document.addEventListener('click', function (e) {
+    var go = e.target.closest('[data-go]');
+    if (go) {
+      var to = go.getAttribute('data-go');
+      if (to === 'results') openResults(S.swipes, false); else show(to);
+      return;
+    }
+    var again = e.target.closest('[data-again]');
+    if (again) {
+      if (cur && cur.shared) { location.href = './'; return; }
+      if (judgedCount() && !window.confirm('Clear your swipes and start over?')) return;
+      S.swipes = {}; S.log = []; save(); show('swipe');
+    }
+  });
+  function route() {
+    var m = /^#r=([A-Za-z0-9_-]{17,})$/.exec(location.hash), sw = m && decode(m[1]);
+    if (sw && Object.keys(sw).length) openResults(sw, true);
+    else show('intro');
+  }
+  window.addEventListener('hashchange', route);
+  initIntro();
+  initResults();
+  route();
+})();
+</script>
+</body>
+</html>
