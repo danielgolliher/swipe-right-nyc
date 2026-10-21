@@ -1577,15 +1577,18 @@ BEL.NOTES = {
   }
   function fileName() { return 'mi-urbanist-' + cur.R.pct + 'pct-' + cur.fmt + '.png'; }
   var TOUCH = window.matchMedia('(hover: none) and (pointer: coarse)').matches;
+  // Each redraw encodes its own PNG; gen keeps a slower, older encode from replacing a newer one
+  // (the first draw has no street yet, so a late finish used to leave the street blank).
+  var redrawGen = 0;
   function redraw() {
-    var cv = $('#card'), img = $('#card-img'), mine = cur;
+    var cv = $('#card'), img = $('#card-img'), mine = cur, gen = ++redrawGen;
     drawCard(cv, cur.R, cur.fmt, cur.scene);
     img.alt = (cur.shared ? 'Their' : 'My') + ' swipe report: ' + cur.R.pct + '% agreement with Manhattan Institute, ' + cur.R.tier.name + '. ' +
       cur.R.g['super'].length + ' super-likes, ' + cur.R.g.like.length + ' likes, ' + cur.R.g.nope.length + ' passes.';
     img.width = cv.width; img.height = cv.height;
     cur.blob = null;
     if (cv.toBlob) cv.toBlob(function (b) {
-      if (cur !== mine || !b) return;
+      if (cur !== mine || gen !== redrawGen || !b) return;
       cur.blob = b;
       if (img._url) URL.revokeObjectURL(img._url);
       img._url = URL.createObjectURL(b); img.src = img._url;
