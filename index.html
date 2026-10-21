@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Are you a Manhattan Institute Urbanist?</title>
-<meta name="description" content="Fifty ideas from the Manhattan Institute to make everyday life in New York better. Like, pass, or super-like each one, then see how often you agree with MI.">
+<meta name="description" content="Fifty ideas from Manhattan Institute to make everyday life in New York better. Like, pass, or super-like each one, then see how often you agree with MI.">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%2314163a'/%3E%3Crect x='11' y='6' width='13' height='18' rx='3' transform='rotate(12 17.5 15)' fill='%238c9dff'/%3E%3Crect x='7' y='8' width='13' height='18' rx='3' fill='%23ffffff'/%3E%3Cpath d='M13.5 20.5s-3.5-2.2-3.5-4.8a2 2 0 0 1 3.5-1.3 2 2 0 0 1 3.5 1.3c0 2.6-3.5 4.8-3.5 4.8z' fill='%232c48dc'/%3E%3C/svg%3E">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Are you a Manhattan Institute Urbanist?">
@@ -12,7 +12,7 @@
 <meta property="og:image" content="https://danielgolliher.github.io/swipe-right-nyc/og-image.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
-<meta property="og:image:alt" content="A stack of swipe cards, each showing one of the Manhattan Institute's 50 ideas for New York, beside the title Are you a Manhattan Institute Urbanist?">
+<meta property="og:image:alt" content="A stack of swipe cards, each showing one of Manhattan Institute's 50 ideas for New York, beside the title Are you a Manhattan Institute Urbanist?">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Are you a Manhattan Institute Urbanist?">
 <meta name="twitter:description" content="These 50 ideas are compiled from MI scholars and research. See where, and how much, you overlap.">
@@ -23,7 +23,7 @@
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Libre+Franklin:wght@400;500;600;700;800&family=Newsreader:ital,opsz,wght@0,6..72,300..700;1,6..72,300..700&display=swap">
 <style>
 /* A one-purpose companion to the "A Better Everyday Life" interactive edition: the brief's 50 ideas as a
-   swipe deck, then a report card scored against the Manhattan Institute. The page is a navy app shell;
+   swipe deck, then a report card scored against Manhattan Institute. The page is a navy app shell;
    cards, the street drawing and report panels are light. MI palette and type throughout. */
 :root {
   color-scheme: dark;
@@ -1438,7 +1438,7 @@ BEL.NOTES = {
     }
 
     ctx.textAlign = 'left';
-    F(ctx, 'italic 400', 46, SERIF, 0); ctx.fillStyle = COL.hi2; ctx.fillText('I agree with the Manhattan Institute on', P, 204 + oy);
+    F(ctx, 'italic 400', 46, SERIF, 0); ctx.fillStyle = COL.hi2; ctx.fillText('I agree with Manhattan Institute on', P, 204 + oy);
     var num = String(R.pct);
     F(ctx, '300', 300, SERIF, -14); ctx.fillStyle = COL.hi; ctx.fillText(num, P - 12, 448 + oy);
     var nw = ctx.measureText(num).width;
@@ -1533,7 +1533,7 @@ BEL.NOTES = {
   function resultLink(sw) { return SITE + '#r=' + encode(sw); }
   // short: X counts each emoji as two characters, so its version drops the tier to stay under 280.
   function shareText(R, short) {
-    var lead = R.judged === 50 ? 'I agree with the Manhattan Institute on ' + R.pct + '% of its 50 ideas for New York' : 'So far I agree with the Manhattan Institute on ' + R.pct + '% of the ' + R.judged + ' ideas I’ve judged';
+    var lead = R.judged === 50 ? 'I agree with Manhattan Institute on ' + R.pct + '% of its 50 ideas for New York' : 'So far I agree with Manhattan Institute on ' + R.pct + '% of the ' + R.judged + ' ideas I’ve judged';
     return lead + (short ? '.' : ' (' + R.tier.name + ').') + '\n\n' + R.areas.map(function (A) {
       return EMO[A.a.id] + ' ' + A.ns.map(function (n) { return SQ[R.sw[n]] || '▫️'; }).join('');
     }).join('\n');
@@ -1542,7 +1542,7 @@ BEL.NOTES = {
   function redraw() {
     var cv = $('#card');
     drawCard(cv, cur.R, cur.fmt, cur.scene);
-    cv.setAttribute('aria-label', (cur.shared ? 'Their' : 'My') + ' swipe report: ' + cur.R.pct + '% agreement with the Manhattan Institute, ' + cur.R.tier.name + '. ' +
+    cv.setAttribute('aria-label', (cur.shared ? 'Their' : 'My') + ' swipe report: ' + cur.R.pct + '% agreement with Manhattan Institute, ' + cur.R.tier.name + '. ' +
       cur.R.g['super'].length + ' super-likes, ' + cur.R.g.like.length + ' likes, ' + cur.R.g.nope.length + ' passes.');
     cur.blob = null;
     if (cv.toBlob) cv.toBlob(function (b) { if (cur) cur.blob = b; }, 'image/png');
