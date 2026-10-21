@@ -8,4 +8,4 @@ Each card gives the idea, why it matters, the research behind it (linked), and a
 
 The report card is drawn on a canvas, so a screenshot matches the saved image. Readers can save it as a post (4:5) or story (9:16), share it natively on phones, copy an emoji summary, or copy a link that reopens their report for friends (all 50 verdicts fit in a 17-character code in the URL hash). No backend; swipes stay in the reader’s browser.
 
-Card text is condensed from the brief. Companion to the [interactive edition](https://danielgolliher.github.io/better-everyday-life/). Single self-contained `index.html`; no build step.
+Card text is condensed from the brief. Companion to the [interactive edition](https://danielgolliher.github.io/better-everyday-life/). Single self-contained `index.html` plus icon files (`favicon.svg` is the master: a card swiped right, with a New York skyline and a “like” badge); no build step.
