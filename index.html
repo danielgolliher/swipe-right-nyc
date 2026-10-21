@@ -110,8 +110,8 @@ details:not([open]) > :not(summary) { display: none !important; }
 
 /* top bar */
 .topbar { display: flex; align-items: center; justify-content: space-between; gap: 16px; padding-top: max(18px, env(safe-area-inset-top, 0px)); padding-bottom: 14px; }
-.brand { display: inline-flex; align-items: baseline; gap: 10px; color: var(--hi); text-decoration: none; font-family: var(--font-serif); font-size: 1.05rem; font-weight: 500; }
-.brand i { font-style: italic; font-weight: 300; color: var(--sky-blue); font-size: 1.5rem; line-height: 1; letter-spacing: -0.02em; }
+.brand { display: inline-flex; align-items: center; gap: 12px; color: var(--hi); text-decoration: none; font-family: var(--font-serif); font-size: 1.05rem; font-weight: 500; }
+.brand__mark { width: 34px; height: 34px; flex: none; border-radius: 7.5px; box-shadow: 0 0 0 1px rgba(255,255,255,0.12), 0 6px 16px rgba(0,0,0,0.28); }
 .brand .short { display: none; }
 .toplink { white-space: nowrap; font-family: var(--font-sans); font-size: 0.62rem; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: var(--hi-2); text-decoration: none; border: 1px solid var(--line); border-radius: 999px; padding: 9px 14px; background: rgba(255,255,255,0.04); cursor: pointer; }
 .toplink:hover { color: #fff; border-color: #fff; }
@@ -170,8 +170,8 @@ p.disclaimer b { color: var(--hi); font-weight: 600; }
 .site-foot { border-top: 1px solid var(--line); padding-block: 26px max(30px, env(safe-area-inset-bottom, 0px)); display: flex; flex-wrap: wrap; gap: 12px 28px; justify-content: space-between; align-items: baseline; font-family: var(--font-sans); font-size: 0.7rem; color: var(--hi-3); line-height: 1.6; }
 .site-foot a { color: var(--hi-2); }
 @media (max-width: 560px) {
-  .brand { font-size: 0.95rem; gap: 8px; }
-  .brand i { font-size: 1.3rem; }
+  .brand { font-size: 0.95rem; gap: 10px; }
+  .brand__mark { width: 30px; height: 30px; border-radius: 6.5px; }
   .toplink .long, .brand .long { display: none; }
   .brand .short { display: inline; }
   .intro__deck .sw-body p, .intro__deck .sw-src { display: none; }
@@ -384,6 +384,7 @@ p.disclaimer b { color: var(--hi); font-weight: 600; }
 <body>
 <svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
   <symbol id="i-heart" viewBox="0 0 24 24"><path d="M12 20.3s-7.6-4.6-7.6-10.4A4.3 4.3 0 0 1 12 7.3a4.3 4.3 0 0 1 7.6 2.6c0 5.8-7.6 10.4-7.6 10.4z" fill="currentColor"/></symbol>
+  <symbol id="i-brand" viewBox="0 0 64 64"><defs><linearGradient id="brand-g" x1="0" y1="0" x2=".45" y2="1"><stop offset="0" stop-color="#2b3596"/><stop offset=".55" stop-color="#16194a"/><stop offset="1" stop-color="#0c0d2a"/></linearGradient></defs><rect width="64" height="64" rx="14" fill="url(#brand-g)"/><g transform="rotate(11 32 35)"><rect x="13.5" y="10" width="36" height="46.5" rx="6.5" fill="#fff"/><g fill="#2c48dc"><path d="M17 49V39.5H22.5V33H28V27.5H29.4V23.5H30.5V19.5H31V12.5H32.5V19.5H33V23.5H34.1V27.5H35.5V32H41V38.5H45.5V49Z"/><rect x="16" y="48.5" width="31" height="2.6" rx="1.2"/></g></g><circle cx="48.5" cy="14.5" r="11" fill="#ff8000" stroke="#121437" stroke-width="3.2"/><path d="M0 5.2C-1.7 3.4-7 0-7-4.2-7-6.9-5-8.6-2.9-8.6-1.6-8.6-.6-7.9 0-6.9.6-7.9 1.6-8.6 2.9-8.6 5-8.6 7-6.9 7-4.2 7 0 1.7 3.4 0 5.2Z" transform="translate(48.5 15.3) scale(.9)" fill="#fff"/></symbol>
   <symbol id="i-x" viewBox="0 0 24 24"><path d="M6.5 6.5l11 11M17.5 6.5l-11 11" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round"/></symbol>
   <symbol id="i-starfill" viewBox="0 0 24 24"><path d="M12 3.4l2.65 5.5 6.05.8-4.4 4.2 1.1 6-5.4-2.9-5.4 2.9 1.1-6-4.4-4.2 6.05-.8z" fill="currentColor"/></symbol>
   <symbol id="i-undo" viewBox="0 0 24 24"><path d="M8.5 8.5H4V4M4.4 8.3A8 8 0 1 1 4 13.5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></symbol>
@@ -397,7 +398,7 @@ p.disclaimer b { color: var(--hi); font-weight: 600; }
 <section class="screen intro" id="intro" aria-labelledby="intro-h">
   <div class="wrap">
     <header class="topbar">
-      <a class="brand" href="./"><i>50</i><span class="long">Are you a Manhattan Institute Urbanist?</span><span class="short">MI Urbanist?</span></a>
+      <a class="brand" href="./"><svg class="brand__mark" aria-hidden="true"><use href="#i-brand"/></svg><span class="long">Are you a Manhattan Institute Urbanist?</span><span class="short">MI Urbanist?</span></a>
       <a class="toplink" href="https://manhattan.institute/article/a-better-everyday-life-in-new-york-50-practical-ideas-to-renew-nycs-promise-of-opportunity"><span class="long">The full </span>brief ↗</a>
     </header>
     <div class="intro__grid">
@@ -448,7 +449,7 @@ p.disclaimer b { color: var(--hi); font-weight: 600; }
 <section class="screen results" id="results" hidden aria-labelledby="res-h">
   <div class="wrap">
     <header class="topbar">
-      <a class="brand" href="./"><i>50</i><span class="long">Are you a Manhattan Institute Urbanist?</span><span class="short">MI Urbanist?</span></a>
+      <a class="brand" href="./"><svg class="brand__mark" aria-hidden="true"><use href="#i-brand"/></svg><span class="long">Are you a Manhattan Institute Urbanist?</span><span class="short">MI Urbanist?</span></a>
       <button class="toplink" type="button" data-again>Swipe again</button>
     </header>
     <div class="shared-banner" hidden data-shared>
