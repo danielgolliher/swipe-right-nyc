@@ -77,7 +77,12 @@
   --font-sans: "Libre Franklin", "Helvetica Neue", Arial, sans-serif;
 }
 *, *::before, *::after { box-sizing: border-box; }
-html { -webkit-text-size-adjust: 100%; }
+/* No sideways panning on phones: WebKit needs the root clipped, not just body */
+html { -webkit-text-size-adjust: 100%; overflow-x: hidden; overscroll-behavior-x: none; }
+@supports not (overflow: clip) { body { overflow-x: hidden; } }
+.screen { overflow-x: clip; }
+html.locked, html.locked body { overflow: hidden; height: 100%; }
+html.locked body { position: fixed; inset: 0; width: 100%; }
 body {
   margin: 0; min-height: 100vh; min-height: 100dvh; color: var(--hi);
   background: radial-gradient(120% 70% at 50% -10%, #26307a 0%, #151845 45%, #0a0b22 100%) fixed, var(--page);
@@ -164,13 +169,20 @@ button { font: inherit; }
 @media (max-width: 860px) {
   .intro__grid { grid-template-columns: 1fr; min-height: 0; gap: 8px; padding-top: 8px; }
   .intro__deck { height: 360px; order: -1; margin-bottom: 8px; }
-  .intro__deck .sw-card { width: 230px; height: 330px; }
+  .intro__deck .sw-card { width: 220px; height: 330px; }
+  .intro__deck .sw-card:nth-child(1) { transform: translate(-50%, -50%) translate(-17%, 5%) rotate(-8deg) scale(0.88); }
+  .intro__deck .sw-card:nth-child(2) { transform: translate(-50%, -50%) translate(17%, 4%) rotate(7deg) scale(0.9); }
+}
+@media (max-width: 359px) {
+  .intro__deck .sw-card { width: 196px; height: 310px; }
+  .intro__deck .sw-card:nth-child(1) { transform: translate(-50%, -50%) translate(-13%, 5%) rotate(-7deg) scale(0.86); }
+  .intro__deck .sw-card:nth-child(2) { transform: translate(-50%, -50%) translate(13%, 4%) rotate(6deg) scale(0.88); }
   .intro__deck .sw-body p { -webkit-line-clamp: 3; }
   .intro__copy { gap: 20px; }
 }
 
 /* ---------- Swipe deck ---------- */
-.swipe { display: flex; flex-direction: column; align-items: center; height: 100vh; height: 100dvh; overflow: hidden; overscroll-behavior: contain; }
+.swipe { display: flex; flex-direction: column; align-items: center; height: 100vh; height: 100dvh; overflow: hidden; overscroll-behavior: none; touch-action: none; }
 .sw-top { width: min(560px, 100%); display: flex; align-items: center; justify-content: space-between; gap: 12px; padding: max(16px, env(safe-area-inset-top, 0px)) 20px 10px; flex: none; }
 .sw-title { display: flex; flex-direction: column; gap: 2px; text-align: center; }
 .sw-title b { font-family: var(--font-serif); font-style: italic; font-weight: 400; font-size: clamp(0.95rem, 0.8rem + 0.8vw, 1.35rem); letter-spacing: -0.01em; line-height: 1; }
@@ -180,7 +192,7 @@ button { font: inherit; }
 .sw-pill:disabled { opacity: 0.35; cursor: default; }
 .sw-prog { width: min(520px, calc(100% - 40px)); height: 2px; background: rgba(255,255,255,0.14); border-radius: 2px; overflow: hidden; flex: none; }
 .sw-prog i { display: block; height: 100%; width: 0; background: linear-gradient(90deg, #8c9dff, #c3ccff); transition: width 0.35s; }
-.sw-stage { position: relative; flex: 1; width: 100%; min-height: 0; display: flex; justify-content: center; align-items: center; padding: 16px 16px 6px; }
+.sw-stage { position: relative; flex: 1; width: 100%; min-height: 0; display: flex; justify-content: center; align-items: center; padding: 14px 16px 44px; }
 .sw-deck { position: relative; width: min(400px, 100%); height: min(600px, 100%); }
 .sw-card {
   position: absolute; inset: 0; background: var(--surface); color: var(--ink); border-radius: 26px; overflow: hidden;
@@ -212,7 +224,7 @@ button { font: inherit; }
 .sw-stamp.s-like { left: 20px; color: var(--blue); transform: rotate(-14deg); }
 .sw-stamp.s-nope { right: 20px; color: var(--bad); transform: rotate(14deg); }
 .sw-stamp.s-super { left: 50%; top: 30%; color: var(--orange-ink); transform: translateX(-50%) rotate(-6deg); border-color: var(--orange); }
-.sw-ctl { display: flex; align-items: center; justify-content: center; gap: 18px; padding: 12px 0 8px; flex: none; }
+.sw-ctl { position: relative; z-index: 20; display: flex; align-items: center; justify-content: center; gap: 18px; padding: 4px 0 8px; flex: none; }
 .sw-ctl button { appearance: none; width: 64px; height: 64px; border-radius: 50%; border: 0; background: #ffffff; box-shadow: 0 14px 30px -12px rgba(0,0,0,0.7); display: grid; place-items: center; cursor: pointer; transition: transform 0.15s; }
 .sw-ctl button:hover { transform: translateY(-2px) scale(1.04); }
 .sw-ctl button:active { transform: scale(0.94); }
@@ -355,7 +367,8 @@ button { font: inherit; }
 .blk.static [data-a], .blk.static [data-b] { transition: none !important; }
 [hidden] { display: none !important; }
 .res__lede b { color: #fff; font-style: normal; font-weight: 500; }
-.res__card canvas { width: auto; height: auto; max-width: 100%; max-height: 84vh; margin: 0 auto; }
+.res__card canvas { display: none; }
+.res__card img { display: block; width: auto; height: auto; max-width: 100%; max-height: 84vh; margin: 0 auto; border-radius: 26px; box-shadow: 0 50px 100px -40px rgba(0,0,0,0.85), 0 0 0 1px rgba(255,255,255,0.08); background: #14163a; -webkit-touch-callout: default; }
 </style>
 </head>
 <body>
@@ -433,7 +446,8 @@ button { font: inherit; }
     </div>
     <div class="res__grid">
       <figure class="res__card">
-        <canvas id="card" width="1080" height="1350" role="img" aria-label="Swipe report card"></canvas>
+        <canvas id="card" width="1080" height="1350" aria-hidden="true"></canvas>
+        <img id="card-img" width="1080" height="1350" alt="Swipe report card">
         <figcaption data-caption>Screenshot it, or save the image</figcaption>
       </figure>
       <div class="res__side">
@@ -446,7 +460,7 @@ button { font: inherit; }
           </div>
           <div class="btn-row">
             <button class="btn btn--solid" type="button" id="sh-native"><svg aria-hidden="true"><use href="#i-share"/></svg>Share</button>
-            <button class="btn" type="button" id="sh-save"><svg aria-hidden="true"><use href="#i-down"/></svg>Save image</button>
+            <button class="btn" type="button" id="sh-save"><svg aria-hidden="true"><use href="#i-down"/></svg><span data-save-label>Save image</span></button>
             <button class="btn" type="button" id="sh-copy"><svg aria-hidden="true"><use href="#i-copy"/></svg>Copy text</button>
             <button class="btn" type="button" id="sh-link"><svg aria-hidden="true"><use href="#i-link"/></svg>Copy link</button>
           </div>
@@ -1226,8 +1240,7 @@ BEL.NOTES = {
     });
     var t = TIERS.filter(function (x) { return pct >= x[0]; })[0];
     if (pct > 0 && pct < 100 && t[0] === 100) t = TIERS[1];
-    var ranked = areas.filter(function (A) { return A.judged; }).sort(function (x, y) { return y.pct - x.pct || y.judged - x.judged; });
-    return { sw: sw, g: g, judged: judged, agree: agree, pct: pct, areas: areas, tier: { name: t[1], desc: t[2] }, best: ranked[0], worst: ranked[ranked.length - 1] };
+    return { sw: sw, g: g, judged: judged, agree: agree, pct: pct, areas: areas, tier: { name: t[1], desc: t[2] } };
   }
 
   /* ---------- Cards ---------- */
@@ -1267,7 +1280,7 @@ BEL.NOTES = {
   var screens = { intro: $('#intro'), swipe: $('#swipe'), results: $('#results') };
   function show(name) {
     Object.keys(screens).forEach(function (k) { screens[k].hidden = k !== name; });
-    document.body.style.overflow = name === 'swipe' ? 'hidden' : '';
+    document.documentElement.classList.toggle('locked', name === 'swipe');
     window.scrollTo(0, 0);
     if (name === 'intro') renderCTA();
     if (name === 'swipe') Deck.start();
@@ -1549,19 +1562,47 @@ BEL.NOTES = {
     }).join('\n');
   }
   function fileName() { return 'mi-urbanist-' + cur.R.pct + 'pct-' + cur.fmt + '.png'; }
+  var TOUCH = window.matchMedia('(hover: none) and (pointer: coarse)').matches;
   function redraw() {
-    var cv = $('#card');
+    var cv = $('#card'), img = $('#card-img'), mine = cur;
     drawCard(cv, cur.R, cur.fmt, cur.scene);
-    cv.setAttribute('aria-label', (cur.shared ? 'Their' : 'My') + ' swipe report: ' + cur.R.pct + '% agreement with Manhattan Institute, ' + cur.R.tier.name + '. ' +
-      cur.R.g['super'].length + ' super-likes, ' + cur.R.g.like.length + ' likes, ' + cur.R.g.nope.length + ' passes.');
+    img.alt = (cur.shared ? 'Their' : 'My') + ' swipe report: ' + cur.R.pct + '% agreement with Manhattan Institute, ' + cur.R.tier.name + '. ' +
+      cur.R.g['super'].length + ' super-likes, ' + cur.R.g.like.length + ' likes, ' + cur.R.g.nope.length + ' passes.';
+    img.width = cv.width; img.height = cv.height;
     cur.blob = null;
-    if (cv.toBlob) cv.toBlob(function (b) { if (cur) cur.blob = b; }, 'image/png');
+    if (cv.toBlob) cv.toBlob(function (b) {
+      if (cur !== mine || !b) return;
+      cur.blob = b;
+      if (img._url) URL.revokeObjectURL(img._url);
+      img._url = URL.createObjectURL(b); img.src = img._url;
+    }, 'image/png');
   }
   function listItem(n, v, long) {
     var d = BEL.IDEAS[n - 1], note = BEL.NOTES[d.note];
     return '<li class="' + v + '"><b>' + pad(n) + '</b><h4>' + esc(d.t) + (v === 'super' ? '<small>Super-like</small>' : '') + '</h4>' +
       (long ? '<p>' + esc(plain(d.d)) + '</p>' : '') +
       '<span class="links"><a href="' + briefLink(d) + '" target="_blank" rel="noopener">MI’s full take ↗</a>' + (long ? '<a href="' + note[2] + '" target="_blank" rel="noopener">Source: ' + esc(note[0]) + ' ↗</a>' : '') + '</span></li>';
+  }
+  // Names the most and least aligned areas only when they differ, and lists ties instead of picking one.
+  function areaName(A) { return A.a.short === 'City Hall' ? 'City Hall' : A.a.short.toLowerCase(); }
+  function listNames(arr) {
+    var n = arr.map(areaName);
+    return n.length < 3 ? n.join(' and ') : n.slice(0, -1).join(', ') + ', and ' + n[n.length - 1];
+  }
+  function alignLine(R) {
+    var A = R.areas.filter(function (x) { return x.judged; });
+    if (A.length < 2) return '';
+    var pcts = A.map(function (x) { return x.pct; }), hi = Math.max.apply(null, pcts), lo = Math.min.apply(null, pcts);
+    if (hi === lo) return hi === 100 ? 'Full agreement in every area.' : hi === 0 ? 'No agreement in any area.' : 'The same ' + hi + '% agreement in every area.';
+    var tops = A.filter(function (x) { return x.pct === hi; }), bots = A.filter(function (x) { return x.pct === lo; });
+    function one(x) { return areaName(x) + ' (' + x.agree + ' of ' + x.judged + ')'; }
+    var rest = A.filter(function (x) { return x.pct !== hi; });
+    if (hi === 100 && tops.length > 1 && rest.length === 1) return 'Full agreement in every area but ' + one(rest[0]) + '.';
+    var first = hi === 100 ? 'Full agreement on ' + (tops.length === 1 ? one(tops[0]) : listNames(tops))
+      : 'Most aligned on ' + (tops.length === 1 ? one(tops[0]) : listNames(tops) + ' (' + hi + '%)');
+    var second = lo === 0 ? 'no overlap on ' + (bots.length === 1 ? one(bots[0]) : listNames(bots))
+      : 'least aligned on ' + (bots.length === 1 ? one(bots[0]) : listNames(bots) + ' (' + lo + '%)');
+    return first + '; ' + second + '.';
   }
   function openResults(sw, shared) {
     var R = compute(sw);
@@ -1571,12 +1612,12 @@ BEL.NOTES = {
     $('[data-shared]').hidden = !shared;
     $('[data-share-panel]').hidden = shared;
     $('[data-again]').textContent = shared ? 'Swipe the 50' : 'Swipe again';
-    $('[data-caption]').textContent = shared ? 'Their report card' : 'Screenshot it, or save the image';
+    $('[data-caption]').textContent = shared ? 'Their report card' : TOUCH ? 'Press and hold the image to save it to Photos' : 'Screenshot it, or save the image';
     $('[data-r-head]').innerHTML = you + ' agree with MI on <em>' + R.pct + '%</em>';
     var lede = '<b>' + R.tier.name + '.</b> ' + (shared ? '' : R.tier.desc + ' ');
-    if (R.best && R.worst && R.best !== R.worst) lede += 'Closest on ' + R.best.a.short.toLowerCase() + ' (' + R.best.agree + ' of ' + R.best.judged + '); furthest apart on ' + R.worst.a.short.toLowerCase() + ' (' + R.worst.agree + ' of ' + R.worst.judged + ').';
+    lede += alignLine(R);
     if (R.judged < 50) lede += ' Based on ' + R.judged + ' of 50 cards.';
-    $('[data-r-lede]').innerHTML = lede.replace('city hall', 'City Hall');
+    $('[data-r-lede]').innerHTML = lede;
     $$('[data-fmt]').forEach(function (b) { b.setAttribute('aria-pressed', String(b.getAttribute('data-fmt') === 'post')); });
     $('[data-areas]').innerHTML = R.areas.map(function (A) {
       return '<div class="row"><span class="nm">' + A.a.short + '</span><span class="sq">' + A.ns.map(function (n) {
@@ -1618,11 +1659,18 @@ BEL.NOTES = {
         redraw();
       });
     });
+    if (TOUCH) $('[data-save-label]').textContent = 'Save to Photos';
+    // Browsers can't write to the photo library directly; on phones the share sheet's "Save Image" does it.
     $('#sh-save').addEventListener('click', function () {
       if (!cur || !cur.blob) { toast('One moment, the image is still drawing'); return; }
+      var file = window.File ? new File([cur.blob], fileName(), { type: 'image/png' }) : null;
+      if (TOUCH && file && navigator.canShare && navigator.canShare({ files: [file] })) {
+        navigator.share({ files: [file] }).catch(function () {});
+        return;
+      }
       var url = URL.createObjectURL(cur.blob), a = h('a', { href: url, download: fileName() }, document.body);
       a.click(); a.remove(); setTimeout(function () { URL.revokeObjectURL(url); }, 4000);
-      toast('Image saved');
+      toast(TOUCH ? 'Saved to Downloads. To put it in Photos, press and hold the image.' : 'Image saved');
     });
     $('#sh-native').addEventListener('click', function () {
       if (!cur) return;
