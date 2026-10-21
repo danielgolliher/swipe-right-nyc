@@ -3,6 +3,15 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-N8GYXGJNET"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-N8GYXGJNET');
+</script>
 <title>Are you a Manhattan Institute Urbanist?</title>
 <meta name="description" content="Fifty ideas from Manhattan Institute to make everyday life in New York better. Like, pass, or super-like each one, then see how often you agree with MI.">
 <link rel="icon" href="favicon.ico" sizes="32x32">
@@ -411,7 +420,7 @@ p.disclaimer b { color: var(--hi); font-weight: 600; }
           <li><span class="i super"><svg aria-hidden="true"><use href="#i-starfill"/></svg></span>Super-like</li>
           <li><span class="i like"><svg aria-hidden="true"><use href="#i-heart"/></svg></span>Like</li>
         </ul>
-        <p class="fine">About five minutes. Your swipes stay on your device. At the end you get a report card to save or share.</p>
+        <p class="fine">About five minutes. When you finish, your 50 answers join an anonymous tally of everyone’s results; nothing else about you is stored. At the end you get a report card to save or share.</p>
         <p class="disclaimer"><b>Disclaimer:</b> Daniel Golliher made this site as a fun project in a personal capacity, not in an official capacity as a Manhattan Institute Fellow.</p>
       </div>
       <div class="intro__deck" aria-hidden="true" inert></div>
@@ -477,7 +486,7 @@ p.disclaimer b { color: var(--hi); font-weight: 600; }
             <button class="btn" type="button" id="sh-link"><svg aria-hidden="true"><use href="#i-link"/></svg>Copy link</button>
           </div>
           <div class="platforms" data-platforms></div>
-          <p class="fine">The link opens your report for whoever you send it to, then invites them to swipe their own. Nothing is uploaded; your verdicts ride along in the link.</p>
+          <p class="fine">The link opens your report for whoever you send it to, then invites them to swipe their own. Your verdicts ride along in the link itself.</p>
         </div>
         <div>
           <h2 class="side-h">Agreement by area</h2>
@@ -1379,7 +1388,7 @@ BEL.NOTES = {
       layout(); progress();
       setTimeout(function () {
         c.remove(); busy = false; fill(); progress();
-        if (!cards.length) setTimeout(function () { openResults(S.swipes, false); }, reduced ? 0 : 250);
+        if (!cards.length) setTimeout(function () { openResults(S.swipes, false, true); }, reduced ? 0 : 250);
       }, reduced ? 200 : 380);
     }
     function undo() {
@@ -1568,6 +1577,17 @@ BEL.NOTES = {
   var SQ = { like: '🟦', 'super': '⭐', nope: '⬜' };
   var cur = null;
   function resultLink(sw) { return SITE + '#r=' + encode(sw); }
+  // A deck finished on this visit joins the anonymous tally: the 50 verdicts plus a random id this browser
+  // makes once, so a retake replaces its earlier answers. Shared reports and partial decks are never sent.
+  var TALLY = 'https://swiperight-tally.danielgolliher.workers.dev/submit';
+  function tally(sw) {
+    var cid = load('sr-cid', null);
+    if (!cid) { var a = new Uint8Array(18); crypto.getRandomValues(a); cid = Array.prototype.map.call(a, function (x) { return B64[x & 63]; }).join(''); store('sr-cid', cid); }
+    try {
+      fetch(TALLY, { method: 'POST', keepalive: true, headers: { 'Content-Type': 'text/plain' },
+        body: JSON.stringify({ cid: cid, code: encode(sw), test: load('sr-test', 0) ? 1 : 0 }) }).catch(function () {});
+    } catch (e) {}
+  }
   // short: X counts each emoji as two characters, so its version drops the tier to stay under 280.
   function shareText(R, short) {
     var lead = R.judged === 50 ? 'I agree with Manhattan Institute on ' + R.pct + '% of its 50 ideas for New York' : 'So far I agree with Manhattan Institute on ' + R.pct + '% of the ' + R.judged + ' ideas I’ve judged';
@@ -1621,9 +1641,10 @@ BEL.NOTES = {
       : 'least aligned on ' + (bots.length === 1 ? one(bots[0]) : listNames(bots) + ' (' + lo + '%)');
     return first + '; ' + second + '.';
   }
-  function openResults(sw, shared) {
+  function openResults(sw, shared, finished) {
     var R = compute(sw);
     if (!R.judged) { toast('Swipe at least one card first'); return; }
+    if (finished && !shared && R.judged === 50) tally(sw);
     cur = { R: R, fmt: 'post', scene: null, shared: shared, blob: null };
     var you = shared ? 'They' : 'You';
     $('[data-shared]').hidden = !shared;
