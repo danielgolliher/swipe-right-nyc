@@ -197,7 +197,11 @@ button { font: inherit; }
 .sw-num { font-family: var(--font-serif); font-style: italic; font-weight: 300; font-size: 2.6rem; line-height: 0.8; color: var(--blue); letter-spacing: -0.04em; }
 .sw-body h3 { font-size: clamp(1.3rem, 1.1rem + 0.8vw, 1.6rem); font-weight: 400; letter-spacing: -0.015em; line-height: 1.12; color: var(--ink); }
 .sw-body p { font-size: 0.95rem; line-height: 1.5; color: var(--ink-2); overflow: hidden; display: -webkit-box; -webkit-line-clamp: 5; -webkit-box-orient: vertical; }
-.partner { align-self: flex-start; margin-top: auto; font-family: var(--font-sans); font-weight: 600; color: var(--orange-ink); text-transform: uppercase; letter-spacing: 0.12em; font-size: 0.56rem; border: 1px solid rgba(255,128,0,0.5); border-radius: 999px; padding: 3px 9px 2px; }
+.sw-foot { margin-top: auto; display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 8px 12px; }
+.sw-brief { font-family: var(--font-sans); font-size: 0.6rem; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: var(--blue); text-decoration: none; border-bottom: 1px solid rgba(44,72,220,0.35); padding-bottom: 2px; }
+.sw-brief:hover { color: var(--blue-2); border-bottom-color: currentColor; }
+.rep-cols li .links { grid-column: 2; display: flex; flex-wrap: wrap; gap: 4px 16px; }
+.partner { align-self: flex-start; font-family: var(--font-sans); font-weight: 600; color: var(--orange-ink); text-transform: uppercase; letter-spacing: 0.12em; font-size: 0.56rem; border: 1px solid rgba(255,128,0,0.5); border-radius: 999px; padding: 3px 9px 2px; }
 .sw-stamp { position: absolute; top: 26px; z-index: 3; padding: 7px 14px 6px; border: 2.5px solid currentColor; border-radius: 10px; font-family: var(--font-sans); font-weight: 800; font-size: 1rem; letter-spacing: 0.18em; text-transform: uppercase; opacity: 0; pointer-events: none; background: rgba(255,255,255,0.88); }
 .sw-stamp.s-like { left: 20px; color: var(--blue); transform: rotate(-14deg); }
 .sw-stamp.s-nope { right: 20px; color: var(--bad); transform: rotate(14deg); }
@@ -381,14 +385,14 @@ button { font: inherit; }
         </ul>
         <p class="fine">About five minutes. Your swipes stay on your device. At the end you get a report card to save or share.</p>
       </div>
-      <div class="intro__deck" aria-hidden="true"></div>
+      <div class="intro__deck" aria-hidden="true" inert></div>
     </div>
     <details class="browse">
       <summary>Browse all 50 first <span>7 areas</span></summary>
       <div class="browse__cols" data-browse></div>
     </details>
     <footer class="site-foot">
-      <span>Ideas from “<a href="https://manhattan.institute/article/a-better-everyday-life-in-new-york-50-practical-ideas-to-renew-nycs-promise-of-opportunity">A Better Everyday Life in New York</a>,” an issue brief by John Ketcham and Sean Speer (Manhattan Institute, Oct. 20, 2026). Card text is condensed from the brief.</span>
+      <span>Ideas from “<a href="https://manhattan.institute/article/a-better-everyday-life-in-new-york-50-practical-ideas-to-renew-nycs-promise-of-opportunity">A Better Everyday Life in New York</a>,” an issue brief by John Ketcham and Sean Speer (Manhattan Institute, Oct. 20, 2026). Card text is condensed from the brief; every card links to MI’s exact wording.</span>
       <span>Want the whole argument? Try the <a href="https://danielgolliher.github.io/better-everyday-life/">interactive edition</a>. Built by Daniel Golliher.</span>
     </footer>
   </div>
@@ -503,111 +507,111 @@ BEL.AREAS = [
 
 BEL.IDEAS = [
   // Homes
-  { n: 1, a: 'homes', t: 'Bring vacant rent-regulated units back', tag: 'Vacant units relit', note: 16, p: 'Albany', x: 362, y: 334,
+  { n: 1, a: 'homes', q: 'Make renovating vacant', t: 'Bring vacant rent-regulated units back', tag: 'Vacant units relit', note: 16, p: 'Albany', x: 362, y: 334,
     d: 'An estimated 57,000 [[rentreg|rent-regulated]] apartments sit empty. Working with Albany, let rents on them rise enough that fixing them up makes financial sense.' },
-  { n: 2, a: 'homes', t: 'Scrap or recalibrate inclusionary zoning', tag: 'Stalled site builds', note: 17, x: 650, y: 384,
+  { n: 2, a: 'homes', q: 'Eliminate or recalibrate', t: 'Scrap or recalibrate inclusionary zoning', tag: 'Stalled site builds', note: 17, x: 650, y: 384,
     d: '[[mih|Mandatory Inclusionary Housing]] was tuned to the old [[421a|421-a]] tax break. Its successor, [[485x|485-x]], is less generous, yet MIH’s requirements never changed, so fewer projects pencil out. End MIH or reset it.' },
-  { n: 3, a: 'homes', t: 'Let more homes add a second unit', tag: 'Second unit added', note: 18, x: 200, y: 488,
+  { n: 3, a: 'homes', q: 'Allow two-family homes', t: 'Let more homes add a second unit', tag: 'Second unit added', note: 18, x: 200, y: 488,
     d: 'Allow modest two-family housing in suitable areas now reserved for single-family homes, for instance by dropping size limits and owner-occupancy rules on [[adu|accessory units]].' },
-  { n: 4, a: 'homes', t: 'Finish off parking mandates', tag: 'Lot becomes homes', note: 19, x: 540, y: 346,
+  { n: 4, a: 'homes', q: 'Remove remaining parking', t: 'Finish off parking mandates', tag: 'Lot becomes homes', note: 19, x: 540, y: 346,
     d: 'Required parking raises building costs and takes space that could hold homes. Let the market decide how much parking a neighborhood needs by ending the [[parking|mandates]] that remain.' },
-  { n: 5, a: 'homes', t: 'Let underbuilt old buildings be replaced', tag: 'Underbuilt lot rebuilt', note: 20, x: 425, y: 296,
+  { n: 5, a: 'homes', q: 'Allow redevelopment of', t: 'Let underbuilt old buildings be replaced', tag: 'Underbuilt lot rebuilt', note: 20, x: 425, y: 296,
     d: 'Many pre-1974 rent-stabilized buildings use a fraction of what their lots allow, but approval to demolish them is often impossible to get. Easing redevelopment lets the city add homes on land it already has.' },
-  { n: 6, a: 'homes', t: 'Fix how rental buildings are taxed', tag: 'Tax weight lifted', note: 21, p: 'City Council', x: 888, y: 200,
+  { n: 6, a: 'homes', q: 'Reform the tax', t: 'Fix how rental buildings are taxed', tag: 'Tax weight lifted', note: 21, p: 'City Council', x: 888, y: 200,
     d: 'Large rental buildings bear property-tax burdens that discourage construction and then require abatements to offset. Work with the city council toward a more rational, consistent system.' },
-  { n: 7, a: 'homes', t: 'Hold NYCHA to its repair duties', tag: 'Elevator and heat work', note: 22, x: 822, y: 196,
+  { n: 7, a: 'homes', q: 'Make NYC Housing', t: 'Hold NYCHA to its repair duties', tag: 'Elevator and heat work', note: 22, x: 822, y: 196,
     d: '[[nycha|Public-housing]] residents should be able to count on elevators, heat, and timely repairs. Back that with enforceable management obligations and real consequences for chronic failure, while keeping tenancy protections intact.' },
-  { n: 8, a: 'homes', t: 'Roll back Local Law 97', tag: 'LL97 fines gone', note: 23, x: 948, y: 534,
+  { n: 8, a: 'homes', q: 'Roll back Local', t: 'Roll back Local Law 97', tag: 'LL97 fines gone', note: 23, x: 948, y: 534,
     d: 'The brief argues [[ll97|Local Law 97]] raises costs for residents, with penalties climbing sharply in 2030, for a negligible effect on global emissions, in a city that already has the lowest per-capita carbon emissions in the country.' },
   // Schools
-  { n: 9, a: 'schools', t: 'Publish attendance data every month', tag: 'Monthly data posted', note: 24, x: 1418, y: 424,
+  { n: 9, a: 'schools', q: 'Provide better data', t: 'Publish attendance data every month', tag: 'Monthly data posted', note: 24, x: 1418, y: 424,
     d: 'Researchers are working from a school year that ended long ago. Connecticut and Rhode Island refresh public attendance dashboards monthly; New York City could too.' },
-  { n: 10, a: 'schools', t: 'Act early when children start missing school', tag: 'Empty desks filled', note: 25, x: 1198, y: 334,
+  { n: 10, a: 'schools', q: 'Intervene early when', t: 'Act early when children start missing school', tag: 'Empty desks filled', note: 25, x: 1198, y: 334,
     d: 'Make principals responsible for reaching families as soon as a pattern of [[absent|absences]] appears, and have school staff keep stressing why showing up matters.' },
-  { n: 11, a: 'schools', t: 'Screen every K–3 child in reading and math', tag: 'Early screening', note: 26, x: 1308, y: 334,
+  { n: 11, a: 'schools', q: 'Establish universal early', t: 'Screen every K–3 child in reading and math', tag: 'Early screening', note: 26, x: 1308, y: 334,
     d: 'Use evidence-based screeners several times a year. Today struggling readers often surface only at the third-grade state exams, when the gaps are already set.' },
-  { n: 12, a: 'schools', t: 'Lift the cap on charter schools', tag: 'Charter opens', note: 27, p: 'Albany', x: 1496, y: 378,
+  { n: 12, a: 'schools', q: 'Lift or eliminate', t: 'Lift the cap on charter schools', tag: 'Charter opens', note: 27, p: 'Albany', x: 1496, y: 378,
     d: 'Work with Albany to remove the [[charter|limits]] that keep successful charter schools from expanding, and help them find suitable space.' },
-  { n: 13, a: 'schools', t: 'Merge under-enrolled schools', tag: 'Small school merged', note: 28, x: 1600, y: 384,
+  { n: 13, a: 'schools', q: 'Consolidate under-enrolled schools', t: 'Merge under-enrolled schools', tag: 'Small school merged', note: 28, x: 1600, y: 384,
     d: 'Start with schools under 150 students and those shrinking fastest since 2022. MI estimates that bringing per-pupil funding for half the students in under-enrolled schools to the systemwide average could save about $109 million.' },
-  { n: 14, a: 'schools', t: 'Keep classrooms orderly', tag: 'Order restored', note: 29, x: 1418, y: 334,
+  { n: 14, a: 'schools', q: 'Maintain orderly classrooms', t: 'Keep classrooms orderly', tag: 'Order restored', note: 29, x: 1418, y: 334,
     d: 'Give teachers and principals workable tools for persistent disruption, alongside student support and due process. Judge discipline policy by safety, fairness, and how much learning time it protects.' },
-  { n: 15, a: 'schools', t: 'Expand gifted and accelerated seats', tag: 'New G&T seats', note: 30, x: 1308, y: 424,
+  { n: 15, a: 'schools', q: 'Expand Gifted and', t: 'Expand gifted and accelerated seats', tag: 'New G&T seats', note: 30, x: 1308, y: 424,
     d: 'Open a new [[shsat|SHSAT]] high school in Queens, and add [[gt|gifted-and-talented]] seats and accelerated middle-school options to meet demand.' },
-  { n: 16, a: 'schools', t: 'Grow career and technical education', tag: 'CTE shop opens', note: 31, x: 1702, y: 462,
+  { n: 16, a: 'schools', q: 'Create alternative career', t: 'Grow career and technical education', tag: 'CTE shop opens', note: 31, x: 1702, y: 462,
     d: 'Expand [[cte|CTE]] programs so students who aren’t college-bound leave with marketable skills and a reason to stay enrolled.' },
-  { n: 17, a: 'schools', t: 'Review private special-ed placements yearly', tag: 'Annual review', note: 32, x: 1990, y: 410,
+  { n: 17, a: 'schools', q: 'Halt the growth', t: 'Review private special-ed placements yearly', tag: 'Annual review', note: 32, x: 1990, y: 410,
     d: 'Rein in growing [[carter|Carter-case]] claims by returning to annual adjudication: each year the Department of Education presents and defends an updated [[iep|IEP]] instead of renewals being granted by default.' },
-  { n: 18, a: 'schools', t: 'Do more special-ed evaluations in house', tag: 'In-house evaluators', note: 33, x: 1990, y: 470,
+  { n: 18, a: 'schools', q: 'Build Department of', t: 'Do more special-ed evaluations in house', tag: 'In-house evaluators', note: 33, x: 1990, y: 470,
     d: 'Build the department’s own multidisciplinary evaluation teams, so the system leans less on private evaluators whose recommendations may not match what public programs can offer.' },
-  { n: 19, a: 'schools', t: 'Mediate special-ed disputes first', tag: 'Mediation first', note: 34, x: 1990, y: 530,
+  { n: 19, a: 'schools', q: 'Adopt a mediation-first', t: 'Mediate special-ed disputes first', tag: 'Mediation first', note: 34, x: 1990, y: 530,
     d: 'The city’s default is to let a [[dueprocess|due-process case]] be filed and negotiate later, which has driven legal costs up. Try mediation before anyone files.' },
-  { n: 20, a: 'schools', t: 'Set grade-by-grade rules for student AI', tag: 'AI rules by grade', note: 35, p: 'Albany', x: 1198, y: 424,
+  { n: 20, a: 'schools', q: 'Establish developmentally based', t: 'Set grade-by-grade rules for student AI', tag: 'AI rules by grade', note: 35, p: 'Albany', x: 1198, y: 424,
     d: 'Statewide guidelines: no student-facing AI in K–2; teacher-directed use only in grades 3–5; formal AI-literacy lessons with limited use in 6–8; broader but structured use in 9–12.' },
-  { n: 21, a: 'schools', t: 'Retraining that fits a working adult’s week', tag: 'Evening classes', note: 36, x: 1822, y: 284,
+  { n: 21, a: 'schools', q: 'Make retraining programs', t: 'Retraining that fits a working adult’s week', tag: 'Evening classes', note: 36, x: 1822, y: 284,
     d: 'Expand evening and weekend job-training programs at [[cuny|CUNY]] so adults with jobs and families can pick up new skills.' },
   // Childcare
-  { n: 22, a: 'childcare', t: 'Open up more places for childcare', tag: 'Storefront day care', note: 37, x: 2030, y: 478,
+  { n: 22, a: 'childcare', q: 'Relax requirements for', t: 'Open up more places for childcare', tag: 'Storefront day care', note: 37, x: 2030, y: 478,
     d: 'Modernize the location and building requirements for childcare sites, so providers can open near the families who need them.' },
-  { n: 23, a: 'childcare', t: 'Make home-based care easier to offer', tag: 'Home child care', note: 38, x: 2286, y: 520,
+  { n: 23, a: 'childcare', q: 'Make qualified home-based', t: 'Make home-based care easier to offer', tag: 'Home child care', note: 38, x: 2286, y: 520,
     d: 'Create a clear approval path for qualified home-based providers, paired with fitting oversight, so parents have a wider range of safe choices.' },
-  { n: 24, a: 'childcare', t: 'Make childcare aid predictable', tag: 'Steady vouchers', note: 39, x: 2194, y: 520,
+  { n: 24, a: 'childcare', q: 'Make childcare assistance', t: 'Make childcare aid predictable', tag: 'Steady vouchers', note: 39, x: 2194, y: 520,
     d: 'Fund vouchers steadily and avoid abrupt cutoffs as parents earn more, so families and providers can plan around work and care.' },
-  { n: 25, a: 'childcare', t: 'Care beyond nine to five', tag: 'Open into evening', note: 40, x: 2118, y: 344,
+  { n: 25, a: 'childcare', q: 'Support childcare outside', t: 'Care beyond nine to five', tag: 'Open into evening', note: 40, x: 2118, y: 344,
     d: 'Extend care past conventional office hours, for example by partnering with private schools to run after-school programs into the early evening.' },
   // Streets
-  { n: 26, a: 'streets', t: 'Expand quality-of-life policing', tag: 'Park feels safe', note: 41, x: 2384, y: 512,
+  { n: 26, a: 'streets', q: 'Expand quality-of-life policing', t: 'Expand quality-of-life policing', tag: 'Park feels safe', note: 41, x: 2384, y: 512,
     d: 'Build on the NYPD’s [[qol|quality-of-life]] initiative against recurring public-space problems, such as open drug use, street homelessness, and excessive noise, that make streets, parks, and transit feel unsafe.' },
-  { n: 27, a: 'streets', t: 'Hire more police officers', tag: 'More officers', note: 42, x: 2633, y: 530,
+  { n: 27, a: 'streets', q: 'Hire more police', t: 'Hire more police officers', tag: 'More officers', note: 42, x: 2633, y: 530,
     d: 'Felony assaults in 2025 ran 44% above 2019 and 84% above 2008, even as murders and shootings fell. A bigger force allows a more visible presence plus targeted enforcement against the most serious offenders.' },
-  { n: 28, a: 'streets', t: 'Keep the gang database and the SRG', tag: 'Precision tools kept', note: 43, x: 2603, y: 492,
+  { n: 28, a: 'streets', q: 'Maintain the gang', t: 'Keep the gang database and the SRG', tag: 'Precision tools kept', note: 43, x: 2603, y: 492,
     d: 'The brief credits precision policing built on the [[gangdb|gang database]] and the [[srg|Strategic Response Group]] with part of the drop in homicides and shootings.' },
-  { n: 29, a: 'streets', t: 'Fix Rikers instead of closing it', tag: 'Rikers renovated', note: 44, x: 2448, y: 458,
+  { n: 29, a: 'streets', q: 'close Rikers Island;', t: 'Fix Rikers instead of closing it', tag: 'Rikers renovated', note: 44, x: 2448, y: 458,
     d: 'The [[rikers|borough-jail plan]] would cost over $16 billion and hold about 4,000 people; Rikers holds about 6,500 today. Keep it open and renovate it until it is humane and safe.' },
-  { n: 30, a: 'streets', t: 'Clear graffiti, trash, and visible disorder', tag: 'Wall cleaned', note: 45, x: 2533, y: 508,
+  { n: 30, a: 'streets', q: 'Remove graffiti, trash,', t: 'Clear graffiti, trash, and visible disorder', tag: 'Wall cleaned', note: 45, x: 2533, y: 508,
     d: 'Clean, orderly public spaces get used more, and they build confidence that government is paying attention.' },
-  { n: 31, a: 'streets', t: 'Widen access to proven addiction treatment', tag: 'Clinic open', note: 46, x: 2743, y: 452,
+  { n: 31, a: 'streets', q: 'Expand access to', t: 'Widen access to proven addiction treatment', tag: 'Clinic open', note: 46, x: 2743, y: 452,
     d: 'City-funded services should offer the right medications and keep care continuous, including after someone leaves jail.' },
-  { n: 32, a: 'streets', t: 'Build psychiatric beds and treatment', tag: 'Psych beds added', note: 47, x: 2862, y: 272,
+  { n: 32, a: 'streets', q: 'Build treatment and', t: 'Build psychiatric beds and treatment', tag: 'Psych beds added', note: 47, x: 2862, y: 272,
     d: 'Instead of arguing over which mental-health responder model is best, keep building treatment capacity and adding inpatient psychiatric beds, as Mayor Adams and Governor Hochul began to do.' },
-  { n: 33, a: 'streets', t: 'Make fare enforcement certain, not harsher', tag: 'Fares enforced', note: 48, x: 2998, y: 698,
+  { n: 33, a: 'streets', q: 'Make fare-evasion penalties', t: 'Make fare enforcement certain, not harsher', tag: 'Fares enforced', note: 48, x: 2998, y: 698,
     d: 'Consistent, predictable enforcement on buses and subways, rather than steeper penalties, is what changes rider behavior.' },
-  { n: 34, a: 'streets', t: 'Write local rules for driverless cars', tag: 'Robotaxi, with rules', note: 49, p: 'Albany', x: 2752, y: 580,
+  { n: 34, a: 'streets', q: 'Change local rules', t: 'Write local rules for driverless cars', tag: 'Robotaxi, with rules', note: 49, p: 'Albany', x: 2752, y: 580,
     d: 'Apply the lesson of Uber and Lyft: rather than ban [[av|autonomous vehicles]], set caps and rules for how they fit with transit. State law still bars fully driverless cars, so the city can prepare now.' },
   // Work
-  { n: 35, a: 'work', t: 'Honor out-of-state licenses', tag: 'License recognized', note: 50, p: 'Albany', x: 3086, y: 576,
+  { n: 35, a: 'work', q: 'Recognize relevant licenses', t: 'Honor out-of-state licenses', tag: 'License recognized', note: 50, p: 'Albany', x: 3086, y: 576,
     d: 'Work with Albany so qualified workers in good standing in other states can practice here without repeating training they’ve already finished.' },
-  { n: 36, a: 'work', t: 'Open more legal paths for street vendors', tag: 'Vendor permitted', note: 51, x: 3172, y: 504,
+  { n: 36, a: 'work', q: 'Expand lawful opportunities', t: 'Open more legal paths for street vendors', tag: 'Vendor permitted', note: 51, x: 3172, y: 504,
     d: 'Make permits simpler to get, raise the fee toward the license’s market value, and enforce clear food-safety and sidewalk rules. Today’s fee is so low that holders profit by renting permits to working vendors.' },
-  { n: 37, a: 'work', t: 'Let more supermarkets in', tag: 'Supermarket opens', note: 52, x: 3276, y: 458,
+  { n: 37, a: 'work', q: 'Make room for', t: 'Let more supermarkets in', tag: 'Supermarket opens', note: 52, x: 3276, y: 458,
     d: 'Relax size and zoning limits on supermarkets in suitable manufacturing districts, for more competition and lower prices.' },
   // Services
-  { n: 38, a: 'services', t: 'Use AI to cut waits, with staff checking', tag: 'Shorter line', note: 53, x: 3400, y: 514,
+  { n: 38, a: 'services', q: 'Shorten government response', t: 'Use AI to cut waits, with staff checking', tag: 'Shorter line', note: 53, x: 3400, y: 514,
     d: 'Approve low-risk administrative uses of AI, with staff responsible for the results. Judge each tool by outcomes: shorter waits for residents and staff time freed for work that needs judgment.' },
-  { n: 39, a: 'services', t: 'Triage 311 calls with AI', tag: '311 sorted', note: 54, x: 3394, y: 462,
+  { n: 39, a: 'services', q: 'Use AI to', t: 'Triage 311 calls with AI', tag: '311 sorted', note: 54, x: 3394, y: 462,
     d: 'Pair AI analysis with human review to decide which [[311|311]] complaints deserve priority and which, such as likely-fraudulent ones, can wait.' },
-  { n: 40, a: 'services', t: 'Faster, more frequent buses, not free ones', tag: 'Bus lane, faster bus', note: 55, p: 'MTA', x: 3604, y: 578,
+  { n: 40, a: 'services', q: 'Make buses faster', t: 'Faster, more frequent buses, not free ones', tag: 'Bus lane, faster bus', note: 55, p: 'MTA', x: 3604, y: 578,
     d: 'City buses average just 9.3 miles per hour, among the slowest in the nation. Keep the fare revenue and work with the MTA to add service on crowded routes, enforce fares, and speed up trips.' },
-  { n: 41, a: 'services', t: 'Predict where nightlife trouble will flare', tag: 'Nightlife forecast', note: 56, x: 3544, y: 446,
+  { n: 41, a: 'services', q: 'Build predictive models', t: 'Predict where nightlife trouble will flare', tag: 'Nightlife forecast', note: 56, x: 3544, y: 446,
     d: 'Have the [[oti|Office of Technology and Innovation]] combine liquor licenses, 311 noise calls, sanitation, police, EMS, and late-night transit data to spot streets likely to see disorder, and adjust before conditions slide.' },
-  { n: 42, a: 'services', t: 'Predict where encampments will form', tag: 'Outreach arrives', note: 57, x: 3663, y: 520,
+  { n: 42, a: 'services', q: 'Create an AI-driven', t: 'Predict where encampments will form', tag: 'Outreach arrives', note: 57, x: 3663, y: 520,
     d: 'Model which public spaces risk becoming chronic disorder zones, using transit hubs, vacant storefronts, lighting, shelter proximity, and enforcement history, then send outreach, cleanup, or redesign early.' },
-  { n: 43, a: 'services', t: 'Make performance data timely and usable', tag: 'Live dashboard', note: 58, x: 3435, y: 306,
+  { n: 43, a: 'services', q: 'Make city performance', t: 'Make performance data timely and usable', tag: 'Live dashboard', note: 58, x: 3435, y: 306,
     d: 'Automate routine updates and publish service data in formats people can use, so residents and managers can see where problems persist and whether the response is working.' },
-  { n: 44, a: 'services', t: 'Put employee benefits on a sustainable footing', tag: 'Benefits balanced', note: 59, x: 3762, y: 206,
+  { n: 44, a: 'services', q: 'Put public employee-benefit', t: 'Put employee benefits on a sustainable footing', tag: 'Benefits balanced', note: 59, x: 3762, y: 206,
     d: 'Reform health and retirement benefits so the city can keep paying for services over time.' },
   // Government
-  { n: 45, a: 'government', t: 'Close the budget gap without new taxes', tag: 'Gap closed', note: 60, x: 3848, y: 530,
+  { n: 45, a: 'government', q: 'Close budget gaps', t: 'Close the budget gap without new taxes', tag: 'Gap closed', note: 60, x: 3848, y: 530,
     d: 'Facing a projected [[fy28|FY28]] gap of $6.4 to $8.8 billion, use a modest [[peg|Program to Eliminate the Gap]] and a temporary freeze on [[nonuniform|civilian]] hiring, trimming especially at the Department of Education.' },
-  { n: 46, a: 'government', t: 'End the automatic six-month FOIL wait', tag: 'FOIL on time', note: 61, x: 3852, y: 488,
+  { n: 46, a: 'government', q: 'End the automatic', t: 'End the automatic six-month FOIL wait', tag: 'FOIL on time', note: 61, x: 3852, y: 488,
     d: 'Stop stamping nearly every [[foil|FOIL]] request with a roughly six-month due date. Give each one a realistic date, triage easy requests, release records on a rolling basis, and add staff.' },
-  { n: 47, a: 'government', t: 'Open primaries for citywide offices', tag: 'Open primary', note: 62, x: 4146, y: 534,
+  { n: 47, a: 'government', q: 'Support primary reform', t: 'Open primaries for citywide offices', tag: 'Open primary', note: 62, x: 4146, y: 534,
     d: 'More than a million registered city voters can’t vote in any primary. Fully [[openprim|open primaries]] would push candidates to court the whole electorate, not just their party’s base.' },
-  { n: 48, a: 'government', t: 'Explore proportional representation', tag: 'Council by PR', note: 63, x: 4106, y: 440,
+  { n: 48, a: 'government', q: 'Explore proportional representation', t: 'Explore proportional representation', tag: 'Council by PR', note: 63, x: 4106, y: 440,
     d: '[[pr|Proportional representation]] for the city council would make general elections competitive and bring the council’s makeup closer to the electorate’s.' },
-  { n: 49, a: 'government', t: 'Rein in emergency contracting', tag: 'Open bids', note: 64, p: 'City Council', x: 4138, y: 490,
+  { n: 49, a: 'government', q: 'Reform emergency contracting', t: 'Rein in emergency contracting', tag: 'Open bids', note: 64, p: 'City Council', x: 4138, y: 490,
     d: 'The mayor and council should limit the habit of treating chronic, foreseeable problems as standing emergencies that skip [[emergency|competitive bidding]].' },
-  { n: 50, a: 'government', t: 'Pay nonprofit contractors on time', tag: 'Invoice paid', note: 65, x: 4207, y: 436,
+  { n: 50, a: 'government', q: 'Pay nonprofit contractors', t: 'Pay nonprofit contractors on time', tag: 'Invoice paid', note: 65, x: 4207, y: 436,
     d: 'Have the [[mocs|Mayor’s Office of Contract Services]] push for procurement legislation so the nonprofits that deliver city services get paid when they should.' }
 ];
 
@@ -1145,6 +1149,8 @@ BEL.NOTES = {
   function esc(s) { return String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;'); }
   function pad(n) { return n < 10 ? '0' + n : String(n); }
   function plain(s) { return s.replace(/\[\[[^|\]]+\|([^\]]+)\]\]/g, '$1'); }
+  // Opens MI's brief scrolled to this recommendation (a text fragment highlights its first words).
+  function briefLink(d) { return 'https://manhattan.institute/article/a-better-everyday-life-in-new-york-50-practical-ideas-to-renew-nycs-promise-of-opportunity#:~:text=' + encodeURIComponent(d.q).replace(/-/g, '%2D'); }
   function range(a, b) { var out = []; for (var i = a; i <= b; i++) out.push(i); return out; }
   var reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   var NS = 'http://www.w3.org/2000/svg';
@@ -1244,7 +1250,9 @@ BEL.NOTES = {
     h('span', { 'class': 'sw-num', text: pad(d.n) }, body);
     h('h3', { text: d.t }, body);
     h('p', { text: plain(d.d) }, body);
-    if (d.p) h('span', { 'class': 'partner', text: 'With ' + d.p }, body);
+    var foot = h('div', { 'class': 'sw-foot' }, body);
+    h('a', { 'class': 'sw-brief', href: briefLink(d), target: '_blank', rel: 'noopener', text: 'Read MI’s exact wording ↗' }, foot);
+    if (d.p) h('span', { 'class': 'partner', text: 'With ' + d.p }, foot);
     return el;
   }
 
@@ -1286,7 +1294,7 @@ BEL.NOTES = {
     function drag(c) {
       var sx = 0, sy = 0, dx = 0, dy = 0, pid = null;
       c.addEventListener('pointerdown', function (e) {
-        if (c.getAttribute('data-depth') !== '0' || busy) return;
+        if (c.getAttribute('data-depth') !== '0' || busy || e.target.closest('a')) return;
         pid = e.pointerId; c.setPointerCapture(pid); sx = e.clientX; sy = e.clientY; dx = dy = 0; c.classList.add('dragging');
       });
       c.addEventListener('pointermove', function (e) {
@@ -1547,7 +1555,8 @@ BEL.NOTES = {
   function listItem(n, v, long) {
     var d = BEL.IDEAS[n - 1], note = BEL.NOTES[d.note];
     return '<li class="' + v + '"><b>' + pad(n) + '</b><h4>' + esc(d.t) + (v === 'super' ? '<small>Super-like</small>' : '') + '</h4>' +
-      (long ? '<p>' + esc(plain(d.d)) + '</p><a href="' + note[2] + '">MI’s case: ' + esc(note[0]) + ' ↗</a>' : '') + '</li>';
+      (long ? '<p>' + esc(plain(d.d)) + '</p>' : '') +
+      '<span class="links"><a href="' + briefLink(d) + '" target="_blank" rel="noopener">MI’s exact wording ↗</a>' + (long ? '<a href="' + note[2] + '" target="_blank" rel="noopener">Source: ' + esc(note[0]) + ' ↗</a>' : '') + '</span></li>';
   }
   function openResults(sw, shared) {
     var R = compute(sw);
