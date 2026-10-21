@@ -1448,7 +1448,7 @@ BEL.NOTES = {
     });
   }
   function drawCard(cv, R, fmt, scene) {
-    var W = 1080, H = fmt === 'story' ? 1920 : 1350, P = 72, oy = fmt === 'story' ? 266 : -40;
+    var W = 1080, H = fmt === 'story' ? 1920 : 1350, P = 72, oy = fmt === 'story' ? 266 : -64;
     cv.width = W; cv.height = H;
     var ctx = cv.getContext('2d');
     var g = ctx.createLinearGradient(0, 0, W * 0.45, H);
@@ -1532,7 +1532,7 @@ BEL.NOTES = {
       ctx.textAlign = 'right'; F(ctx, 'italic 300', 31, SERIF, 0); ctx.fillStyle = COL.sky; ctx.fillText(A.pct == null ? '–' : A.pct + '%', W - P, y + 25);
     });
 
-    var fy = fmt === 'story' ? 1244 + oy : 1212;
+    var fy = (fmt === 'story' ? 1244 : 1252) + oy;
     if (fmt === 'story') {
       var picks = (R.g['super'].length ? R.g['super'] : R.g.like).slice(0, 3);
       if (picks.length) {
@@ -1547,13 +1547,15 @@ BEL.NOTES = {
           ly += 54;
         });
       }
-      fy = H - 134;
+      fy = H - 158;
     }
     hline(ctx, P, fy, W - P);
     ctx.textAlign = 'left'; F(ctx, 'italic 400', 32, SERIF, 0); ctx.fillStyle = COL.hi; ctx.fillText('Are you a Manhattan Institute Urbanist?', P, fy + 46);
     F(ctx, '600', 21, SANS, 1); ctx.fillStyle = COL.sky; ctx.fillText('Swipe the 50 at ' + URLTXT, P, fy + 80);
     F(ctx, '400', 17, SANS, 0.5); ctx.fillStyle = COL.hi3;
-    ctx.fillText('Ideas from “A Better Everyday Life in New York,” Manhattan Institute, Oct. 2026', P, fy + 110);
+    ctx.fillText('Ideas from “A Better Everyday Life in New York,” Manhattan Institute, Oct. 2026', P, fy + 108);
+    // Personal-capacity disclaimer: once approvals come through, delete this line and restore oy -40 (post) and H - 134 (story).
+    ctx.fillText('A fun personal project by Daniel Golliher, not made in an official capacity as an MI Fellow.', P, fy + 132);
   }
 
   /* ---------- Results screen ---------- */
