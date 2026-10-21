@@ -9,14 +9,14 @@
 <meta property="og:type" content="website">
 <meta property="og:title" content="Are you a Manhattan Institute Urbanist?">
 <meta property="og:description" content="These 50 ideas are compiled from MI scholars and research. See where, and how much, you overlap.">
-<meta property="og:image" content="https://danielgolliher.github.io/swipe-right-nyc/og-image.png">
+<meta property="og:image" content="https://swiperight.nyc/og-image.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta property="og:image:alt" content="A stack of swipe cards, each showing one of Manhattan Institute's 50 ideas for New York, beside the title Are you a Manhattan Institute Urbanist?">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Are you a Manhattan Institute Urbanist?">
 <meta name="twitter:description" content="These 50 ideas are compiled from MI scholars and research. See where, and how much, you overlap.">
-<meta name="twitter:image" content="https://danielgolliher.github.io/swipe-right-nyc/og-image.png">
+<meta name="twitter:image" content="https://swiperight.nyc/og-image.png">
 <meta name="theme-color" content="#14163a">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -1178,7 +1178,7 @@ BEL.NOTES = {
   function range(a, b) { var out = []; for (var i = a; i <= b; i++) out.push(i); return out; }
   var reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   var NS = 'http://www.w3.org/2000/svg';
-  var SITE = 'https://danielgolliher.github.io/swipe-right-nyc/';
+  var SITE = 'https://swiperight.nyc/';
   var BRIEF = 'https://manhattan.institute/article/a-better-everyday-life-in-new-york-50-practical-ideas-to-renew-nycs-promise-of-opportunity';
   var AREA = {};
   BEL.AREAS.forEach(function (a) { AREA[a.id] = a; });
@@ -1403,7 +1403,7 @@ BEL.NOTES = {
   /* ---------- Report card (canvas) ---------- */
   var COL = { hi: '#ffffff', hi2: 'rgba(238,240,251,0.78)', hi3: 'rgba(238,240,251,0.52)', line: 'rgba(255,255,255,0.16)', sky: '#9aa9ff', like: '#6f86ff', sup: '#ff9a3d', pass: 'rgba(255,255,255,0.3)' };
   var SERIF = 'Newsreader, Georgia, serif', SANS = '"Libre Franklin", "Helvetica Neue", Arial, sans-serif';
-  var URLTXT = 'danielgolliher.github.io/swipe-right-nyc';
+  var URLTXT = 'swiperight.nyc';
   function F(ctx, spec, size, fam, spacing) { ctx.font = spec + ' ' + size + 'px ' + fam; if ('letterSpacing' in ctx) ctx.letterSpacing = (spacing || 0) + 'px'; }
   function rr(ctx, x, y, w, hh, r) { ctx.beginPath(); ctx.moveTo(x + r, y); ctx.arcTo(x + w, y, x + w, y + hh, r); ctx.arcTo(x + w, y + hh, x, y + hh, r); ctx.arcTo(x, y + hh, x, y, r); ctx.arcTo(x, y, x + w, y, r); ctx.closePath(); }
   function hline(ctx, x0, y, x1) { ctx.fillStyle = COL.line; ctx.fillRect(x0, y, x1 - x0, 2); }
