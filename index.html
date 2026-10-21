@@ -130,6 +130,9 @@ details:not([open]) > :not(summary) { display: none !important; }
 .textbtn { appearance: none; background: none; border: 0; padding: 0; cursor: pointer; font-family: var(--font-sans); font-size: 0.64rem; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: var(--hi-3); text-decoration: underline; text-underline-offset: 4px; text-decoration-color: var(--line); }
 .textbtn:hover { color: #fff; }
 .fine { font-family: var(--font-sans); font-size: 0.7rem; line-height: 1.6; color: var(--hi-3); }
+/* Personal-capacity disclaimer: delete every .disclaimer element and these rules once approvals come through. */
+p.disclaimer { font-family: var(--font-sans); font-size: 0.74rem; line-height: 1.55; color: var(--hi-2); border-left: 2px solid var(--line); padding-left: 12px; }
+p.disclaimer b { color: var(--hi); font-weight: 600; }
 
 /* ---------- Intro ---------- */
 .intro__grid { display: grid; grid-template-columns: minmax(0, 1.05fr) minmax(0, 0.95fr); gap: 40px; align-items: center; min-height: calc(100dvh - 160px); padding-block: 24px 40px; }
@@ -404,6 +407,7 @@ details:not([open]) > :not(summary) { display: none !important; }
           <li><span class="i like"><svg aria-hidden="true"><use href="#i-heart"/></svg></span>Like</li>
         </ul>
         <p class="fine">About five minutes. Your swipes stay on your device. At the end you get a report card to save or share.</p>
+        <p class="disclaimer"><b>Disclaimer:</b> Daniel Golliher made this site as a fun project in a personal capacity, not in an official capacity as a Manhattan Institute Fellow.</p>
       </div>
       <div class="intro__deck" aria-hidden="true" inert></div>
     </div>
@@ -413,7 +417,7 @@ details:not([open]) > :not(summary) { display: none !important; }
     </details>
     <footer class="site-foot">
       <span>Ideas from “<a href="https://manhattan.institute/article/a-better-everyday-life-in-new-york-50-practical-ideas-to-renew-nycs-promise-of-opportunity">A Better Everyday Life in New York</a>,” an issue brief by John Ketcham and Sean Speer (Manhattan Institute, Oct. 20, 2026). Card text is condensed from the brief; every card links to MI’s full take.</span>
-      <span>Want the whole argument? Try the <a href="https://danielgolliher.github.io/better-everyday-life/">interactive edition</a>. Built by Daniel Golliher.</span>
+      <span>Want the whole argument? Try the <a href="https://danielgolliher.github.io/better-everyday-life/">interactive edition</a>. Built by Daniel Golliher<span class="disclaimer"> as a fun project in a personal capacity, not in an official capacity as a Manhattan Institute Fellow</span>.</span>
     </footer>
   </div>
 </section>
@@ -489,7 +493,7 @@ details:not([open]) > :not(summary) { display: none !important; }
     </div>
     <footer class="site-foot">
       <span>Ideas from “<a href="https://manhattan.institute/article/a-better-everyday-life-in-new-york-50-practical-ideas-to-renew-nycs-promise-of-opportunity">A Better Everyday Life in New York</a>,” by John Ketcham and Sean Speer (Manhattan Institute, Oct. 20, 2026). Every card is one of the brief’s recommendations, so a like or super-like counts as agreeing with MI.</span>
-      <span>Built by Daniel Golliher.</span>
+      <span>Built by Daniel Golliher<span class="disclaimer"> as a fun project in a personal capacity, not in an official capacity as a Manhattan Institute Fellow</span>.</span>
     </footer>
   </div>
 </section>
