@@ -92,8 +92,7 @@ h1, h2, h3, h4 { margin: 0; font-weight: 400; line-height: 1.05; letter-spacing:
 p { margin: 0; text-wrap: pretty; }
 button { font: inherit; }
 .sr-only { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
-.eyebrow { font-family: var(--font-sans); font-size: 0.66rem; font-weight: 600; letter-spacing: 0.16em; text-transform: uppercase; color: var(--hi-3); display: inline-flex; align-items: center; gap: 12px; }
-.eyebrow::before { content: ""; width: 26px; height: 1px; background: var(--sky-blue); flex: none; }
+.side-h { font-family: var(--font-serif); font-size: 1.45rem; font-weight: 300; letter-spacing: -0.01em; margin-bottom: 12px; }
 .screen[hidden] { display: none !important; }
 .wrap { width: min(1180px, 100%); margin: 0 auto; padding-left: max(20px, env(safe-area-inset-left, 0px)); padding-right: max(20px, env(safe-area-inset-right, 0px)); }
 
@@ -347,8 +346,6 @@ button { font: inherit; }
 
 .blk.static [data-a], .blk.static [data-b] { transition: none !important; }
 [hidden] { display: none !important; }
-.report .eyebrow { color: var(--ink-3); }
-.report .eyebrow::before { background: var(--blue); }
 .res__lede b { color: #fff; font-style: normal; font-weight: 500; }
 .res__card canvas { width: auto; height: auto; max-width: 100%; max-height: 84vh; margin: 0 auto; }
 </style>
@@ -374,7 +371,6 @@ button { font: inherit; }
     </header>
     <div class="intro__grid">
       <div class="intro__copy">
-        <span class="eyebrow">Manhattan Institute · 50 practical ideas</span>
         <h1 id="intro-h">Swipe right on <em>New York</em></h1>
         <p class="dek">Fifty proposals to make everyday life in the city better. Like, pass, or super-like each one, then see how often you agree with the Manhattan Institute.</p>
         <div class="btn-row" data-cta></div>
@@ -433,7 +429,6 @@ button { font: inherit; }
         <figcaption data-caption>Screenshot it, or save the image</figcaption>
       </figure>
       <div class="res__side">
-        <span class="eyebrow" data-r-eyebrow>Your swipe report</span>
         <h1 id="res-h" data-r-head></h1>
         <p class="res__lede" data-r-lede></p>
         <div class="panel-dark" data-share-panel>
@@ -451,7 +446,7 @@ button { font: inherit; }
           <p class="fine">The link opens your report for whoever you send it to, then invites them to swipe their own. Nothing is uploaded; your verdicts ride along in the link.</p>
         </div>
         <div>
-          <span class="eyebrow" style="margin-bottom:12px">Agreement by area</span>
+          <h2 class="side-h">Agreement by area</h2>
           <div class="areas" data-areas></div>
         </div>
       </div>
@@ -1421,7 +1416,7 @@ BEL.NOTES = {
     });
   }
   function drawCard(cv, R, fmt, scene) {
-    var W = 1080, H = fmt === 'story' ? 1920 : 1350, P = 72, oy = fmt === 'story' ? 370 : 0;
+    var W = 1080, H = fmt === 'story' ? 1920 : 1350, P = 72, oy = fmt === 'story' ? 266 : -40;
     cv.width = W; cv.height = H;
     var ctx = cv.getContext('2d');
     var g = ctx.createLinearGradient(0, 0, W * 0.45, H);
@@ -1433,15 +1428,10 @@ BEL.NOTES = {
     ctx.textBaseline = 'alphabetic';
 
     if (fmt === 'story') {
-      F(ctx, '600', 26, SANS, 5); ctx.textAlign = 'left'; ctx.fillStyle = COL.sky; ctx.fillText('MANHATTAN INSTITUTE · 50 IDEAS', P, 156);
-      F(ctx, '300', 116, SERIF, -4); ctx.fillStyle = COL.hi; ctx.fillText('Swipe right on', P - 6, 276);
-      F(ctx, 'italic 300', 116, SERIF, -4); ctx.fillStyle = COL.sky; ctx.fillText('New York', P - 6, 384);
+      ctx.textAlign = 'left';
+      F(ctx, '300', 116, SERIF, -4); ctx.fillStyle = COL.hi; ctx.fillText('Swipe right on', P - 6, 226);
+      F(ctx, 'italic 300', 116, SERIF, -4); ctx.fillStyle = COL.sky; ctx.fillText('New York', P - 6, 334);
     }
-    F(ctx, '600', 23, SANS, 5); ctx.textAlign = 'left'; ctx.fillStyle = COL.sky;
-    ctx.fillText(fmt === 'story' ? 'MY SWIPE REPORT' : 'SWIPE RIGHT ON NEW YORK', P, 98 + oy);
-    ctx.textAlign = 'right'; ctx.fillStyle = COL.hi3;
-    ctx.fillText(fmt === 'story' ? R.judged + ' OF 50 JUDGED' : 'MY SWIPE REPORT', W - P, 98 + oy);
-    hline(ctx, P, 126 + oy, W - P);
 
     ctx.textAlign = 'left';
     F(ctx, 'italic 400', 46, SERIF, 0); ctx.fillStyle = COL.hi2; ctx.fillText('I agree with the Manhattan Institute on', P, 204 + oy);
@@ -1508,7 +1498,7 @@ BEL.NOTES = {
       ctx.textAlign = 'right'; F(ctx, 'italic 300', 31, SERIF, 0); ctx.fillStyle = COL.sky; ctx.fillText(A.pct == null ? '–' : A.pct + '%', W - P, y + 25);
     });
 
-    var fy = 1244 + oy;
+    var fy = fmt === 'story' ? 1244 + oy : 1244;
     if (fmt === 'story') {
       var picks = (R.g['super'].length ? R.g['super'] : R.g.like).slice(0, 3);
       if (picks.length) {
@@ -1567,7 +1557,6 @@ BEL.NOTES = {
     $('[data-share-panel]').hidden = shared;
     $('[data-again]').textContent = shared ? 'Swipe the 50' : 'Swipe again';
     $('[data-caption]').textContent = shared ? 'Their report card' : 'Screenshot it, or save the image';
-    $('[data-r-eyebrow]').textContent = shared ? 'A shared swipe report' : (R.judged < 50 ? 'Your report so far' : 'Your swipe report');
     $('[data-r-head]').innerHTML = you + ' agree with MI on <em>' + R.pct + '%</em>';
     var lede = '<b>' + R.tier.name + '.</b> ' + (shared ? '' : R.tier.desc + ' ');
     if (R.best && R.worst && R.best !== R.worst) lede += 'Closest on ' + R.best.a.short.toLowerCase() + ' (' + R.best.agree + ' of ' + R.best.judged + '); furthest apart on ' + R.worst.a.short.toLowerCase() + ' (' + R.worst.agree + ' of ' + R.worst.judged + ').';
@@ -1581,7 +1570,7 @@ BEL.NOTES = {
     }).join('');
     var agree = R.g['super'].concat(R.g.like).sort(function (a, b) { return a - b; });
     var unjudged = 50 - R.judged;
-    $('[data-report]').innerHTML = '<span class="eyebrow">The full report</span><h2 style="margin-top:12px">Where ' + you.toLowerCase() + ' and MI <em>line up</em></h2>' +
+    $('[data-report]').innerHTML = '<h2>Where ' + you.toLowerCase() + ' and MI <em>line up</em></h2>' +
       '<p>Every card is one of the brief’s recommendations, so a like or super-like counts as agreement. For the ideas ' + (shared ? 'they' : 'you') + ' passed on, here is a short version of MI’s case and the source behind it.</p>' +
       '<div class="rep-cols"><div class="c-agree"><h3>Agree <span>' + agree.length + '</span></h3>' +
       (agree.length ? '<ul>' + agree.map(function (n) { return listItem(n, R.sw[n], false); }).join('') + '</ul>' : '<p class="none">None.</p>') + '</div>' +
