@@ -3,19 +3,19 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>Swipe Right on New York</title>
+<title>Are you a Manhattan Institute Urbanist?</title>
 <meta name="description" content="Fifty ideas from the Manhattan Institute to make everyday life in New York better. Like, pass, or super-like each one, then see how often you agree with MI.">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%2314163a'/%3E%3Crect x='11' y='6' width='13' height='18' rx='3' transform='rotate(12 17.5 15)' fill='%238c9dff'/%3E%3Crect x='7' y='8' width='13' height='18' rx='3' fill='%23ffffff'/%3E%3Cpath d='M13.5 20.5s-3.5-2.2-3.5-4.8a2 2 0 0 1 3.5-1.3 2 2 0 0 1 3.5 1.3c0 2.6-3.5 4.8-3.5 4.8z' fill='%232c48dc'/%3E%3C/svg%3E">
 <meta property="og:type" content="website">
-<meta property="og:title" content="Swipe Right on New York">
-<meta property="og:description" content="50 ideas for a better everyday life in New York. Swipe through them and see how often you agree with the Manhattan Institute.">
+<meta property="og:title" content="Are you a Manhattan Institute Urbanist?">
+<meta property="og:description" content="These 50 ideas are compiled from MI scholars and research. See where, and how much, you overlap.">
 <meta property="og:image" content="https://danielgolliher.github.io/swipe-right-nyc/og-image.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
-<meta property="og:image:alt" content="A stack of swipe cards, each showing one of the Manhattan Institute's 50 ideas for New York, beside the title Swipe Right on New York.">
+<meta property="og:image:alt" content="A stack of swipe cards, each showing one of the Manhattan Institute's 50 ideas for New York, beside the title Are you a Manhattan Institute Urbanist?">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Swipe Right on New York">
-<meta name="twitter:description" content="50 ideas for a better everyday life in New York. How often do you agree with the Manhattan Institute?">
+<meta name="twitter:title" content="Are you a Manhattan Institute Urbanist?">
+<meta name="twitter:description" content="These 50 ideas are compiled from MI scholars and research. See where, and how much, you overlap.">
 <meta name="twitter:image" content="https://danielgolliher.github.io/swipe-right-nyc/og-image.png">
 <meta name="theme-color" content="#14163a">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -100,7 +100,8 @@ button { font: inherit; }
 .topbar { display: flex; align-items: center; justify-content: space-between; gap: 16px; padding-top: max(18px, env(safe-area-inset-top, 0px)); padding-bottom: 14px; }
 .brand { display: inline-flex; align-items: baseline; gap: 10px; color: var(--hi); text-decoration: none; font-family: var(--font-serif); font-size: 1.05rem; font-weight: 500; }
 .brand i { font-style: italic; font-weight: 300; color: var(--sky-blue); font-size: 1.5rem; line-height: 1; letter-spacing: -0.02em; }
-.toplink { font-family: var(--font-sans); font-size: 0.62rem; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: var(--hi-2); text-decoration: none; border: 1px solid var(--line); border-radius: 999px; padding: 9px 14px; background: rgba(255,255,255,0.04); cursor: pointer; }
+.brand .short { display: none; }
+.toplink { white-space: nowrap; font-family: var(--font-sans); font-size: 0.62rem; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: var(--hi-2); text-decoration: none; border: 1px solid var(--line); border-radius: 999px; padding: 9px 14px; background: rgba(255,255,255,0.04); cursor: pointer; }
 .toplink:hover { color: #fff; border-color: #fff; }
 
 /* buttons */
@@ -125,7 +126,7 @@ button { font: inherit; }
 /* ---------- Intro ---------- */
 .intro__grid { display: grid; grid-template-columns: minmax(0, 1.05fr) minmax(0, 0.95fr); gap: 40px; align-items: center; min-height: calc(100dvh - 160px); padding-block: 24px 40px; }
 .intro__copy { display: flex; flex-direction: column; gap: 26px; max-width: 34rem; }
-.intro h1 { font-size: clamp(3.1rem, 2rem + 4.6vw, 6.2rem); font-weight: 300; line-height: 0.92; letter-spacing: -0.04em; }
+.intro h1 { font-size: clamp(2.7rem, 1.8rem + 3.8vw, 5.2rem); font-weight: 300; line-height: 0.92; letter-spacing: -0.04em; }
 .intro h1 em { color: var(--sky-blue); font-weight: 300; }
 .intro .dek { font-size: clamp(1.15rem, 1rem + 0.5vw, 1.4rem); line-height: 1.45; color: var(--hi-2); font-style: italic; }
 .legend3 { list-style: none; margin: 0; padding: 0; display: flex; gap: 22px; flex-wrap: wrap; font-family: var(--font-sans); font-size: 0.66rem; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: var(--hi-2); }
@@ -156,7 +157,8 @@ button { font: inherit; }
 @media (max-width: 560px) {
   .brand { font-size: 0.95rem; gap: 8px; }
   .brand i { font-size: 1.3rem; }
-  .toplink .long { display: none; }
+  .toplink .long, .brand .long { display: none; }
+  .brand .short { display: inline; }
   .intro__deck .sw-body p { display: none; }
 }
 @media (max-width: 860px) {
@@ -171,7 +173,7 @@ button { font: inherit; }
 .swipe { display: flex; flex-direction: column; align-items: center; height: 100vh; height: 100dvh; overflow: hidden; overscroll-behavior: contain; }
 .sw-top { width: min(560px, 100%); display: flex; align-items: center; justify-content: space-between; gap: 12px; padding: max(16px, env(safe-area-inset-top, 0px)) 20px 10px; flex: none; }
 .sw-title { display: flex; flex-direction: column; gap: 2px; text-align: center; }
-.sw-title b { font-family: var(--font-serif); font-style: italic; font-weight: 400; font-size: 1.35rem; letter-spacing: -0.01em; line-height: 1; }
+.sw-title b { font-family: var(--font-serif); font-style: italic; font-weight: 400; font-size: clamp(0.95rem, 0.8rem + 0.8vw, 1.35rem); letter-spacing: -0.01em; line-height: 1; }
 .sw-title span { font-family: var(--font-sans); font-size: 0.56rem; font-weight: 600; letter-spacing: 0.16em; text-transform: uppercase; color: var(--hi-3); }
 .sw-pill { appearance: none; height: 36px; min-width: 36px; padding: 0 14px; border-radius: 999px; border: 1px solid var(--line); background: rgba(255,255,255,0.06); color: var(--hi); cursor: pointer; font-family: var(--font-sans); font-size: 0.6rem; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; display: inline-flex; align-items: center; justify-content: center; gap: 8px; }
 .sw-pill:hover { border-color: #fff; }
@@ -366,13 +368,13 @@ button { font: inherit; }
 <section class="screen intro" id="intro" aria-labelledby="intro-h">
   <div class="wrap">
     <header class="topbar">
-      <a class="brand" href="./"><i>50</i>Swipe Right on New York</a>
+      <a class="brand" href="./"><i>50</i><span class="long">Are you a Manhattan Institute Urbanist?</span><span class="short">MI Urbanist?</span></a>
       <a class="toplink" href="https://manhattan.institute/article/a-better-everyday-life-in-new-york-50-practical-ideas-to-renew-nycs-promise-of-opportunity"><span class="long">The full </span>brief ↗</a>
     </header>
     <div class="intro__grid">
       <div class="intro__copy">
-        <h1 id="intro-h">Swipe right on <em>New York</em></h1>
-        <p class="dek">Fifty proposals to make everyday life in the city better. Like, pass, or super-like each one, then see how often you agree with the Manhattan Institute.</p>
+        <h1 id="intro-h">Are you a Manhattan Institute <em>Urbanist?</em></h1>
+        <p class="dek">These 50 ideas are compiled from MI scholars and research. See where, and how much, you overlap.</p>
         <div class="btn-row" data-cta></div>
         <ul class="legend3" aria-label="How to swipe">
           <li><span class="i nope"><svg aria-hidden="true"><use href="#i-x"/></svg></span>Pass</li>
@@ -398,7 +400,7 @@ button { font: inherit; }
 <section class="screen swipe" id="swipe" hidden aria-label="Swipe deck">
   <div class="sw-top">
     <button class="sw-pill" type="button" data-go="intro" aria-label="Back to start">←</button>
-    <div class="sw-title"><b>Swipe Right on New York</b><span class="sw-count" aria-live="polite"></span></div>
+    <div class="sw-title"><b>Are you a Manhattan Institute Urbanist?</b><span class="sw-count" aria-live="polite"></span></div>
     <button class="sw-pill" type="button" data-sw="results">Report</button>
   </div>
   <div class="sw-prog"><i></i></div>
@@ -416,7 +418,7 @@ button { font: inherit; }
 <section class="screen results" id="results" hidden aria-labelledby="res-h">
   <div class="wrap">
     <header class="topbar">
-      <a class="brand" href="./"><i>50</i>Swipe Right on New York</a>
+      <a class="brand" href="./"><i>50</i><span class="long">Are you a Manhattan Institute Urbanist?</span><span class="short">MI Urbanist?</span></a>
       <button class="toplink" type="button" data-again>Swipe again</button>
     </header>
     <div class="shared-banner" hidden data-shared>
@@ -1429,8 +1431,10 @@ BEL.NOTES = {
 
     if (fmt === 'story') {
       ctx.textAlign = 'left';
-      F(ctx, '300', 116, SERIF, -4); ctx.fillStyle = COL.hi; ctx.fillText('Swipe right on', P - 6, 226);
-      F(ctx, 'italic 300', 116, SERIF, -4); ctx.fillStyle = COL.sky; ctx.fillText('New York', P - 6, 334);
+      F(ctx, '300', 102, SERIF, -4); ctx.fillStyle = COL.hi; ctx.fillText('Are you a Manhattan', P - 6, 226);
+      ctx.fillText('Institute ', P - 6, 330);
+      var iw = ctx.measureText('Institute ').width;
+      F(ctx, 'italic 300', 102, SERIF, -4); ctx.fillStyle = COL.sky; ctx.fillText('Urbanist?', P - 6 + iw, 330);
     }
 
     ctx.textAlign = 'left';
@@ -1498,7 +1502,7 @@ BEL.NOTES = {
       ctx.textAlign = 'right'; F(ctx, 'italic 300', 31, SERIF, 0); ctx.fillStyle = COL.sky; ctx.fillText(A.pct == null ? '–' : A.pct + '%', W - P, y + 25);
     });
 
-    var fy = fmt === 'story' ? 1244 + oy : 1244;
+    var fy = fmt === 'story' ? 1244 + oy : 1212;
     if (fmt === 'story') {
       var picks = (R.g['super'].length ? R.g['super'] : R.g.like).slice(0, 3);
       if (picks.length) {
@@ -1513,12 +1517,13 @@ BEL.NOTES = {
           ly += 54;
         });
       }
-      fy = H - 104;
+      fy = H - 134;
     }
     hline(ctx, P, fy, W - P);
-    ctx.textAlign = 'left'; F(ctx, '600', 23, SANS, 1); ctx.fillStyle = COL.hi; ctx.fillText('Swipe yours → ' + URLTXT, P, fy + 44);
-    F(ctx, '400', 18, SANS, 0.5); ctx.fillStyle = COL.hi3;
-    ctx.fillText('Ideas from “A Better Everyday Life in New York,” Manhattan Institute, Oct. 2026', P, fy + 76);
+    ctx.textAlign = 'left'; F(ctx, 'italic 400', 32, SERIF, 0); ctx.fillStyle = COL.hi; ctx.fillText('Are you a Manhattan Institute Urbanist?', P, fy + 46);
+    F(ctx, '600', 21, SANS, 1); ctx.fillStyle = COL.sky; ctx.fillText('Swipe the 50 at ' + URLTXT, P, fy + 80);
+    F(ctx, '400', 17, SANS, 0.5); ctx.fillStyle = COL.hi3;
+    ctx.fillText('Ideas from “A Better Everyday Life in New York,” Manhattan Institute, Oct. 2026', P, fy + 110);
   }
 
   /* ---------- Results screen ---------- */
@@ -1533,7 +1538,7 @@ BEL.NOTES = {
       return EMO[A.a.id] + ' ' + A.ns.map(function (n) { return SQ[R.sw[n]] || '▫️'; }).join('');
     }).join('\n');
   }
-  function fileName() { return 'swipe-right-nyc-' + cur.R.pct + 'pct-' + cur.fmt + '.png'; }
+  function fileName() { return 'mi-urbanist-' + cur.R.pct + 'pct-' + cur.fmt + '.png'; }
   function redraw() {
     var cv = $('#card');
     drawCard(cv, cur.R, cur.fmt, cur.scene);
@@ -1577,14 +1582,14 @@ BEL.NOTES = {
       '<div class="c-differ"><h3>Part ways <span>' + R.g.nope.length + '</span></h3>' +
       (R.g.nope.length ? '<ul>' + R.g.nope.map(function (n) { return listItem(n, 'nope', true); }).join('') + '</ul>' : '<p class="none">' + (shared ? 'They' : 'You') + ' didn’t pass on a single idea.</p>') +
       (unjudged ? '<p class="none">' + unjudged + ' idea' + (unjudged === 1 ? '' : 's') + ' not judged yet.</p>' : '') + '</div></div>';
-    var text = shareText(R), link = resultLink(R.sw), both = text + '\n\nSwipe yours: ' + link;
+    var text = shareText(R), link = resultLink(R.sw), both = text + '\n\nAre you a Manhattan Institute Urbanist? ' + link;
     var P = [
       ['X', 'https://twitter.com/intent/tweet?text=' + encodeURIComponent(shareText(R, true) + '\n\nSwipe yours:') + '&url=' + encodeURIComponent(link)],
       ['Bluesky', 'https://bsky.app/intent/compose?text=' + encodeURIComponent(both)],
       ['Threads', 'https://www.threads.net/intent/post?text=' + encodeURIComponent(both)],
       ['LinkedIn', 'https://www.linkedin.com/sharing/share-offsite/?url=' + encodeURIComponent(link)],
       ['Facebook', 'https://www.facebook.com/sharer/sharer.php?u=' + encodeURIComponent(link)],
-      ['Email', 'mailto:?subject=' + encodeURIComponent('How I swiped on 50 ideas for New York') + '&body=' + encodeURIComponent(both)]
+      ['Email', 'mailto:?subject=' + encodeURIComponent('Are you a Manhattan Institute Urbanist? Here’s how I swiped') + '&body=' + encodeURIComponent(both)]
     ];
     $('[data-platforms]').innerHTML = P.map(function (p) { return '<a href="' + p[1] + '"' + (p[0] === 'Email' ? '' : ' target="_blank" rel="noopener"') + '>' + p[0] + '</a>'; }).join('');
     show('results');
@@ -1613,11 +1618,11 @@ BEL.NOTES = {
       if (!cur) return;
       var text = shareText(cur.R), link = resultLink(cur.R.sw);
       var file = cur.blob && window.File ? new File([cur.blob], fileName(), { type: 'image/png' }) : null;
-      if (file && navigator.canShare && navigator.canShare({ files: [file] })) { navigator.share({ files: [file], text: text + '\n\nSwipe yours: ' + link }).catch(function () {}); return; }
-      if (navigator.share) { navigator.share({ title: 'Swipe Right on New York', text: text, url: link }).catch(function () {}); return; }
-      copyText(text + '\n\nSwipe yours: ' + link, 'Copied. Paste it anywhere');
+      if (file && navigator.canShare && navigator.canShare({ files: [file] })) { navigator.share({ files: [file], text: text + '\n\nAre you a Manhattan Institute Urbanist? ' + link }).catch(function () {}); return; }
+      if (navigator.share) { navigator.share({ title: 'Are you a Manhattan Institute Urbanist?', text: text, url: link }).catch(function () {}); return; }
+      copyText(text + '\n\nAre you a Manhattan Institute Urbanist? ' + link, 'Copied. Paste it anywhere');
     });
-    $('#sh-copy').addEventListener('click', function () { if (cur) copyText(shareText(cur.R) + '\n\nSwipe yours: ' + resultLink(cur.R.sw), 'Result copied'); });
+    $('#sh-copy').addEventListener('click', function () { if (cur) copyText(shareText(cur.R) + '\n\nAre you a Manhattan Institute Urbanist? ' + resultLink(cur.R.sw), 'Result copied'); });
     $('#sh-link').addEventListener('click', function () { if (cur) copyText(resultLink(cur.R.sw), 'Link to your report copied'); });
   }
 
